@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function Community() {
   return (
     <div className="flex flex-col w-full">
@@ -17,7 +19,14 @@ export default function Community() {
         <div className="flex flex-col space-y-4 w-1/3">
           <div className="flex flex-row space-x-4 items-center justify-start">
             <div className="text-base font-normal">1</div>
-            <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+            <div className="w-11 h-11 bg-violet-500 rounded-lg relative">
+              <Image
+                src="/farcaster.svg"
+                alt="farcaster"
+                fill
+                className="p-2"
+              />
+            </div>
             <div className="flex flex-col">
               <div className="text-base font-bold">Farcaster</div>
               <div className="text-sm font-normal">streamz</div>
@@ -25,7 +34,9 @@ export default function Community() {
           </div>
           <div className="flex flex-row space-x-4 items-center justify-start">
             <div className="text-base font-normal">2</div>
-            <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+            <div className="w-11 h-11 bg-black rounded-lg relative">
+              <Image src="/x-logo.svg" alt="x" fill className="p-2" />
+            </div>
             <div className="flex flex-col">
               <div className="text-base font-bold">X</div>
               <div className="text-sm font-normal">streamzonbase</div>
@@ -33,7 +44,9 @@ export default function Community() {
           </div>
           <div className="flex flex-row space-x-4 items-center justify-start">
             <div className="text-base font-normal">3</div>
-            <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+            <div className="w-11 h-11 rounded-lg relative">
+              <Image src="/base-logo.svg" alt="x" fill className="p-1" />
+            </div>
             <div className="flex flex-col">
               <div className="text-base font-bold">Base</div>
               <div className="text-sm font-normal">STRMZ</div>

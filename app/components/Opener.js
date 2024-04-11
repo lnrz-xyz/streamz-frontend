@@ -52,7 +52,15 @@ export default function Opener() {
               <div className="flex flex-row items-center justify-between w-full">
                 <div className="flex flex-row space-x-4 items-center w-1/2">
                   <div className="text-base font-normal">1</div>
-                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                    <Image
+                      src="/question.png"
+                      alt="About Us Image"
+                      priority
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-base font-bold">About Us</div>
                 </div>
                 <div className="flex flex-row justify-between items-center w-1/2">
@@ -72,7 +80,15 @@ export default function Opener() {
               <div className="flex flex-row items-center justify-between w-full">
                 <div className="flex flex-row space-x-4 items-center">
                   <div className="text-base font-normal">2</div>
-                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                    <Image
+                      src="/buy.png"
+                      alt="Buy Image"
+                      priority
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-base font-bold">Buy</div>
                 </div>
                 <div className="flex flex-row justify-between items-center w-1/2">
@@ -92,7 +108,15 @@ export default function Opener() {
               <div className="flex flex-row items-center justify-between w-full">
                 <div className="flex flex-row space-x-4 items-center">
                   <div className="text-base font-normal">3</div>
-                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                    <Image
+                      src="/pie-chart.png"
+                      alt="Tokenomics Image"
+                      priority
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-base font-bold">Tokenomics</div>
                 </div>
                 <div className="flex flex-row justify-between items-center w-1/2">
@@ -112,7 +136,15 @@ export default function Opener() {
               <div className="flex flex-row items-center justify-between w-full">
                 <div className="flex flex-row space-x-4 items-center">
                   <div className="text-base font-normal">4</div>
-                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                    <Image
+                      src="/community.png"
+                      alt="Community Image"
+                      priority
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-base font-bold">Community</div>
                 </div>
                 <div className="flex flex-row justify-between items-center w-1/2">
@@ -132,7 +164,15 @@ export default function Opener() {
               <div className="flex flex-row items-center justify-between w-full">
                 <div className="flex flex-row space-x-4 items-center">
                   <div className="text-base font-normal">5</div>
-                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg" />
+                  <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                    <Image
+                      src="/airdrop.png"
+                      alt="Airdrop Image"
+                      priority
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="text-base font-bold">Airdrop</div>
                 </div>
                 <div className="flex flex-row justify-between items-center w-1/2">
