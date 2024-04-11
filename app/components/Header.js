@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <div className="flex flex-col justify-end space-y-4 px-8 py-8 bg-gradient-to-b from-green-500 to-primary min-h-[50vh] text-white">
       <div className="flex flex-col">
-        <div className="flex flex-row space-x-4">
+        <div className="flex flex-row space-x-2 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
