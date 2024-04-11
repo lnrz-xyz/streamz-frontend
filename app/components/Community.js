@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function Community() {
   return (
-    <div className="flex flex-col w-full">
+    <div id="community" className="flex flex-col w-full">
       <h4 className="text-2xl font-bold">Community</h4>
       <div className="flex flex-col md:flex-row justify-between items-center pt-6 w-full">
         <p className="w-1/3 text-base font-normal">
@@ -16,8 +16,12 @@ export default function Community() {
           elit suscipit hendrerit. Integer consectetur massa purus, ac maximus
           ligula fringilla dictum.
         </p>
-        <div className="flex flex-col space-y-4 w-1/3">
-          <div className="flex flex-row space-x-4 items-center justify-start">
+        <a className="flex flex-col space-y-4 w-1/3">
+          <a
+            href="https://warpcast.com/streamz"
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-row space-x-4 items-center justify-start">
             <div className="text-base font-normal">1</div>
             <div className="w-11 h-11 bg-violet-500 rounded-lg relative">
               <Image
@@ -31,8 +35,12 @@ export default function Community() {
               <div className="text-base font-bold">Farcaster</div>
               <div className="text-sm font-normal">streamz</div>
             </div>
-          </div>
-          <div className="flex flex-row space-x-4 items-center justify-start">
+          </a>
+          <a
+            href="https://x.com/streamzonbase"
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-row space-x-4 items-center justify-start">
             <div className="text-base font-normal">2</div>
             <div className="w-11 h-11 bg-black rounded-lg relative">
               <Image src="/x-logo.svg" alt="x" fill className="p-2" />
@@ -41,8 +49,12 @@ export default function Community() {
               <div className="text-base font-bold">X</div>
               <div className="text-sm font-normal">streamzonbase</div>
             </div>
-          </div>
-          <div className="flex flex-row space-x-4 items-center justify-start">
+          </a>
+          <a
+            href="https://basescan.org/"
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-row space-x-4 items-center justify-start">
             <div className="text-base font-normal">3</div>
             <div className="w-11 h-11 rounded-lg relative">
               <Image src="/base-logo.svg" alt="x" fill className="p-1" />
@@ -51,8 +63,8 @@ export default function Community() {
               <div className="text-base font-bold">Base</div>
               <div className="text-sm font-normal">STRMZ</div>
             </div>
-          </div>
-        </div>
+          </a>
+        </a>
       </div>
     </div>
   )

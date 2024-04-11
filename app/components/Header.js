@@ -20,7 +20,7 @@ export default function Header() {
           Streamz
         </h2>
       </div>
-      <h4 className="font-normal text-base">83,000,000,000 total supply</h4>
+      <h4 className="font-normal text-base">1,000,000,000 total supply</h4>
     </div>
   )
 }
