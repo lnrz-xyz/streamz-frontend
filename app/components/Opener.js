@@ -62,7 +62,7 @@ export default function Opener() {
                       <div className="text-base font-normal">1</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
-                          src="/question.png"
+                          src="/about.png"
                           alt="About Us Image"
                           priority
                           fill

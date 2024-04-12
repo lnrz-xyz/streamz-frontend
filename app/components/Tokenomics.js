@@ -9,7 +9,7 @@ export default function Tokenomics() {
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
-              src="/hand-shake.png"
+              src="/shake.png"
               alt="two hands shaking album cover"
               fill
               className="object-cover"
@@ -65,7 +65,7 @@ export default function Tokenomics() {
             <PlayButton audioFileSrc="/audio/Liquid Gold.mp3" />
           </div>
           <div className="flex flex-col space-y-1 relative">
-            <div className="text-base font-bold">Liquiditiy Pool</div>
+            <div className="text-base font-bold">Liquidity Pool</div>
             <div className="text-sm font-normal">
               15
               <span className="text-sm font-normal font-['system-ui']">
@@ -79,7 +79,7 @@ export default function Tokenomics() {
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
-              src="/mo-money.png"
+              src="/coin.png"
               alt="100$ bills album cover"
               fill
               className="object-cover"
@@ -127,7 +127,7 @@ export default function Tokenomics() {
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
-              src="/growth.png"
+              src="/community.png"
               alt="people walking around in an empty space album cover"
               fill
               className="object-cover"
