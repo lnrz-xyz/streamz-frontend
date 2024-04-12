@@ -4,10 +4,10 @@ export default function Tokenomics() {
   return (
     <div id="tokenomics" className="flex flex-col space-y-4 w-full">
       <h4 className="text-2xl font-bold">Tokenomics</h4>
-      <div className="flex flex-col md:flex-row space-x-3 overflow-x-scroll no-scrollbar">
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center">
+      <div className="flex flex-col md:flex-row space-x-3 overflow-x-scroll no-scrollbar w-full">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center w-1/5">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
-          <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
+          <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
               src="/community.png"
               alt="two hands shaking album cover"
@@ -16,7 +16,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Dope Delivery.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative w-64 pb-2">
+          <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Initial Community Airdrop</div>
             <div className="text-sm font-normal">
               20
@@ -29,9 +29,9 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center w-1/5">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
-          <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
+          <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
               src="/zeppelin.png"
               alt="air zeppelin album cover"
@@ -40,7 +40,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Crypto Raindrops.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative w-64 pb-2">
+          <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Future Airdrop</div>
             <div className="text-sm font-normal">
               40
@@ -53,9 +53,9 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center w-1/5">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
-          <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
+          <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
               src="/pool.png"
               alt="man sitting by a pool album cover"
@@ -64,7 +64,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Liquid Gold.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative w-64">
+          <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Liquidity Pool</div>
             <div className="text-sm font-normal">
               15
@@ -76,9 +76,9 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center w-1/5">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
-          <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
+          <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
               src="/coin.png"
               alt="100$ bills album cover"
@@ -87,7 +87,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Liquid Rewards.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative w-64 pb-2">
+          <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Provider Rewards</div>
             <div className="text-sm font-normal">
               10
@@ -100,9 +100,9 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center w-1/5">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
-          <div className="w-64 h-64 bg-green-500 rounded-2xl relative overflow-hidden">
+          <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
               src="/rocket.png"
               alt="rocket ship"
@@ -111,7 +111,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/United Beats.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative w-64 pb-2">
+          <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Ecosystem Growth</div>
             <div className="text-sm font-normal">
               15
