@@ -4,18 +4,24 @@ export default function Community() {
   return (
     <div id="community" className="flex flex-col w-full">
       <h4 className="text-2xl font-bold">Community</h4>
-      <div className="flex flex-col md:flex-row justify-between items-center pt-6 w-full">
-        <p className="w-1/3 text-base font-normal">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          blandit neque dui, malesuada interdum est hendrerit in. In eget tempus
-          tellus. Curabitur finibus dolor nec mi porttitor, in rutrum libero
-          accumsan. Nulla sollicitudin eros velit, quis volutpat arcu feugiat
-          vitae. Aliquam ornare nibh in est viverra elementum. Pellentesque
-          nulla risus, convallis et bibendum rhoncus, iaculis vel eros. Aenean
-          lacinia odio lorem, id vulputate nulla facilisis eu. Ut in lacus in
-          elit suscipit hendrerit. Integer consectetur massa purus, ac maximus
-          ligula fringilla dictum.
-        </p>
+      <div className="flex flex-col md:flex-row justify-between items-center pt-6 w-full space-x-16">
+        <div className="relative w-2/3 overflow-hidden rounded-md md:h-[460px]">
+          <Image
+            src="/closeup.png"
+            alt="closeup of artist"
+            fill
+            className="object-cover z-0"
+          />
+          <div className="w-full h-full z-10 backdrop-brightness-50 absolute" />
+          <p className="w-full absolute text-base font-normal bottom-0 left-0 z-20 p-4">
+            The community is the heart of the project. We are building a
+            community of artists, creators, and fans who are passionate about
+            music and supporting artists in a fair way. We are committed to
+            building a community that is inclusive, diverse, and supportive of
+            all artists. Join us on this journey and help us build a community
+            that celebrates music and creativity.
+          </p>
+        </div>
         <div className="flex flex-col space-y-4 w-1/3">
           <a
             href="https://warpcast.com/streamz"
