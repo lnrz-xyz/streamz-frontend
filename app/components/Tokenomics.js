@@ -72,7 +72,7 @@ export default function Tokenomics() {
                 %
               </span>{" "}
               of the supply will be reserved for seeding liquidity pools. A
-              Uniswap will be seeded upon launch.
+              Uniswap pool will be seeded upon launch.
             </div>
           </div>
         </div>
