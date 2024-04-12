@@ -7,8 +7,8 @@ export default function Community() {
       <div className="flex flex-col md:flex-row justify-between md:items-center pt-6 w-full md:space-x-16 md:space-y-0 space-y-4">
         <div className="relative md:w-2/3 w-full overflow-hidden rounded-md h-96 md:h-[460px] xl:h-[540px]">
           <Image
-            src="/closeup.png"
-            alt="closeup of artist"
+            src="/campfire.png"
+            alt="artists around a campfire playing music"
             fill
             className="object-cover z-0"
           />
