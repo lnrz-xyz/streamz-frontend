@@ -51,14 +51,14 @@ export default function Opener() {
         <div className="flex flex-col md:flex-row pt-6 w-full md:space-x-16 space-y-16 md:space-y-0">
           <div className="flex flex-col w-full md:w-2/3 space-y-5">
             <h4 className="text-2xl font-bold">Directory</h4>
-            <div className="flex flex-col md:flex-row space-y-4 space-x-4 px-5 w-full justify-between">
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between">
               <div className="flex flex-col w-full">
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center w-1/2">
+                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">1</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
@@ -71,7 +71,7 @@ export default function Opener() {
                       </div>
                       <div className="text-base font-bold">About Us</div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         Learn about the project
                       </div>
@@ -88,7 +88,7 @@ export default function Opener() {
                   <Link
                     href="#buy"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center w-1/2">
+                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">2</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
@@ -101,7 +101,7 @@ export default function Opener() {
                       </div>
                       <div className="text-base font-bold">Purchase Token</div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         Get your hands on some STREAMZ
                       </div>
@@ -118,7 +118,7 @@ export default function Opener() {
                   <Link
                     href="#tokenomics"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center w-1/2">
+                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">3</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
@@ -131,7 +131,7 @@ export default function Opener() {
                       </div>
                       <div className="text-base font-bold">Tokenomics</div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         Understand distribution
                       </div>
@@ -148,7 +148,7 @@ export default function Opener() {
                   <Link
                     href="#community"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center w-1/2">
+                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">4</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
@@ -161,7 +161,7 @@ export default function Opener() {
                       </div>
                       <div className="text-base font-bold">Community</div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         Join the conversation
                       </div>
@@ -178,7 +178,7 @@ export default function Opener() {
                   <Link
                     href="#airdrop"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center w-1/2">
+                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">5</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
@@ -191,7 +191,7 @@ export default function Opener() {
                       </div>
                       <div className="text-base font-bold">Airdrop</div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         Get tokens if eligibile
                       </div>
