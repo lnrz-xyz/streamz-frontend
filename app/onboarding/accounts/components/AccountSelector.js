@@ -95,7 +95,7 @@ const AccountSelector = () => {
       {!spotifyAccount ? (
         <a
           href={`${process.env.NEXT_PUBLIC_API_URL}/connected/accounts/spotify/login`}>
-          <div className="bg-foreground h-12 w-36 rounded-full relative">
+          <div className="bg-background h-12 w-36 rounded-full relative">
             <Image
               priority
               src="/spotify_logo.png"
@@ -114,7 +114,7 @@ const AccountSelector = () => {
       {!xAccount ? (
         <a
           href={`${process.env.NEXT_PUBLIC_API_URL}/connected/accounts/x/login?address=${current?.evmAddress}`}>
-          <div className="bg-foreground h-12 w-12 rounded-sm aspect-square items-center justify-center flex relative">
+          <div className="bg-background h-12 w-12 rounded-sm aspect-square items-center justify-center flex relative">
             <Image
               priority
               src="/x-logo.svg"

@@ -1,5 +1,4 @@
 import useApi from "./useApi"
-import { useEVMAddress, useWalletContext } from "@coinbase/waas-sdk-web-react"
 import { useAuthToken } from "./useAuthToken"
 import { useQuery } from "@tanstack/react-query"
 

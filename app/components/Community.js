@@ -16,7 +16,7 @@ export default function Community() {
           elit suscipit hendrerit. Integer consectetur massa purus, ac maximus
           ligula fringilla dictum.
         </p>
-        <a className="flex flex-col space-y-4 w-1/3">
+        <div className="flex flex-col space-y-4 w-1/3">
           <a
             href="https://warpcast.com/streamz"
             target="_blank"
@@ -64,7 +64,7 @@ export default function Community() {
               <div className="text-sm font-normal">STRMZ</div>
             </div>
           </a>
-        </a>
+        </div>
       </div>
     </div>
   )

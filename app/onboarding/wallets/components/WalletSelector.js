@@ -109,13 +109,15 @@ const WalletButtons = () => {
         ))}
       </div>
 
-      {!evmAddresses?.length && <p>No wallets connected</p>}
+      {!evmAddresses?.length && (
+        <p className="font-normal text-sm">No wallets connected</p>
+      )}
       {evmAddresses?.length > 0 && (
         <div className="flex flex-col items-center justify-center space-y-4 pt-8">
           <p className="text-center text-zinc-600 text-opacity-60 text-sm font-normal font-sans leading-snug">
             Follow us on farcaster{" "}
             <a
-              href="https://warpcast.com/lnrz"
+              href="https://warpcast.com/streamz"
               target="_blank"
               rel="noreferrer"
               className="text-primary underline">
@@ -128,7 +130,7 @@ const WalletButtons = () => {
       <Button
         onClick={open}
         variant="outline"
-        className="w-full h-11 px-4 py-3.5 bg-white rounded-lg">
+        className="w-full h-11 px-4 py-3.5 bg-background rounded-lg">
         <Plus />
       </Button>
     </div>

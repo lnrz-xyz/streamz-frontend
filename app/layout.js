@@ -2,7 +2,6 @@ import localFont from "next/font/local"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ThemeProvider"
-import WProvider from "@/components/WalletProvider"
 import Web3ModalProvider from "@/context/WalletConnect"
 import { Toaster } from "@/components/ui/sonner"
 
@@ -63,16 +62,14 @@ export default function RootLayout({ children }) {
           Circular.variable
         )}>
         <Web3ModalProvider>
-          <WProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem={false}
-              disableTransitionOnChange>
-              {children}
-              <Toaster />
-            </ThemeProvider>
-          </WProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange>
+            {children}
+            <Toaster />
+          </ThemeProvider>
         </Web3ModalProvider>
       </body>
     </html>
