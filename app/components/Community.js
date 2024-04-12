@@ -12,7 +12,7 @@ export default function Community() {
             fill
             className="object-cover z-0"
           />
-          <div className="w-full h-full z-10 backdrop-brightness-50 absolute" />
+          <div className="w-full h-full z-10 backdrop-brightness-75 absolute" />
           <p className="w-full absolute text-base font-normal bottom-0 left-0 z-20 p-4">
             What{"'"}s a revolution without a solid crew? When you join us, you
             {"'"}re not just holding a token; you{"'"}re backing a movement to
