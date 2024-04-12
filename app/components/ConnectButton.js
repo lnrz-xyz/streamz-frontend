@@ -1,10 +1,10 @@
 "use client"
 import { useExperiences } from "@/hooks/useExperiences"
-import { useUpsertexperienceMutation } from "@/hooks/useUpsertExperienceMutation"
+import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation"
 import { useWeb3Modal } from "@web3modal/wagmi/react"
 import { useRouter } from "next/navigation"
-import { useEffect } from "react"
-import { useAccount } from "wagmi"
+import { useEffect, useState } from "react"
+import { useAccount, useDisconnect } from "wagmi"
 import { ChevronDown, LogOut, User } from "lucide-react"
 import {
   DropdownMenu,
@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { useQueryClient } from "@tanstack/react-query"
 import { useLogoutMutation } from "@/hooks/useLogoutMutation"
 
 const ConnectButton = () => {
@@ -31,7 +30,7 @@ const ConnectButton = () => {
   } = useExperiences()
   const router = useRouter()
 
-  const { mutate } = useUpsertexperienceMutation()
+  const { mutate } = useUpsertExperienceMutation()
 
   useEffect(() => {
     console.log("experiences", experiences, isSuccess)
@@ -66,11 +65,7 @@ const ConnectButton = () => {
   }, [router, experiences, isSuccess, isExperiencesLoading, mutate])
 
   if (address) {
-    return (
-      <button className="flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11">
-        <div className="text-lg font-bold">{address.substring(0, 6)}...</div>
-      </button>
-    )
+    return <Dropdown />
   }
 
   return (
@@ -83,6 +78,8 @@ const ConnectButton = () => {
 }
 
 const Dropdown = () => {
+  const { address } = useAccount()
+  const { disconnect } = useDisconnect()
   const [loggingOut, setLoggingOut] = useState(false)
 
   const { mutate } = useLogoutMutation()
@@ -90,6 +87,7 @@ const Dropdown = () => {
   const onLogout = async () => {
     setLoggingOut(true)
     mutate()
+    disconnect()
     setLoggingOut(false)
   }
   return (

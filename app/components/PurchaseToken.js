@@ -1,18 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import ConnectOrScoreButton from "./ConnectOrScoreButton"
 
-const PurchaseToken = ({ startTime }) => {
-  const [timeuntil, setTimeuntil] = useState(startTime - Date.now())
+const PurchaseToken = () => {
+  const [timeuntil, setTimeuntil] = useState(8640000)
 
   useEffect(() => {
-    console.log("start", startTime)
+    const startTime = new Date("2024-12-31T23:59:59").getTime()
     const setter = setInterval(() => {
       setTimeuntil(startTime - Date.now())
     }, 1000)
 
     return () => clearInterval(setter)
-  }, [startTime])
+  }, [])
 
   return (
     <div id="buy" className="flex flex-col space-y-8">
@@ -58,9 +59,7 @@ const PurchaseToken = ({ startTime }) => {
           <h3 className="text-lg font-bold">
             Connect wallet to determine airdrop eligibility
           </h3>
-          <div className="bg-primary rounded-full px-4 py-2 text-xl font-bold">
-            Connect
-          </div>
+          <ConnectOrScoreButton className="bg-primary rounded-full px-4 py-2 text-xl font-bold" />
         </div>
       </div>
 

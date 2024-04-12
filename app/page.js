@@ -5,6 +5,7 @@ import Community from "@/app/components/Community"
 import ConnectButton from "@/app/components/ConnectButton"
 import Buy from "@/app/components/Buy"
 import AirdropCTA from "./components/AirdropCTA"
+import Footer from "./components/Footer"
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Community />
       </div>
       <AirdropCTA />
+      <Footer />
     </main>
   )
 }

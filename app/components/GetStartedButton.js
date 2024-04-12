@@ -8,7 +8,7 @@ import { Loader2 } from "lucide-react"
 import { useAuthToken } from "@/hooks/useAuthToken"
 import { useRouter } from "next/navigation"
 import { useExperiences } from "@/hooks/useExperiences"
-import { useUpsertexperienceMutation } from "@/hooks/useUpsertExperienceMutation"
+import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation"
 
 const GetStartedButton = ({ className, ...props }) => {
   const { waas, wallet, user, isCreatingWallet, isLoggingIn } =
@@ -27,7 +27,7 @@ const GetStartedButton = ({ className, ...props }) => {
   const { isFetching: isAuthFetching, isLoading: isAuthLoading } =
     useAuthToken()
 
-  const { mutate } = useUpsertexperienceMutation()
+  const { mutate } = useUpsertExperienceMutation()
 
   const onClick = async () => {
     await waas.login()

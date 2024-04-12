@@ -37,6 +37,7 @@
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-filters": "^3.0.0",
     "viem": "^2.9.16",
     "wagmi": "^2.5.19"
   },

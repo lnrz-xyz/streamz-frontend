@@ -6873,7 +6873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.21":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -9512,6 +9512,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwindcss-filters@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "tailwindcss-filters@npm:3.0.0"
+  dependencies:
+    lodash: "npm:^4.17.15"
+  checksum: 10c0/dd17e4240b8b0eef3a67ca32b8c11858286e92e2e3f307b356df0371b69ee4bbd7f85ce183fbe20b6d18281f51ad7fdb7242ab0a766b1f3887117e3600d8fe8a
+  languageName: node
+  linkType: hard
+
 "tailwindcss@npm:^3.3.0":
   version: 3.4.3
   resolution: "tailwindcss@npm:3.4.3"
@@ -10245,6 +10254,7 @@ __metadata:
     tailwind-merge: "npm:^2.2.1"
     tailwindcss: "npm:^3.3.0"
     tailwindcss-animate: "npm:^1.0.7"
+    tailwindcss-filters: "npm:^3.0.0"
     viem: "npm:^2.9.16"
     wagmi: "npm:^2.5.19"
   languageName: unknown

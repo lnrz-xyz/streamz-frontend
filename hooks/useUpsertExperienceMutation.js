@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 import useApi from "./useApi"
 
-export const useUpsertexperienceMutation = () => {
+export const useUpsertExperienceMutation = () => {
   const queryClient = useQueryClient()
 
   const { post } = useApi()

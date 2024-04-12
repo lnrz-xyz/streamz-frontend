@@ -1,3 +1,5 @@
+import ConnectOrScoreButton from "./ConnectOrScoreButton"
+
 export default function AirdropCTA() {
   return (
     <div
@@ -7,9 +9,7 @@ export default function AirdropCTA() {
         Ready to claim your tokens for the airdrop
         <span className="font-['Inter']">?</span>
       </h2>
-      <button className="bg-foreground text-accent rounded-full px-4 py-2 text-xl font-bold">
-        Connect Wallet
-      </button>
+      <ConnectOrScoreButton className="bg-foreground text-accent rounded-full px-4 py-2 text-xl font-bold" />
     </div>
   )
 }

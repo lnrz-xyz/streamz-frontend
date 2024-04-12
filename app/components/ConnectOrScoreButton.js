@@ -1,0 +1,70 @@
+"use client"
+import { useExperiences } from "@/hooks/useExperiences"
+import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation"
+import { useWeb3Modal } from "@web3modal/wagmi/react"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
+import { useAccount } from "wagmi"
+import Link from "next/link"
+
+const ConnectOrScoreButton = ({ className }) => {
+  const { open } = useWeb3Modal()
+  const { address } = useAccount()
+
+  const {
+    data: experiences,
+    isSuccess,
+    isPending: isExperiencesLoading,
+  } = useExperiences()
+  const router = useRouter()
+
+  const { mutate } = useUpsertExperienceMutation()
+
+  useEffect(() => {
+    console.log("experiences", experiences, isSuccess)
+    if (isSuccess && !experiences && !isExperiencesLoading) {
+      console.log("experiences none")
+      router.push("/onboarding")
+      mutate({
+        experience: "onboarding",
+        metadata: {
+          onboarding: true,
+        },
+      })
+
+      return
+    }
+
+    if (experiences && experiences.length > 0) {
+      const hasOnboardedExperience = experiences.some(
+        experience => experience.experienceType === "onboarding"
+      )
+      console.log("hasOnboardedExperience", hasOnboardedExperience)
+      if (!hasOnboardedExperience) {
+        router.push("/onboarding")
+        mutate({
+          experienceType: "onboarding",
+          metadata: {
+            onboarding: false,
+          },
+        })
+      }
+    }
+  }, [router, experiences, isSuccess, isExperiencesLoading, mutate])
+
+  if (address) {
+    return (
+      <Link href="/onboarding" className={className}>
+        Onboard
+      </Link>
+    )
+  }
+
+  return (
+    <button onClick={open} className={className}>
+      Connect
+    </button>
+  )
+}
+
+export default ConnectOrScoreButton
