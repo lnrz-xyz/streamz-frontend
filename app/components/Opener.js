@@ -209,12 +209,12 @@ export default function Opener() {
           <div className="flex flex-col w-full md:w-1/3 space-y-4">
             <h4 className="text-2xl font-bold">About</h4>
             <p className="text-base font-normal">
-              Welcome to our mission where we{"'"}e shaking up how artists get
-              paid. Right now, Spotify dishes out a measly $0.003 per stream,
-              hardly enough unless you{"'"}re topping charts. That system leaves
-              tons of talented, non-mainstream artists out in the cold,
-              struggling to make what they truly deserve. We{"'"}re here to flip
-              the script with our token, aiming to outdo that{" "}
+              Welcome to Streamz, where we{"'"}e shaking up how artists get
+              paid. Right now, the big green giant dishes out a measly $0.003
+              per stream, hardly enough unless you{"'"}re topping charts. That
+              system leaves tons of talented, non-mainstream artists out in the
+              cold, struggling to make what they truly deserve. We{"'"}re here
+              to flip the script with our token, aiming to outdo that{" "}
               <span className="font-['system-ui']">$</span>0.003 and bring some
               fairness back to music. Join us as we support the underdogs of the
               music world and make every stream count more than ever.
