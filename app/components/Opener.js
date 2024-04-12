@@ -228,7 +228,10 @@ export default function Opener() {
               3700.
             </p>
             <p className="text-base font-normal">
-              How much can 1M Streamz be worth onchain?
+              How much can 1M Streamz be worth onchain
+              <span className="text-base font-normal font-['system-ui']">
+                ?
+              </span>
             </p>
           </div>
         </div>
