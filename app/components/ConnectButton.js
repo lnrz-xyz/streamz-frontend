@@ -18,6 +18,7 @@ import {
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLogoutMutation } from "@/hooks/useLogoutMutation"
+import { useAuthToken } from "@/hooks/useAuthToken"
 
 const ConnectButton = () => {
   const { open } = useWeb3Modal()
@@ -31,6 +32,7 @@ const ConnectButton = () => {
   const router = useRouter()
 
   const { mutate } = useUpsertExperienceMutation()
+  useAuthToken()
 
   useEffect(() => {
     console.log("experiences", experiences, isSuccess)
