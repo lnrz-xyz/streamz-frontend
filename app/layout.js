@@ -9,32 +9,32 @@ import { AudioContextProvider } from "@/app/components/PlayButton"
 const Circular = localFont({
   src: [
     {
-      path: "./fonts/CircularXX/CircularXXTrialWeb-Regular.woff2",
+      path: "./fonts/CircularXXWeb-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/CircularXX/CircularXXTrialWeb-Italic.woff2",
+      path: "./fonts/CircularXXWeb-Italic.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "./fonts/CircularXX/CircularXXTrialWeb-Bold.woff2",
+      path: "./fonts/CircularXXWeb-Bold.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/CircularXX/CircularXXTrialWeb-Bold.woff2",
+      path: "./fonts/CircularXXWeb-Bold.woff2",
       weight: "700",
       style: "italic",
     },
     {
-      path: "./fonts/CircularXX/CircularXXTrialWeb-Black.woff2",
+      path: "./fonts/CircularXXWeb-Black.woff2",
       weight: "900",
       style: "normal",
     },
     {
-      path: "./fonts/CircularXX/CircularXXTrialWeb-BlackItalic.woff2",
+      path: "./fonts/CircularXXWeb-BlackItalic.woff2",
       weight: "900",
       style: "italic",
     },
