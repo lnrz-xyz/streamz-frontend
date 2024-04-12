@@ -7,7 +7,7 @@ const PurchaseToken = () => {
   const [timeuntil, setTimeuntil] = useState(8640000)
 
   useEffect(() => {
-    const startTime = new Date("2024-12-31T23:59:59").getTime()
+    const startTime = new Date(process.env.NEXT_PUBLIC_LAUNCH_DATE).getTime()
     const setter = setInterval(() => {
       setTimeuntil(startTime - Date.now())
     }, 1000)
