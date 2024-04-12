@@ -33,7 +33,7 @@ const FAQ = () => {
             </a>{" "}
             and farcaster{" "}
             <a
-              href="https://warpcast.com/streamz"
+              href="https://warpcast.com/streamzonbase"
               target="_blank"
               rel="noreferrer"
               className="text-primary underline">

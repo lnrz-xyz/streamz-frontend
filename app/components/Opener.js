@@ -20,7 +20,7 @@ export default function Opener() {
 
           <div className="flex flex-row space-x-6 items-center justify-start">
             <a
-              href="https://warpcast.com/streamz"
+              href="https://warpcast.com/streamzonbase"
               target="_blank"
               rel="noreferrer"
               className="border-zinc-400 border rounded-full px-2 py-1 text-sm font-bold justify-center items-center gap-2.5 inline-flex">

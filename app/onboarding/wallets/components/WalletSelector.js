@@ -117,7 +117,7 @@ const WalletButtons = () => {
           <p className="text-center text-zinc-600 text-opacity-60 text-sm font-normal font-sans leading-snug">
             Follow us on farcaster{" "}
             <a
-              href="https://warpcast.com/streamz"
+              href="https://warpcast.com/streamzonbase"
               target="_blank"
               rel="noreferrer"
               className="text-primary underline">
