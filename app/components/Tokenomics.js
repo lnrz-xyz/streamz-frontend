@@ -16,7 +16,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Dope Delivery.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative">
+          <div className="flex flex-col space-y-1 relative w-64">
             <div className="text-base font-bold">Initial Community Airdrop</div>
             <div className="text-sm font-normal">
               20
@@ -40,7 +40,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Crypto Raindrops.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative">
+          <div className="flex flex-col space-y-1 relative w-64">
             <div className="text-base font-bold">Future Airdrop</div>
             <div className="text-sm font-normal">
               40
@@ -64,7 +64,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Liquid Gold.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative">
+          <div className="flex flex-col space-y-1 relative w-64">
             <div className="text-base font-bold">Liquidity Pool</div>
             <div className="text-sm font-normal">
               15
@@ -86,7 +86,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Liquid Rewards.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative">
+          <div className="flex flex-col space-y-1 relative w-64">
             <div className="text-base font-bold">Provider Rewards</div>
             <div className="text-sm font-normal">
               10
@@ -110,7 +110,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/Lift Off.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative">
+          <div className="flex flex-col space-y-1 relative w-64">
             <div className="text-base font-bold">Launch Team</div>
             <div className="text-sm font-normal">
               0.69
@@ -134,7 +134,7 @@ export default function Tokenomics() {
             />
             <PlayButton audioFileSrc="/audio/United Beats.mp3" />
           </div>
-          <div className="flex flex-col space-y-1 relative">
+          <div className="flex flex-col space-y-1 relative w-64">
             <div className="text-base font-bold">Ecosystem Growth</div>
             <div className="text-sm font-normal">
               14.31

@@ -13,30 +13,17 @@ const Circular = localFont({
       weight: "400",
       style: "normal",
     },
-    {
-      path: "./fonts/CircularXXWeb-Italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
+
     {
       path: "./fonts/CircularXXWeb-Bold.woff2",
       weight: "700",
       style: "normal",
     },
-    {
-      path: "./fonts/CircularXXWeb-Bold.woff2",
-      weight: "700",
-      style: "italic",
-    },
+
     {
       path: "./fonts/CircularXXWeb-Black.woff2",
       weight: "900",
       style: "normal",
-    },
-    {
-      path: "./fonts/CircularXXWeb-BlackItalic.woff2",
-      weight: "900",
-      style: "italic",
     },
   ],
   display: "swap",

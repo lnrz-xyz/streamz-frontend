@@ -54,7 +54,7 @@ export default function Opener() {
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between">
               <div className="flex flex-col w-full">
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -84,7 +84,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#buy"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -114,7 +114,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#tokenomics"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -144,7 +144,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#community"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -174,7 +174,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#airdrop"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">

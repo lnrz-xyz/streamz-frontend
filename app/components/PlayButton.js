@@ -43,7 +43,7 @@ const PlayButton = ({ audioFileSrc }) => {
       onClick={() => {
         run(audioRef.current)
       }}
-      className="hover:cursor-pointer absolute bottom-4 right-4 transform translate-y-[8px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 ease-in-out duration-200 transition-all bg-primary rounded-full p-3">
+      className="hover:cursor-pointer absolute bottom-4 right-4 transform translate-y-[8px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 ease-in-out duration-200 transition-all bg-primary rounded-full p-3 hover:scale-105">
       <audio ref={audioRef} src={audioFileSrc} />
       {currentAudioRef === audioRef.current && isPlaying ? (
         <Image

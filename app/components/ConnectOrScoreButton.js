@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { useAccount } from "wagmi"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
 const ConnectOrScoreButton = ({ className }) => {
   const { open } = useWeb3Modal()
@@ -61,7 +62,12 @@ const ConnectOrScoreButton = ({ className }) => {
   }
 
   return (
-    <button onClick={open} className={className}>
+    <button
+      onClick={open}
+      className={cn(
+        className,
+        "hover:scale-105 transition-transform duration-200"
+      )}>
       Connect
     </button>
   )

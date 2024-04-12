@@ -17,7 +17,7 @@ export default function Home() {
         <Header />
         <Opener />
       </div>
-      <div className="flex flex-col px-8 pt-28 pb-16 space-y-28 w-full">
+      <div className="flex flex-col px-8 py-16 pb-16 space-y-28 w-full">
         <Buy />
         <Tokenomics />
         <Community />
