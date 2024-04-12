@@ -54,7 +54,7 @@ export default function Opener() {
             <div className="flex flex-col md:flex-row space-y-4 space-x-4 px-5 w-full justify-between">
               <div className="flex flex-col w-full">
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -84,7 +84,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#buy"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -114,7 +114,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#tokenomics"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -144,7 +144,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#community"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -174,7 +174,7 @@ export default function Opener() {
                   </Link>
                 </div>
                 <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-25 bg-zinc-300 backdrop-blur h-full rounded-[4px]"></div>
                   <Link
                     href="#airdrop"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
@@ -214,12 +214,14 @@ export default function Opener() {
             </p>
             <p className="text-base font-normal">
               The Green Giant distributes roughly 70
-              <span className="text base font-normal font-['Inter']">%</span> of
-              their revenue to pay creators.
+              <span className="text base font-normal font-['system-ui']">
+                %
+              </span>{" "}
+              of their revenue to pay creators.
             </p>
             <p className="text-base font-normal">
               In their world 1M Streams{" "}
-              <span className="text base font-normal font-['Inter']">
+              <span className="text base font-normal font-['system-ui']">
                 {" "}
                 = ~ $
               </span>

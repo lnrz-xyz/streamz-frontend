@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="flex flex-col space-y-4 w-full md:w-3/12 px-32">
         <div className="text-2xl font-bold font-serif uppercase">LNRZ</div>
         <div className=" text-sm font-normal">
-          <span className="font-['Inter']">©</span> 2024 LNRZ
+          <span className="font-['system-ui']">©</span> 2024 LNRZ
         </div>
         <div className="text-sm font-normal">Privacy - Terms</div>
       </div>

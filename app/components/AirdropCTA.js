@@ -7,7 +7,7 @@ export default function AirdropCTA() {
       className="flex flex-col md:flex-row justify-between items-center bg-primary h-[30vh] w-full px-8">
       <h2 className="text-5xl font-bold">
         Ready to claim your tokens for the airdrop
-        <span className="font-['Inter']">?</span>
+        <span className="font-['system-ui']">?</span>
       </h2>
       <ConnectOrScoreButton className="bg-foreground text-accent rounded-full px-4 py-2 text-xl font-bold" />
     </div>

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import Web3ModalProvider from "@/context/WalletConnect"
 import { Toaster } from "@/components/ui/sonner"
+import { AudioContextProvider } from "@/app/components/PlayButton"
 
 const Circular = localFont({
   src: [
@@ -67,7 +68,7 @@ export default function RootLayout({ children }) {
             defaultTheme="dark"
             enableSystem={false}
             disableTransitionOnChange>
-            {children}
+            <AudioContextProvider>{children}</AudioContextProvider>
             <Toaster />
           </ThemeProvider>
         </Web3ModalProvider>
