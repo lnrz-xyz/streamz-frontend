@@ -111,7 +111,7 @@ const Dropdown = () => {
           <Link href="/profile">
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
-              <span>Airdorp eligibility</span>
+              <span>Airdrop eligibility</span>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
