@@ -4,8 +4,8 @@ export default function Community() {
   return (
     <div id="community" className="flex flex-col w-full">
       <h4 className="text-2xl font-bold">Community</h4>
-      <div className="flex flex-col md:flex-row justify-between items-center pt-6 w-full space-x-16">
-        <div className="relative w-2/3 overflow-hidden rounded-md md:h-[460px]">
+      <div className="flex flex-col md:flex-row justify-between md:items-center pt-6 w-full md:space-x-16 md:space-y-0 space-y-4">
+        <div className="relative md:w-2/3 w-full overflow-hidden rounded-md h-96 md:h-[460px]">
           <Image
             src="/closeup.png"
             alt="closeup of artist"
@@ -22,7 +22,7 @@ export default function Community() {
             that celebrates music and creativity.
           </p>
         </div>
-        <div className="flex flex-col space-y-4 w-1/3">
+        <div className="flex flex-col space-y-4 md:w-1/3 w-full">
           <a
             href="https://warpcast.com/streamz"
             target="_blank"
