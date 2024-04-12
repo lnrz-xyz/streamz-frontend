@@ -209,15 +209,23 @@ export default function Opener() {
           <div className="flex flex-col w-full md:w-1/3 space-y-4">
             <h4 className="text-2xl font-bold">About</h4>
             <p className="text-base font-normal">
-              Welcome to Streamz, where we{"'"}e shaking up how artists get
-              paid. Right now, the big green giant dishes out a measly $0.003
+              Welcome to Streamz, where we{"'"}re shaking up how artists get
+              paid. Right now, The big Green Giant dishes out a measly $0.003
               per stream, hardly enough unless you{"'"}re topping charts. That
-              system leaves tons of talented, non-mainstream artists out in the
-              cold, struggling to make what they truly deserve. We{"'"}re here
-              to flip the script with our token, aiming to outdo that{" "}
-              <span className="font-['system-ui']">$</span>0.003 and bring some
-              fairness back to music. Join us as we support the underdogs of the
-              music world and make every stream count more than ever.
+              system leaves tons non-mainstream talent out in the cold,
+              struggling to make what they truly deserve.
+            </p>
+            <p className="text-base font-normal">
+              We{"'"}re here to flip the script with our token, aiming to bring
+              some fairness back to music. We{"'"}re building a world where the
+              listener participates in growth as well as the artists.
+            </p>
+            <p className="text-base font-normal">
+              Join us as we support the underdogs of the music world and make
+              every stream count more than ever.
+            </p>
+            <p className="text-base font-normal">
+              We{"'"}re redefining the true value of 1M streamz
             </p>
           </div>
         </div>
