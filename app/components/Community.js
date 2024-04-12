@@ -14,13 +14,11 @@ export default function Community() {
           />
           <div className="w-full h-full z-10 backdrop-brightness-50 absolute" />
           <p className="w-full absolute text-base font-normal bottom-0 left-0 z-20 p-4">
-            What{"'"}s a revolution without a solid crew? We{"'"}re all about
-            building a community that stands by artists who aren{"'"}t in the
-            mainstream limelight. When you join us, you{"'"}re not just holding
-            a token; you{"'"}re backing a movement to rethink artist
-            compensation. Let{"'"}s pump up the volume on support for indie and
-            niche artists together. Grab your token, spread the word, and let
-            {"'"}s make music worth more than just pennies.
+            What{"'"}s a revolution without a solid crew? When you join us, you
+            {"'"}re not just holding a token; you{"'"}re backing a movement to
+            rethink music architecture and the development of new music
+            applications onchain. Grab your tokens, spread the word, and let
+            {"'"}s pump up the volume
           </p>
         </div>
         <div className="flex flex-col space-y-4 md:w-1/3 w-full">
