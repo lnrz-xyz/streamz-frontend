@@ -21,8 +21,7 @@ export default function Accounts() {
           Connect External Accounts
         </CardTitle>
         <CardDescription className="text-center text-opacity-60 text-sm font-normal">
-          Add Spotify, Twitter, and Email to increase your score for the
-          airdrop.
+          Add Twitter and Email to increase your score for the airdrop.
         </CardDescription>
       </CardHeader>
       <CardContent className="py-8">

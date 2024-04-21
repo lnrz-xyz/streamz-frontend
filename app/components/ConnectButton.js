@@ -5,7 +5,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useAccount, useDisconnect } from "wagmi"
-import { ChevronDown, LogOut, User } from "lucide-react"
+import { ChevronDown, Gem, LogOut, User } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,7 +32,6 @@ const ConnectButton = () => {
   const router = useRouter()
 
   const { mutate } = useUpsertExperienceMutation()
-  useAuthToken()
 
   useEffect(() => {
     console.log("experiences", experiences, isSuccess)
@@ -64,7 +63,7 @@ const ConnectButton = () => {
         })
       }
     }
-  }, [router, experiences, isSuccess, isExperiencesLoading, mutate])
+  }, [router, experiences, isSuccess, isExperiencesLoading, mutate, address])
 
   if (address) {
     return <Dropdown />
@@ -108,10 +107,19 @@ const Dropdown = () => {
         <DropdownMenuLabel>Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
+          <Link href="/score">
+            <DropdownMenuItem>
+              <Gem className="mr-2 h-4 w-4" />
+              <span>Airdrop eligibility</span>
+            </DropdownMenuItem>
+          </Link>
+        </DropdownMenuGroup>
+
+        <DropdownMenuGroup>
           <Link href="/profile">
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
-              <span>Airdrop eligibility</span>
+              <span>Connected Accounts</span>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>

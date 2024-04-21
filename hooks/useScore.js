@@ -8,9 +8,9 @@ export const useScore = () => {
   const { data: token } = useAuthToken()
 
   const query = async () => {
-    const resp = await get(`/score`)
+    const resp = await get(`/score/me`)
     console.log("resp", resp)
-    return resp?.score
+    return resp
   }
 
   return useQuery({

@@ -19,10 +19,6 @@ const AccountSelector = () => {
 
   const { data: current } = useCurrent()
 
-  const spotifyAccount = useMemo(() => {
-    return accounts?.find(account => account.accountType === "spotify")
-  }, [accounts])
-
   const xAccount = useMemo(() => {
     return accounts?.find(account => account.accountType === "x")
   }, [accounts])
@@ -92,25 +88,6 @@ const AccountSelector = () => {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
-      {!spotifyAccount ? (
-        <a
-          href={`${process.env.NEXT_PUBLIC_API_URL}/connected/accounts/spotify/login`}>
-          <div className="bg-background h-12 w-36 rounded-full relative">
-            <Image
-              priority
-              src="/spotify_logo.png"
-              fill
-              className="object-contain px-4 py-2"
-              alt="Spotify Connect button"
-            />
-          </div>
-        </a>
-      ) : (
-        <Badge variant="outline" className="text-base font-sans px-4 py-2">
-          <FaSpotify size={20} />
-          <span className="pl-2">{spotifyAccount.metadata.display_name}</span>
-        </Badge>
-      )}
       {!xAccount ? (
         <a
           href={`${process.env.NEXT_PUBLIC_API_URL}/connected/accounts/x/login?address=${current?.evmAddress}`}>
@@ -180,7 +157,7 @@ const AccountSelector = () => {
           {emailAccount.accountIdentifier}
         </h4>
       )}
-      {spotifyAccount && xAccount && emailAccount && (
+      {xAccount && emailAccount && (
         <div className="flex flex-col items-center justify-center space-y-4 pt-8">
           <h4 className="text-neutral-950 text-lg font-semibold font-sans">
             All accounts connected

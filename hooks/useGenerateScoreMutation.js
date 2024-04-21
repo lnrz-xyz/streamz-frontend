@@ -1,24 +1,21 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
+
 import useApi from "./useApi"
 
-export const useConnectXMutation = () => {
+export const useGenerateScoreMutation = () => {
   const queryClient = useQueryClient()
 
   const { post } = useApi()
 
   return useMutation({
     // The mutation function
-    mutationFn: code => {
-      console.log("code", code)
-      return post("/connected/accounts/x", {
-        code,
+    mutationFn: forceRefresh => {
+      return post("/score/calculate/me", {
+        force_refresh: forceRefresh,
       })
     },
 
     onSettled: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["connected"],
-      })
       queryClient.invalidateQueries({
         queryKey: ["score"],
       })

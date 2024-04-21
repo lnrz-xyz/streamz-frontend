@@ -10,7 +10,6 @@ export const useLogoutMutation = () => {
       localStorage.removeItem(AUTH_TOKEN_LS_KEY)
     },
 
-    // On success or failure, refetch the gallery query to get the updated state
     onSettled: () => {
       queryClient.invalidateQueries()
     },

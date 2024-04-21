@@ -1,5 +1,5 @@
 import PurchaseToken from "./PurchaseToken"
 
 export default function Buy() {
-  return <PurchaseToken />
+  return null
 }

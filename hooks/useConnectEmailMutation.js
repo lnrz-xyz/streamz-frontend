@@ -16,7 +16,6 @@ export const useConnectEmailMutation = () => {
       })
     },
 
-    // On success or failure, refetch the gallery query to get the updated state
     onSettled: () => {
       queryClient.invalidateQueries({
         queryKey: ["connected"],

@@ -1,5 +1,5 @@
 "use client"
-import { useCallback } from "react"
+import { useCallback, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useAccount, useSignMessage } from "wagmi"
 
@@ -37,12 +37,17 @@ export const useAuthToken = () => {
   const { signMessageAsync } = useSignMessage()
 
   const getAuthToken = useCallback(async () => {
+    console.log("getting auth token with", address)
     const curToken = getToken()
-    const isExpired = curToken ? isTokenExpired(curToken) : true
-    if (isExpired) {
-      localStorage.removeItem(localStorageKey)
-    } else {
-      return curToken
+    console.log("curToken", curToken)
+    if (curToken) {
+      if (isTokenExpired(curToken)) {
+        console.log("removing expired token")
+        localStorage.removeItem(localStorageKey)
+      } else {
+        console.log("using cached token")
+        return curToken
+      }
     }
     console.log("refetching auth token with", address)
 

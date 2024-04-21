@@ -1,5 +1,6 @@
 import { defaultWagmiConfig } from "@web3modal/wagmi/react/config"
-import { mainnet, base, baseSepolia } from "wagmi/chains"
+import { base, baseSepolia } from "wagmi/chains"
+import { cookieStorage, createStorage } from "wagmi"
 
 export const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID
 
@@ -14,7 +15,7 @@ const metadata = {
 }
 
 // Create wagmiConfig
-const chains = [mainnet, base, baseSepolia]
+const chains = [base, baseSepolia]
 export const config = defaultWagmiConfig({
   chains,
   projectId,
@@ -24,4 +25,7 @@ export const config = defaultWagmiConfig({
   enableInjected: true,
   enableWalletConnect: true,
   enableEmail: false,
+  storage: createStorage({
+    storage: cookieStorage,
+  }),
 })

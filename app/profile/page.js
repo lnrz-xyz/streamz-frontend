@@ -6,24 +6,15 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card"
-import WalletSelector from "../onboarding/wallets/components/WalletSelector"
-import { Separator } from "@/components/ui/separator"
 import AccountSelector from "../onboarding/accounts/components/AccountSelector"
 
 export default function Wallets() {
   return (
     <>
       <CardHeader className="items-center justify-center flex flex-col pt-12">
-        <CardTitle className="text-neutral-950 text-xl font-semibold font-sans">
-          Profile
-        </CardTitle>
+        <CardTitle className="text-xl font-semibold">Profile</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col py-12 w-full">
-        <div className="flex flex-row items-center justify-between">
-          <h4 className="w-1/2 text-sm font-medium font-sans">Wallets</h4>
-          <WalletSelector />
-        </div>
-        <Separator className="my-8" />
         <div className="flex flex-row items-center justify-between">
           <h4 className="w-1/2 text-sm font-medium font-sans">Accounts</h4>
           <div className="flex flex-col items-center w-full">
