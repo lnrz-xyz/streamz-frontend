@@ -7,8 +7,7 @@ export const useAddressLeaderboard = () => {
   const { get } = useApi()
   const { data: token, isSuccess } = useAuthToken()
   const run = useCallback(async () => {
-    const resp = await get(`/score/leaderboard`)
-    return resp?.leaderboard
+    return await get(`/score/leaderboard`)
   }, [get])
 
   return useQuery({

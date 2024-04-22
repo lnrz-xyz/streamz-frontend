@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge"
 import { useConnectedAccounts } from "@/hooks/useConnectedAccounts"
 import Image from "next/image"
-import { FaSpotify } from "react-icons/fa"
 import { useEffect, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import { toast } from "sonner"

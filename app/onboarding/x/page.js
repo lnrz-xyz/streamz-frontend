@@ -1,19 +1,19 @@
 "use client"
 
 import { useAuthToken } from "@/hooks/useAuthToken"
-import { useConnectSpotifyMutation } from "@/hooks/useConnectSpotifyMutation"
+import { useConnectXMutation } from "@/hooks/useConnectXMutation"
 import { Loader2 } from "lucide-react"
 import { redirect, useSearchParams } from "next/navigation"
 import { useEffect } from "react"
 
 export default function Spotify() {
-  const { mutate, isSuccess, error } = useConnectSpotifyMutation()
+  const { mutate, isSuccess, error } = useConnectXMutation()
   const { data: token } = useAuthToken()
 
   const searchParams = useSearchParams()
 
   const code = searchParams.get("code")
-  const spotifyError = searchParams.get("error")
+  const xError = searchParams.get("error")
 
   useEffect(() => {
     console.log("code", code, token)
@@ -23,23 +23,21 @@ export default function Spotify() {
 
   useEffect(() => {
     if (isSuccess) {
-      redirect("/onboarding/accounts?spotify_connected=true")
+      redirect("/onboarding?x_connected=true")
     }
   }, [isSuccess])
 
   useEffect(() => {
     if (error) {
       redirect(
-        `/onboarding/accounts?error_type=spotify_connection_error&error=${error.message}`
+        `/onboarding?error_type=x_connection_error&error=${error.message}`
       )
     }
   }, [error])
 
   useEffect(() => {
-    if (spotifyError) {
-      redirect(
-        `/onboarding/accounts?error_type=spotify_redirect_error&error=${spotifyError}`
-      )
+    if (xError) {
+      redirect(`/onboarding?error_type=x_redirect_error&error=${xError}`)
     }
   })
 

@@ -100,7 +100,7 @@ const ScoreResults = () => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-full">
+    <div className="flex flex-col items-center min-h-full w-full px-8 py-4">
       <div className="flex flex-col md:flex-row justify-between w-full space-y-8 md:space-x-8 md:space-y-0 py-4">
         <div className="flex relative w-full md:w-4/12 aspect-square min-h-[40vh]">
           <Image
