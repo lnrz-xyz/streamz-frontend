@@ -5,7 +5,6 @@ import { toast } from "sonner"
 import { useEffect, useMemo, useState } from "react"
 import { Badge, Copy, CopyCheck, Loader2 } from "lucide-react"
 import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation"
-import { useGenerateScoreMutation } from "@/hooks/useGenerateScoreMutation"
 
 const prettyReasons = {
   "streamz nft": {
@@ -56,7 +55,6 @@ const prettyReasons = {
 
 const ScoreResults = () => {
   const { data: score, isPending } = useScore()
-  const { mutate: calculate, error } = useGenerateScoreMutation()
   const { mutate } = useUpsertExperienceMutation()
   const [clickedCopy, setClickedCopy] = useState(false)
 
@@ -71,16 +69,12 @@ const ScoreResults = () => {
   }, [clickedCopy])
 
   const topContributions = useMemo(() => {
+    console.log("score", score)
     const sorted = score?.reasons.sort((a, b) => b.score - a.score) ?? []
     return sorted
       .slice(0, 5)
       .map(reason => prettyReasons[reason.reason].completed)
   }, [score])
-  useEffect(() => {
-    if (error) {
-      toast.error("Failed to generate score: " + error)
-    }
-  }, [error])
 
   const notCompleted = useMemo(() => {
     // use pretty reasons (all the reasons) and return all the reasons that are not in score.reasons
@@ -101,10 +95,8 @@ const ScoreResults = () => {
           onboarding: true,
         },
       })
-    } else if (!isPending) {
-      calculate()
     }
-  }, [score, mutate, calculate, isPending])
+  }, [score, mutate, isPending])
 
   if (!score) {
     return (
@@ -200,11 +192,11 @@ const ScoreResults = () => {
             )
           })}
         </div>
-        <div className="flex flex-col w-9/12 md:w-2/12 md:items-end px-2 py-2 my-8 md:my-0">
+        <div className="flex flex-col w-9/12 md:w-3/12 md:items-end my-8 md:my-0">
           <h4 className="text-4xl font-bold py-4">Split Address</h4>
           <div
             onClick={() => setClickedCopy(true)}
-            className="w-full rounded-full h-14 itmes-center flex justify-center bg-foreground text-background transform hover:scale-105 transition-transform duration-200 cursor-pointer">
+            className="w-full rounded-full px-4 h-14 itmes-center flex justify-center bg-foreground text-background transform hover:scale-105 transition-transform duration-200 cursor-pointer">
             <div className="flex flex-row items-center justify-center space-x-4">
               {clickedCopy ? (
                 <CopyCheck className="h-8 w-8" />

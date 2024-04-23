@@ -43,7 +43,7 @@ export const useAuthToken = () => {
     if (curToken) {
       if (isTokenExpired(curToken)) {
         console.log("removing expired token")
-        localStorage.removeItem(localStorageKey)
+        localStorage.removeItem(AUTH_TOKEN_LS_KEY)
       } else {
         console.log("using cached token")
         return curToken
