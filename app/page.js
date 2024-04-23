@@ -7,6 +7,7 @@ import AirdropCTA from "./components/AirdropCTA"
 import Footer from "./components/Footer"
 import { Diamond, Gem } from "lucide-react"
 import Link from "next/link"
+import AirdropEligibility from "./components/AirdropEligibility"
 
 /*
 type GetTokenInfoResponse struct {
@@ -25,10 +26,7 @@ export default async function Home() {
   return (
     <main className="relative flex w-screen min-h-screen flex-col pb-16">
       <div className="absolute top-4 right-8 z-10 flex flex-row space-x-4 items-center">
-        <Link href="/score" className="flex flex-row space-x-1 items-center">
-          <Gem />
-          <h4 className="text-lg font-bold">Airdrop Eligibility</h4>
-        </Link>
+        <AirdropEligibility />
         <ConnectButton />
       </div>
       <div className="min-h-screen">
