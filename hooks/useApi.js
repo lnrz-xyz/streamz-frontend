@@ -1,5 +1,5 @@
 import { useCallback } from "react"
-import { useAuthToken } from "./useAuthToken"
+import { AUTH_TOKEN_LS_KEY, useAuthToken } from "./useAuthToken"
 
 const useApi = () => {
   const { data: token, refetch } = useAuthToken()
@@ -12,6 +12,7 @@ const useApi = () => {
         },
       })
       if (response.status === 401) {
+        localStorage.removeItem(AUTH_TOKEN_LS_KEY)
         const newForce = await refetch()
         if (onRetry) {
           throw new Error("Unauthorized")
@@ -37,6 +38,7 @@ const useApi = () => {
         body: JSON.stringify(body),
       })
       if (response.status === 401) {
+        localStorage.removeItem(AUTH_TOKEN_LS_KEY)
         const newForce = await refetch()
         if (onRetry) {
           throw new Error("Unauthorized")

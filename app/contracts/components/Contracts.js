@@ -3,7 +3,7 @@ export default function Contracts({ contracts }) {
   return (
     <div className="flex flex-col space-y-4 w-full px-4 py-4">
       <h4 className="text-4xl font-bold">Mints</h4>
-      {contracts?.length === 0 && (
+      {(!contracts || contracts?.length === 0) && (
         <div className="text-lg font-normal text-zinc-400">
           No mints yet. Be the first to create with Streamz by going to{" "}
           <a

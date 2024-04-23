@@ -6,9 +6,8 @@ import { useScore } from "@/hooks/useScore"
 
 const Leaderboard = () => {
   const { data: leaderboard, isPending } = useAddressLeaderboard()
-  const { data: score } = useScore()
 
-  if (isPending || !score) {
+  if (isPending) {
     return null
   }
 
@@ -31,7 +30,7 @@ const Leaderboard = () => {
                   rel="noreferrer"
                   className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
                   <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
-                    <div className="text-base font-normal">{index + 1}</div>
+                    <div className="text-base font-normal w-4">{index + 1}</div>
                     <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                       <Image
                         src={`/score-${Math.floor(Math.random() * 5) + 1}.png`}

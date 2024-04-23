@@ -27,7 +27,7 @@ export default function Header({ holderCount = 0 }) {
         href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
         target="_blank"
         rel="noreferrer"
-        className="absolute right-8 bottom-0 flex">
+        className="absolute right-8 bottom-8 flex bg-background rounded-full px-4 py-2 items-center h-14 transform hover:scale-105 transition-transform duration-200">
         <h3 className="font-black text-4xl tracking-tighter leading-[115px]">
           BUY NOW
         </h3>
