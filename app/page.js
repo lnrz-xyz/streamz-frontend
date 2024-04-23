@@ -21,7 +21,7 @@ export default async function Home() {
   const info = await fetch(`${process.env.API_URL}/info`, { cache: "no-store" })
   const data = await info.json()
 
-  const { totalSupply, totalHolders, marketCap, usdPrice } = data
+  const { totalSupply, totalHolders, marketCap, usdPrice, contractCount } = data
 
   return (
     <main className="relative flex w-screen min-h-screen flex-col pb-16">
@@ -35,6 +35,7 @@ export default async function Home() {
           marketCap={marketCap}
           priceUSD={usdPrice}
           totalSupply={totalSupply}
+          contractCount={contractCount}
         />
       </div>
       <div className="flex flex-col px-8 py-16 pb-16 space-y-28 w-full">

@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Header({ holderCount = 0 }) {
   return (
     <div className="z-0 relative flex flex-row justify-between px-8 py-8 bg-gradient-to-b from-green-500 to-primary min-h-[50vh] text-white">
@@ -17,9 +19,11 @@ export default function Header({ holderCount = 0 }) {
             </svg>
             <h4 className="font-normal text-sm">Verified Degen</h4>
           </div>
-          <h2 className="font-black text-8xl tracking-tighter leading-[115px]">
-            Streamz
-          </h2>
+          <Link href="/">
+            <h2 className="font-black text-8xl tracking-tighter leading-[115px]">
+              Streamz
+            </h2>
+          </Link>
         </div>
         <h4 className="font-normal text-base">{holderCount} holders</h4>
       </div>

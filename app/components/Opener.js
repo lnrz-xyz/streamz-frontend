@@ -6,6 +6,7 @@ export default function Opener({
   totalSupply = 0,
   priceUSD = 0,
   marketCap = 0,
+  contractCount = 0,
 }) {
   return (
     <div className="relative">
@@ -153,6 +154,40 @@ export default function Opener({
                     </div>
                   </a>
                 </div>
+                {contractCount > 0 && (
+                  <div className="relative h-14 group">
+                    <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
+                    <Link
+                      href="/contracts"
+                      className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
+                      <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
+                        <div className="text-base font-normal">4</div>
+                        <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                          <Image
+                            src="/shake.png"
+                            alt="Shaking Hands"
+                            priority
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="text-base font-bold">
+                          Streamz Derivative Collections
+                        </div>
+                      </div>
+                      <div className="md:flex hidden flex-row justify-between items-center w-1/2">
+                        <div className="text-zinc-400 text-sm font-normal">
+                          ${marketCap}
+                        </div>
+                        <ChevronRight
+                          height={24}
+                          width={24}
+                          className="text-zinc-400"
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
