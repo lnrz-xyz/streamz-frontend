@@ -17,7 +17,7 @@ type GetTokenInfoResponse struct {
 }
 */
 export default async function Home() {
-  const info = await fetch(`${process.env.API_URL}/info`)
+  const info = await fetch(`${process.env.API_URL}/info`, { cache: "no-store" })
   const data = await info.json()
 
   const { totalSupply, totalHolders, marketCap, usdPrice } = data

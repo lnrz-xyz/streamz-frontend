@@ -12,9 +12,13 @@ type GetTokenInfoResponse struct {
 }
 */
 export default async function contracts() {
-  const contractsResp = await fetch(`${process.env.API_URL}/contracts`)
+  const contractsResp = await fetch(`${process.env.API_URL}/contracts`, {
+    cache: "no-store",
+  })
   const { contracts } = await contractsResp.json()
-  const infoResp = await fetch(`${process.env.API_URL}/info`)
+  const infoResp = await fetch(`${process.env.API_URL}/info`, {
+    cache: "no-store",
+  })
   const { totalHolders } = await infoResp.json()
 
   return (
