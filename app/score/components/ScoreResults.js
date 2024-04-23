@@ -200,7 +200,7 @@ const ScoreResults = () => {
             )
           })}
         </div>
-        <div className="flex flex-col w-2/12 items-end">
+        <div className="flex flex-col w-9/12 md:w-2/12 md:items-end px-2 py-2 my-8 md:my-0">
           <h4 className="text-4xl font-bold py-4">Split Address</h4>
           <div
             onClick={() => setClickedCopy(true)}

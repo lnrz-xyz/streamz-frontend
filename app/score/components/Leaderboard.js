@@ -45,12 +45,12 @@ const Leaderboard = () => {
                       {position.address.slice(0, 12)}...
                     </div>
                   </div>
-                  <div className="md:flex hidden flex-row justify-between items-center w-1/2">
+                  <div className="flex flex-row justify-between items-center w-1/2">
                     <div className="text-zinc-400 text-sm font-normal">
                       {position.score}
                     </div>
 
-                    <ChevronRight className="text-zinc-400" />
+                    <ChevronRight className="text-zinc-400 md:flex hidden" />
                   </div>
                 </a>
               </div>
