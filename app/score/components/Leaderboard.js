@@ -6,9 +6,9 @@ import { useScore } from "@/hooks/useScore"
 
 const Leaderboard = () => {
   const { data: leaderboard, isPending } = useAddressLeaderboard()
-  const { isPending: scorePending } = useScore()
+  const { data: score } = useScore()
 
-  if (isPending || scorePending) {
+  if (isPending || !score) {
     return null
   }
 

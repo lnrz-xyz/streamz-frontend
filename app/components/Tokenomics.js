@@ -4,8 +4,8 @@ export default function Tokenomics() {
   return (
     <div id="tokenomics" className="flex flex-col space-y-4 w-full">
       <h4 className="text-2xl font-bold">Tokenomics</h4>
-      <div className="flex flex-col md:flex-row space-x-3 w-full">
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-1/5">
+      <div className="flex flex-col md:flex-row space-x-3 w-full flex-wrap justify-evenly">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-[18%]">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="absolute top-6 left-6 rounded-full bg-foreground text-sm text-background font-bold px-4 py-1 z-30">
             hover to play song
@@ -32,7 +32,7 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-1/5">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-[18%]">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
@@ -56,7 +56,7 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-1/5">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-[18%]">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
@@ -79,7 +79,7 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-1/5">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-[18%]">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image
@@ -103,7 +103,7 @@ export default function Tokenomics() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-1/5">
+        <div className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-[18%]">
           <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
           <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
             <Image

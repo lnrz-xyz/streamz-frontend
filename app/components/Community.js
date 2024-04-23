@@ -39,7 +39,7 @@ export default function Community() {
             </div>
             <div className="flex flex-col">
               <div className="text-base font-bold">Farcaster</div>
-              <div className="text-sm font-normal">streamz</div>
+              <div className="text-sm font-normal">streamzonbase</div>
             </div>
           </a>
           <a
@@ -58,7 +58,7 @@ export default function Community() {
             </div>
           </a>
           <a
-            href="https://basescan.org/"
+            href={`https://basescan.org/address/${process.env.STREAMZ_ADDRESS}`}
             target="_blank"
             rel="noreferrer"
             className="flex flex-row space-x-4 items-center justify-start group relative p-2">

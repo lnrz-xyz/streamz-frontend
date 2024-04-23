@@ -55,8 +55,8 @@ const ConnectOrScoreButton = ({ className }) => {
 
   if (address) {
     return (
-      <Link href="/onboarding" className={className}>
-        Onboard
+      <Link href="/score" className={className}>
+        Get Score
       </Link>
     )
   }

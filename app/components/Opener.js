@@ -2,7 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 
-export default function Opener() {
+export default function Opener({
+  totalSupply = 0,
+  priceUSD = 0,
+  marketCap = 0,
+}) {
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-gradient-to-b from-primary to-background opacity-80 backdrop-blur h-64" />
@@ -50,13 +54,15 @@ export default function Opener() {
         </div>
         <div className="flex flex-col md:flex-row pt-6 w-full md:space-x-16 space-y-16 md:space-y-0">
           <div className="flex flex-col w-full md:w-2/3 space-y-5">
-            <h4 className="text-2xl font-bold">Directory</h4>
+            <h4 className="text-2xl font-bold">Streamz Stats</h4>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between">
               <div className="flex flex-col w-full">
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Link
-                    href="#"
+                  <a
+                    href={`https://basescan.org/token/${process.env.STREAMZ_ADDRESS}`}
+                    target="_blank"
+                    rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
                     <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">1</div>
@@ -69,11 +75,11 @@ export default function Opener() {
                           className="object-cover"
                         />
                       </div>
-                      <div className="text-base font-bold">About Us</div>
+                      <div className="text-base font-bold">Total Supply</div>
                     </div>
                     <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
-                        Learn about the project
+                        {totalSupply}
                       </div>
                       <ChevronRight
                         height={24}
@@ -81,12 +87,14 @@ export default function Opener() {
                         className="text-zinc-400"
                       />
                     </div>
-                  </Link>
+                  </a>
                 </div>
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Link
-                    href="#buy"
+                  <a
+                    href={`https://basescan.org/token/${process.env.STREAMZ_ADDRESS}`}
+                    target="_blank"
+                    rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
                     <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">2</div>
@@ -99,11 +107,11 @@ export default function Opener() {
                           className="object-cover"
                         />
                       </div>
-                      <div className="text-base font-bold">Purchase Token</div>
+                      <div className="text-base font-bold">Market Cap</div>
                     </div>
                     <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
-                        Get your hands on some STREAMZ
+                        ${marketCap}
                       </div>
                       <ChevronRight
                         height={24}
@@ -111,12 +119,14 @@ export default function Opener() {
                         className="text-zinc-400"
                       />
                     </div>
-                  </Link>
+                  </a>
                 </div>
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Link
-                    href="#tokenomics"
+                  <a
+                    href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
+                    target="_blank"
+                    rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
                     <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">3</div>
@@ -129,11 +139,11 @@ export default function Opener() {
                           className="object-cover"
                         />
                       </div>
-                      <div className="text-base font-bold">Tokenomics</div>
+                      <div className="text-base font-bold">Price</div>
                     </div>
                     <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
-                        Understand distribution
+                        ${priceUSD}
                       </div>
                       <ChevronRight
                         height={24}
@@ -141,67 +151,7 @@ export default function Opener() {
                         className="text-zinc-400"
                       />
                     </div>
-                  </Link>
-                </div>
-                <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Link
-                    href="#community"
-                    className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
-                      <div className="text-base font-normal">4</div>
-                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
-                        <Image
-                          src="/community.png"
-                          alt="Community Image"
-                          priority
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="text-base font-bold">Community</div>
-                    </div>
-                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
-                      <div className="text-zinc-400 text-sm font-normal">
-                        Join the conversation
-                      </div>
-                      <ChevronRight
-                        height={24}
-                        width={24}
-                        className="text-zinc-400"
-                      />
-                    </div>
-                  </Link>
-                </div>
-                <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Link
-                    href="#airdrop"
-                    className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
-                      <div className="text-base font-normal">5</div>
-                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
-                        <Image
-                          src="/airdrop.png"
-                          alt="About Us Image"
-                          priority
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="text-base font-bold">Airdrop</div>
-                    </div>
-                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
-                      <div className="text-zinc-400 text-sm font-normal">
-                        Get tokens if eligibile
-                      </div>
-                      <ChevronRight
-                        height={24}
-                        width={24}
-                        className="text-zinc-400"
-                      />
-                    </div>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -210,19 +160,11 @@ export default function Opener() {
             <h4 className="text-2xl font-bold">About</h4>
             <p className="text-base font-normal">
               Welcome to Streamz, where we{"'"}re shaking up how artists get
-              paid. Right now, The big Green Giant dishes out a measly $0.003
-              per stream, hardly enough unless you{"'"}re topping charts. That
-              system leaves tons non-mainstream talent out in the cold,
-              struggling to make what they truly deserve.
+              paid.
             </p>
             <p className="text-base font-normal">
-              We{"'"}re here to flip the script with our token, aiming to bring
-              some fairness back to music. We{"'"}re building a world where the
-              listener participates in growth as well as the artists.
-            </p>
-            <p className="text-base font-normal">
-              Join us as we support the underdogs of the music world and make
-              every stream count more than ever.
+              Right now, The big Green Giant dishes out a measly $0.003 per
+              stream, hardly enough unless you{"'"}re topping charts.
             </p>
             <p className="text-base font-normal">
               We{"'"}re redefining the true value of 1M streamz
