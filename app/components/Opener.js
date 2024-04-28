@@ -13,31 +13,39 @@ export default function Opener({
       <div className="absolute inset-0 bg-gradient-to-b from-primary to-background opacity-80 backdrop-blur h-64" />
 
       <div className="flex flex-col h-full w-full p-6 relative">
-        <div className="flex flex-row space-x-8 h-14 w-full items-center justify-start">
-          <Link href="/" className="relative h-full w-14">
-            <Image
-              src="/logo.svg"
-              alt="Streamz logo"
-              fill
-              className="aspect-square object-contain"
-            />
-          </Link>
+        <div className="flex flex-row space-x-8 h-14 w-full items-center justify-between">
+          <div className="h-full relative flex flex-row space-x-4">
+            <Link href="/" className="relative h-full w-14">
+              <Image
+                src="/logo.svg"
+                alt="Streamz logo"
+                fill
+                className="aspect-square object-contain"
+              />
+            </Link>
+            <div className="flex flex-row space-x-6 items-center justify-start">
+              <a
+                href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
+                target="_blank"
+                rel="noreferrer"
+                className="border-foreground border rounded-full px-4 py-2 text-base font-bold justify-center items-center gap-2.5 inline-flex">
+                BUY STREAMZ
+              </a>
+            </div>
+          </div>
 
-          <div className="flex flex-row space-x-6 items-center justify-start">
+          <div className="flex flex-row space-x-4">
             <a
               href="https://warpcast.com/streamzonbase"
               target="_blank"
               rel="noreferrer"
-              className="border-zinc-400 border rounded-full px-2 py-1 text-sm font-bold justify-center items-center gap-2.5 inline-flex">
-              Follow Us On
-              <div className="relative h-[18px] w-[17px]">
-                <Image
-                  src="/farcaster.svg"
-                  alt="Farcaster logo"
-                  fill
-                  className="aspect-square object-contain"
-                />
-              </div>
+              className="relative h-[18px] w-[17px]">
+              <Image
+                src="/farcaster.svg"
+                alt="Farcaster logo"
+                fill
+                className="aspect-square object-contain"
+              />
             </a>
             <a
               href="https://x.com/streamzonbase"
@@ -177,7 +185,7 @@ export default function Opener({
                       </div>
                       <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                         <div className="text-zinc-400 text-sm font-normal">
-                          ${marketCap}
+                          {contractCount}
                         </div>
                         <ChevronRight
                           height={24}

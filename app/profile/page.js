@@ -28,6 +28,13 @@ export default function Wallets() {
             Save Changes
           </Button>
         </Link>
+        <Link href="/" className="w-full">
+          <Button
+            variant="secondary"
+            className="w-full h-11 px-5 py-3.5 rounded-[32px] justify-center items-center gap-2.5 inline-flex text-sm font-medium font-sans">
+            Go back
+          </Button>
+        </Link>
       </CardFooter>
     </>
   )

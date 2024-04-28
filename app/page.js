@@ -42,8 +42,20 @@ export default async function Home() {
         <Tokenomics />
         <Community />
       </div>
-      <AirdropCTA />
-      <Footer />
+      <div className="w-full flex flex-row items-center justify-between p-4 fixed bottom-0 bg-gradient-to-r from-fuchsia-700 to-blue-400 z-50">
+        <div className="flex flex-col">
+          <h4 className="text-sm font-bold">Get your score</h4>
+          <p className="text-sm">
+            Connect your wallet and contribute to the bounties to get your
+            score. Farm new bounties to increase your score for the airdrop
+          </p>
+        </div>
+        <Link
+          href="/score"
+          className="rounded-full px-3 py-2 bg-foreground text-background flex items-center">
+          <h4 className="text-sm font-bold">Get Your Score</h4>
+        </Link>
+      </div>
     </main>
   )
 }

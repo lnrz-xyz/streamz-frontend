@@ -67,7 +67,7 @@ const ScoreResults = () => {
   useEffect(() => {
     if (clickedCopy) {
       toast.success("Copied split address to clipboard!")
-      navigator.clipboard.writeText(process.env.NEXT_PUBLIC_STREAMZ_ADDRESS)
+      navigator.clipboard.writeText(process.env.NEXT_PUBLIC_SPLIT_ADDRESS)
       setTimeout(() => {
         setClickedCopy(false)
       }, 2000)
@@ -136,7 +136,7 @@ const ScoreResults = () => {
                   <Copy className="h-8 w-8" />
                 )}
                 <span>
-                  {process.env.NEXT_PUBLIC_STREAMZ_ADDRESS.slice(0, 6)}...
+                  {process.env.NEXT_PUBLIC_SPLIT_ADDRESS.slice(0, 6)}...
                 </span>
               </div>
             </div>

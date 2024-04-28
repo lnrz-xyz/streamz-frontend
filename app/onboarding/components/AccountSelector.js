@@ -101,7 +101,9 @@ const AccountSelector = () => {
           </div>
         </a>
       ) : (
-        <Badge variant="outline" className="text-base font-sans px-4 py-2">
+        <Badge
+          variant="outline"
+          className="text-base font-sans px-4 py-2 bg-foreground">
           <Image
             priority
             src="/x-logo-black.png"
@@ -109,12 +111,12 @@ const AccountSelector = () => {
             height={20}
             alt="X Connect button"
           />
-          <span className="pl-2">{xAccount.metadata.name}</span>
+          <span className="pl-2 text-background">{xAccount.metadata.name}</span>
         </Badge>
       )}
       {xAccount && (
         <div className="flex flex-col items-center justify-center space-y-4 pt-8">
-          <p className="text-center text-zinc-600 text-opacity-60 text-sm font-normal font-sans leading-snug">
+          <p className="text-center  text-opacity-60 text-sm font-normal font-sans leading-snug">
             Follow us on Twitter{" "}
             <a
               href="https://x.com/lnrzxyz"

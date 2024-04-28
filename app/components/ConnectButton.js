@@ -5,7 +5,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useAccount, useDisconnect } from "wagmi"
-import { ChevronDown, Gem, LogOut, User } from "lucide-react"
+import { ChevronDown, Gem, LineChart, LogOut, User } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -111,6 +111,15 @@ const Dropdown = () => {
             <DropdownMenuItem>
               <Gem className="mr-2 h-4 w-4" />
               <span>Airdrop eligibility</span>
+            </DropdownMenuItem>
+          </Link>
+        </DropdownMenuGroup>
+
+        <DropdownMenuGroup>
+          <Link href="/contracts">
+            <DropdownMenuItem>
+              <LineChart className="mr-2 h-4 w-4" />
+              <span>Earn Streamz</span>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>

@@ -65,7 +65,7 @@ const Directions = ({ contracts }) => {
   )
 }
 
-const SoundDialogContent = () => {
+export const SoundDialogContent = () => {
   const [step, setStep] = useState(0)
   const [copied, setCopied] = useState(false)
 
@@ -91,10 +91,10 @@ const SoundDialogContent = () => {
       description: "Use 0xSplits to give Streamz a percentage",
       image: "/airdrop.png",
       actionBubbleText:
-        process.env.NEXT_PUBLIC_STREAMZ_ADDRESS.slice(0, 6) + "...",
+        process.env.NEXT_PUBLIC_SPLIT_ADDRESS.slice(0, 6) + "...",
       actionBubbleIcon: <CopyIcon copied={copied} />,
       action: () => {
-        navigator.clipboard.writeText(process.env.NEXT_PUBLIC_STREAMZ_ADDRESS)
+        navigator.clipboard.writeText(process.env.NEXT_PUBLIC_SPLIT_ADDRESS)
         setCopied(true)
       },
     },
@@ -189,7 +189,7 @@ const SoundDialogContent = () => {
   )
 }
 
-const ZoraDialogContent = () => {
+export const ZoraDialogContent = () => {
   const [step, setStep] = useState(0)
   const [copied, setCopied] = useState(false)
 

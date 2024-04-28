@@ -1,6 +1,7 @@
 import Image from "next/image"
 import ContractScorePill from "./ContractScorePill"
 import ContractCollectedBadge from "./ContractCollectedBadge"
+import TotalScore from "./TotalScore"
 export const fixedPlaceholder = contractAddress => {
   // parse contract address as a number and modulo by the 5 placeholders
   const placeholderIndex = parseInt(contractAddress, 16) % 5
@@ -10,7 +11,10 @@ export const fixedPlaceholder = contractAddress => {
 export default function Contracts({ contracts }) {
   return (
     <div className="flex flex-col space-y-4 w-full px-4 py-4">
-      <h4 className="text-2xl font-bold">Collections</h4>
+      <div className="flex flex-row justify-between">
+        <h4 className="text-2xl font-bold">Collections</h4>
+        <TotalScore />
+      </div>
       {(!contracts || contracts?.length === 0) && (
         <div className="text-lg font-normal text-zinc-400">
           No mints yet. Be the first to create with Streamz by going to{" "}
