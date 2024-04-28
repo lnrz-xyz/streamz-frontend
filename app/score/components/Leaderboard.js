@@ -2,7 +2,6 @@
 import Image from "next/image"
 import { ChevronRight } from "lucide-react"
 import { useAddressLeaderboard } from "@/hooks/useAddressLeaderboard"
-import { useScore } from "@/hooks/useScore"
 
 const Leaderboard = () => {
   const { data: leaderboard, isPending } = useAddressLeaderboard()
@@ -12,12 +11,11 @@ const Leaderboard = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-full w-full">
+    <div className="flex flex-col min-h-full w-full px-8">
       <h4 className="text-2xl font-bold">Leaderboard</h4>
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between pt-4">
         <div className="flex flex-col w-full">
-          {leaderboard.leaderboard?.map((position, index) => {
-            console.log("position", position)
+          {leaderboard.leaderboard?.slice(0, 250).map((position, index) => {
             if (!position.address) {
               return null
             }

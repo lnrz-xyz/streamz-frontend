@@ -1,10 +1,11 @@
 "use client"
 
 import {
+  ArrowRight,
+  ArrowUpRight,
   CheckCircle,
+  CircleArrowRight,
   Clipboard,
-  ClipboardCopy,
-  Link2,
   LinkIcon,
   PlusCircle,
 } from "lucide-react"
@@ -22,6 +23,7 @@ import { useScore } from "@/hooks/useScore"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
+import Contract from "@/app/components/Contract"
 
 const Directions = ({ contracts }) => {
   const { data: scoreData, isPending } = useScore()
@@ -31,33 +33,80 @@ const Directions = ({ contracts }) => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-64 space-x-4">
-      <div className="md:flex-[0.38] w-full h-full bg-neutral-800 rounded-2xl"></div>
-      {contracts && contracts.length > 0 && (
-        <div className="md:flex-[0.38] w-full h-full bg-neutral-800 rounded-2xl cursor"></div>
-      )}
-      <div className="md:flex-[0.24] w-full h-full bg-neutral-800 rounded-2xl px-3 py-6">
-        <div className="flex flex-col space-y-6">
-          <h3 className="text-2xl font-bold">Create Derivative NFTs</h3>
-          <div className="flex flex-col space-y-2">
-            <Dialog>
-              <DialogTrigger className="flex flex-row items-center justify-center space-x-1 h-16 bg-neutral-700 rounded-lg">
-                <p className="text-neutral-300 text-sm font-bold">
-                  Create With Zora
+    <div className="flex flex-col space-y-4 px-8">
+      <h3 className="text-2xl font-bold">Large Bounties</h3>
+
+      <div className="flex flex-col md:flex-row w-full h-64 space-x-4">
+        {scoreData?.liquidity && (
+          <div className="md:flex-[0.38] w-full h-full bg-neutral-800 rounded-2xl flex-col justify-between px-4 py-8 space-y-6">
+            <div className="flex flex-row justify-between items-center">
+              <h4 className="text-2xl font-bold">LP Liquidity</h4>
+              <a
+                href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-row space-x-1">
+                <p className="text-zinc-400 text-sm font-light">
+                  View on Uniswap
                 </p>
-                <PlusCircle size={16} color="rgb(212 212 212)" />
-              </DialogTrigger>
-              <ZoraDialogContent />
-            </Dialog>
-            <Dialog>
-              <DialogTrigger className="flex flex-row items-center justify-center space-x-1 h-16 bg-neutral-700 rounded-lg">
-                <p className="text-neutral-300 text-sm font-bold">
-                  Create With Sound
-                </p>
-                <PlusCircle size={16} color="rgb(212 212 212)" />
-              </DialogTrigger>
-              <SoundDialogContent />
-            </Dialog>
+                <ArrowUpRight size={16} color="rgb(161 161 170)" />
+              </a>
+            </div>
+            <div className="flex">
+              <h2 className="text-5xl font-bold">
+                {scoreData?.liquidity} Tokens
+              </h2>
+            </div>
+          </div>
+        )}
+        {contracts && contracts.length > 0 && (
+          <div className="md:flex-[0.38] w-full h-full bg-neutral-800 rounded-2xl cursor flex flex-col px-4 py-8 overflow-hidden relative z-20">
+            <div className="flex flex-row justify-between items-center">
+              <h4 className="text-2xl font-bold">Derivative Collections</h4>
+              {contracts.length < 4 && (
+                <Link href="/contracts" className="flex flex-row space-x-1">
+                  <p className="text-zinc-400 text-sm font-light">View all</p>
+                  <ArrowUpRight size={16} color="rgb(161 161 170)" />
+                </Link>
+              )}
+            </div>
+            <div className="flex flex-row space-x-4 flex-nowrap overflow-hidden">
+              {contracts.slice(0, 4).map(contract => {
+                return <Contract key={contract.address} contract={contract} />
+              })}
+            </div>
+            {contracts.length >= 4 && (
+              <div className="absolute right-0 bottom-0 bg-gradient-to-l from-neutral-800 to-transparent w-48 h-full z-50 flex items-center justify-end px-4">
+                <div className="bg-foreground rounded-full p-2">
+                  <ArrowRight size={18} color="black" />
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+        <div className="md:flex-[0.24] w-full h-full bg-neutral-800 rounded-2xl px-3 py-6">
+          <div className="flex flex-col space-y-6">
+            <h3 className="text-2xl font-bold">Create Derivative NFTs</h3>
+            <div className="flex flex-col space-y-2">
+              <Dialog>
+                <DialogTrigger className="flex flex-row items-center justify-center space-x-1 h-16 bg-neutral-700 rounded-lg transform hover:scale-105 transition-transform duration-200">
+                  <p className="text-neutral-300 text-sm font-bold">
+                    Create With Zora
+                  </p>
+                  <PlusCircle size={16} color="rgb(212 212 212)" />
+                </DialogTrigger>
+                <ZoraDialogContent />
+              </Dialog>
+              <Dialog>
+                <DialogTrigger className="flex flex-row items-center justify-center space-x-1 h-16 bg-neutral-700 rounded-lg transform hover:scale-105 transition-transform duration-200">
+                  <p className="text-neutral-300 text-sm font-bold">
+                    Create With Sound
+                  </p>
+                  <PlusCircle size={16} color="rgb(212 212 212)" />
+                </DialogTrigger>
+                <SoundDialogContent />
+              </Dialog>
+            </div>
           </div>
         </div>
       </div>

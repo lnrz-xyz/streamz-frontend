@@ -45,14 +45,17 @@ const prettyReasons = {
   "farcaster account": {
     completed: "Connected Farcaster account",
     incomplete: "Create a Farcaster account",
+    link: "https://warpcast.com",
   },
   "farcaster casts": {
     completed: "Casts on Farcaster",
-    incomplete: "Cast on Farcaster",
+    incomplete: "Cast on Farcaster Channel",
+    link: "https://warpcast.com/~/channel/streamz",
   },
   "email connected": {
     completed: "Connected email account",
     incomplete: "Connect email account",
+    selfLink: "/profile",
   },
 }
 
@@ -96,54 +99,25 @@ const ScoreResults = () => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-full w-full py-4">
-      <div className="flex flex-col md:flex-row justify-between w-full space-y-8 md:space-x-8 md:space-y-0 py-4">
-        <div className="flex relative w-full md:w-4/12 aspect-square min-h-[40vh]">
+    <div className="flex flex-col items-center min-h-full w-full">
+      <div className="flex flex-col w-full justify-center items-center bg-[#34C057] h-[31rem] relative">
+        <div className="absolute h-full aspect-square z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Image
-            src={`/score-${(score.score % 5) + 1}.png`}
+            src="/score.svg"
             alt="Score Asset"
             priority
             fill
-            className="object-contain rounded-[33px]"
+            style={{ objectFit: "contain" }}
           />
         </div>
-        <div className="flex flex-col md:w-8/12 space-y-8 items-center justify-center">
-          <div className="flex flex-col space-y-4 w-3/4">
-            <h5 className="text-2xl font-bold">Your Score</h5>
-            <h3 className="text-8xl font-bold">{score.score}</h3>
-          </div>
-          <div className="flex flex-col md:flex-row space-y-8 w-3/4 md:space-x-8 md:space-y-0">
-            <div className="flex flex-col space-y-4">
-              <h5 className="text-2xl font-bold">Top Contribution</h5>
-              <h3 className="text-4xl font-bold">
-                {
-                  prettyReasons[
-                    Object.entries(score.reasons).sort(
-                      (a, b) => b[1].score - a[1].score
-                    )[0][0]
-                  ].completed
-                }
-              </h3>
-            </div>
-            <div className="flex flex-col space-y-4">
-              <h5 className="text-2xl font-bold">Split Address</h5>
-              <div
-                onClick={() => setClickedCopy(true)}
-                className="text-4xl font-bold underline flex flex-row space-x-4 items-center cursor-pointer">
-                {clickedCopy ? (
-                  <CopyCheck className="h-8 w-8" />
-                ) : (
-                  <Copy className="h-8 w-8" />
-                )}
-                <span>
-                  {process.env.NEXT_PUBLIC_SPLIT_ADDRESS.slice(0, 6)}...
-                </span>
-              </div>
-            </div>
-          </div>
+        <div className="flex flex-col items-center justify-center z-10 w-full bg-[#34C057] py-2">
+          <h4 className="text-neutral-800 text-base font-bold">
+            Your Streamz score is
+          </h4>
+          <h2 className="text-neutral-800 text-8xl font-bold">{score.score}</h2>
         </div>
       </div>
-      <div className="flex flex-col w-full py-8">
+      <div className="flex flex-col w-full py-8 px-8">
         <h4 className="text-2xl font-bold py-4">Increase Your Score</h4>
         <div className="flex flex-col md:flex-row gap-3 flex-wrap">
           {Object.entries(prettyReasons).map(([id, reason], index) => {
@@ -170,6 +144,9 @@ const ScoreResults = () => {
                         className="text-sm font-medium underline">
                         {reason.incomplete}
                       </h3>
+                      <div className="h-6 w-6">
+                        <ChevronRight />
+                      </div>
                     </>
                   ) : (
                     <>
@@ -193,11 +170,12 @@ const ScoreResults = () => {
                         className="text-sm font-medium underline">
                         {reason.completed}
                       </h3>
+                      <p className="text-zinc-400 text-sm font-light">
+                        {score?.reasons[id].score}
+                        pts
+                      </p>
                     </>
                   )}
-                  <div className="h-6 w-6">
-                    <ChevronRight />
-                  </div>
                 </a>
               )
             }
@@ -218,6 +196,9 @@ const ScoreResults = () => {
                         className="text-sm font-medium underline">
                         {reason.incomplete}
                       </h3>
+                      <div className="h-6 w-6">
+                        <ChevronRight />
+                      </div>
                     </>
                   ) : (
                     <>
@@ -241,11 +222,12 @@ const ScoreResults = () => {
                         className="text-sm font-medium underline">
                         {reason.completed}
                       </h3>
+                      <p className="text-zinc-400 text-sm font-light">
+                        {score?.reasons[id].score}
+                        pts
+                      </p>
                     </>
                   )}
-                  <div className="h-6 w-6">
-                    <ChevronRight />
-                  </div>
                 </Link>
               )
             }
@@ -287,6 +269,10 @@ const ScoreResults = () => {
                       className="text-sm font-medium underline">
                       {reason.completed}
                     </h3>
+                    <p className="text-zinc-400 text-sm font-light">
+                      {score?.reasons[id].score}
+                      pts
+                    </p>
                   </>
                 )}
               </div>

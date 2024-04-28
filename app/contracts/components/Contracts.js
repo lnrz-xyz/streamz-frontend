@@ -2,6 +2,7 @@ import Image from "next/image"
 import ContractScorePill from "./ContractScorePill"
 import ContractCollectedBadge from "./ContractCollectedBadge"
 import TotalScore from "./TotalScore"
+import Contract from "@/app/components/Contract"
 export const fixedPlaceholder = contractAddress => {
   // parse contract address as a number and modulo by the 5 placeholders
   const placeholderIndex = parseInt(contractAddress, 16) % 5
@@ -38,42 +39,11 @@ export default function Contracts({ contracts }) {
       )}
       <div className="flex flex-col md:flex-row space-x-3 w-full flex-wrap">
         {contracts?.map((contract, index) => (
-          <a
-            href={`https://mint.fun/base/${contract.contractAddress}`}
-            target="_blank"
-            rel="noreferrer"
-            key={contract.contractAddress}
-            className="flex flex-col z-0 space-y-2 group py-2 px-4 items-center w-64 relative">
-            <div className="absolute top-6 right-6 z-10">
-              <ContractScorePill contractAddress={contract.contractAddress} />
-            </div>
-            <div className="absolute top-6 left-6 z-10">
-              <ContractCollectedBadge
-                contractAddress={contract.contractAddress}
-              />
-            </div>
-            <div className="relative h-full w-full rounded-2xl overflow-hidden aspect-square">
-              <Image
-                src={
-                  contract.metadata.imageUrl ||
-                  fixedPlaceholder(contract.contractAddress)
-                }
-                alt={contract.metadata.name}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-            <div className="flex flex-col space-y-1 relative w-full pb-2">
-              <div className="text-base font-bold">
-                {contract.metadata.name || contract.contractAddress}
-              </div>
-              {contract.metadata.description && (
-                <div className="text-sm font-normal">
-                  {contract.metadata.description}
-                </div>
-              )}
-            </div>
-          </a>
+          <Contract
+            key={contract.address}
+            contract={contract}
+            imageClassName={"w-32"}
+          />
         ))}
       </div>
     </div>
