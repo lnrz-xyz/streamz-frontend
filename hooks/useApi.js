@@ -1,5 +1,5 @@
 import { useCallback } from "react"
-import { AUTH_TOKEN_LS_KEY, useAuthToken } from "./useAuthToken"
+import { AUTH_TOKEN_LS_KEY, useAuthToken } from "@/hooks/useAuthToken"
 
 const useApi = () => {
   const { data: token, refetch } = useAuthToken()

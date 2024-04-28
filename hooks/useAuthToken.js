@@ -1,5 +1,4 @@
-"use client"
-import { useCallback, useEffect } from "react"
+import { useCallback } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useAccount, useSignMessage } from "wagmi"
 

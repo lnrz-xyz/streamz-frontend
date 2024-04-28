@@ -9,7 +9,7 @@ export const useConnectedAccounts = () => {
 
   const query = async () => {
     const resp = await get(`/connected/accounts`)
-    console.log("resp", resp)
+
     return resp?.accounts
   }
 

@@ -1,5 +1,5 @@
-import useApi from "./useApi"
-import { useAuthToken } from "./useAuthToken"
+import useApi from "@/hooks/useApi"
+import { useAuthToken } from "@/hooks/useAuthToken"
 import { useQuery } from "@tanstack/react-query"
 
 export const useScore = () => {
@@ -9,7 +9,7 @@ export const useScore = () => {
 
   const query = async () => {
     const resp = await get(`/score/me`)
-    console.log("resp", resp)
+
     return resp
   }
 

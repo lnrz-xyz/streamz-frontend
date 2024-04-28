@@ -1,8 +1,16 @@
 import Image from "next/image"
+import ContractScorePill from "./ContractScorePill"
+import ContractCollectedBadge from "./ContractCollectedBadge"
+export const fixedPlaceholder = contractAddress => {
+  // parse contract address as a number and modulo by the 5 placeholders
+  const placeholderIndex = parseInt(contractAddress, 16) % 5
+  return `/score-${placeholderIndex + 1}.png`
+}
+
 export default function Contracts({ contracts }) {
   return (
     <div className="flex flex-col space-y-4 w-full px-4 py-4">
-      <h4 className="text-4xl font-bold">Mints</h4>
+      <h4 className="text-2xl font-bold">Collections</h4>
       {(!contracts || contracts?.length === 0) && (
         <div className="text-lg font-normal text-zinc-400">
           No mints yet. Be the first to create with Streamz by going to{" "}
@@ -24,34 +32,32 @@ export default function Contracts({ contracts }) {
           , creating a collection, and adding us as an 0xSplit.
         </div>
       )}
-      <div className="flex flex-col md:flex-row space-x-3 w-full flex-wrap justify-evenly">
+      <div className="flex flex-col md:flex-row space-x-3 w-full flex-wrap">
         {contracts?.map((contract, index) => (
           <a
             href={`https://mint.fun/base/${contract.contractAddress}`}
             target="_blank"
             rel="noreferrer"
             key={contract.contractAddress}
-            className="flex flex-col space-y-3 group relative py-2 px-4 items-center md:w-[%18]">
-            <div className="absolute inset-0 transition-opacity duration-100 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]" />
-            <div className="absolute top-6 left-6 rounded-full bg-foreground text-sm text-background font-bold px-4 py-1 z-30">
-              hover to play song
+            className="flex flex-col z-0 space-y-2 group py-2 px-4 items-center w-64 relative">
+            <div className="absolute top-6 right-6 z-10">
+              <ContractScorePill contractAddress={contract.contractAddress} />
             </div>
-            <div className="w-full aspect-square bg-green-500 rounded-2xl relative overflow-hidden">
-              <Image
-                src={contract.metadata.imageUrl || "/community.png"}
-                alt={contract.metadata.name || contract.contractAddress}
-                fill
-                className="object-cover"
+            <div className="absolute top-6 left-6 z-10">
+              <ContractCollectedBadge
+                contractAddress={contract.contractAddress}
               />
-              <div className="hover:cursor-pointer absolute bottom-4 right-4 transform translate-y-[8px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 ease-in-out duration-200 transition-all bg-primary rounded-full p-3 hover:scale-105">
-                <Image
-                  src="/play.svg"
-                  alt="play button"
-                  height={28}
-                  width={28}
-                  className="fill-black object-contain"
-                />
-              </div>
+            </div>
+            <div className="relative h-full w-full rounded-2xl overflow-hidden aspect-square">
+              <Image
+                src={
+                  contract.metadata.imageUrl ||
+                  fixedPlaceholder(contract.contractAddress)
+                }
+                alt={contract.metadata.name}
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <div className="flex flex-col space-y-1 relative w-full pb-2">
               <div className="text-base font-bold">

@@ -2,6 +2,8 @@ import Header from "@/app/components/Header"
 import ConnectButton from "@/app/components/ConnectButton"
 import Footer from "@/app/components/Footer"
 import Contracts from "./components/Contracts"
+import FeaturedContracts from "./components/FeaturedContracts"
+import HomeButton from "../components/HomeButton"
 
 /*
 type GetTokenInfoResponse struct {
@@ -16,22 +18,26 @@ export default async function contracts() {
     cache: "no-store",
   })
   const { contracts } = await contractsResp.json()
-  const infoResp = await fetch(`${process.env.API_URL}/info`, {
-    cache: "no-store",
-  })
-  const { totalHolders } = await infoResp.json()
+
+  const featuredResp = await fetch(
+    `${process.env.API_URL}/contracts/featured`,
+    {
+      cache: "no-store",
+    }
+  )
+
+  const { featuredContracts } = await featuredResp.json()
 
   return (
     <main className="relative flex w-screen min-h-screen flex-col pb-16">
-      <div className="absolute top-4 right-8 z-10">
+      <div className="absolute top-4 right-8 z-10 flex flex-row space-x-2 h-11">
+        <HomeButton />
         <ConnectButton />
       </div>
-      <div className="min-h-screen">
-        <Header holderCount={totalHolders} />
+      <div className="min-h-screen flex flex-col space-y-24">
+        <FeaturedContracts featuredContracts={featuredContracts} />
         <Contracts contracts={contracts} />
       </div>
-
-      <Footer />
     </main>
   )
 }

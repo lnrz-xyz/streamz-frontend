@@ -72,7 +72,7 @@ const ConnectButton = () => {
   return (
     <button
       onClick={open}
-      className="flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11 transform hover:scale-105 transition-transform duration-200">
+      className="flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11 transform hover:scale-105 transition-transform duration-200 border-0">
       <div className="text-lg font-bold">Connect</div>
     </button>
   )
@@ -97,7 +97,7 @@ const Dropdown = () => {
         <Button
           variant="outline"
           className={
-            "flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11 hover:scale-105 transition-transform duration-200"
+            "flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11 hover:scale-105 transition-transform duration-200 border-0"
           }>
           <div className="text-lg font-bold">{address.substring(0, 5)}...</div>
           <ChevronDown className="h-6 w-6" />

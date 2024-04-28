@@ -8,7 +8,7 @@ import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation
 import Link from "next/link"
 
 const prettyReasons = {
-  "streamz nft": {
+  "streamz nfts": {
     completed: "Holds Streamz Related NFTs",
     incomplete: "Acquire Streamz Related NFTs",
     selfLink: "/contracts",
@@ -62,6 +62,9 @@ const ScoreResults = () => {
   const [clickedCopy, setClickedCopy] = useState(false)
 
   useEffect(() => {
+    console.log("score", score)
+  }, [score])
+  useEffect(() => {
     if (clickedCopy) {
       toast.success("Copied split address to clipboard!")
       navigator.clipboard.writeText(process.env.NEXT_PUBLIC_STREAMZ_ADDRESS)
@@ -71,28 +74,9 @@ const ScoreResults = () => {
     }
   }, [clickedCopy])
 
-  const topContributions = useMemo(() => {
-    console.log("score", score)
-    const sorted = score?.reasons.sort((a, b) => b.score - a.score) ?? []
-    return sorted
-      .slice(0, 5)
-      .map(reason => prettyReasons[reason.reason].completed)
-  }, [score])
-
-  const notCompleted = useMemo(() => {
-    // use pretty reasons (all the reasons) and return all the reasons that are not in score.reasons
-    const keys = Object.keys(prettyReasons).filter(
-      reason =>
-        !score?.reasons.some(scoreReason => scoreReason.reason === reason) &&
-        reason !== "signup"
-    )
-
-    return keys.map(reason => prettyReasons[reason])
-  }, [score])
-
   useEffect(() => {
     if (score) {
-      console.log("score", score)
+      console.log("score", score, Object.entries(score.reasons))
       mutate({
         experience: "onboarding",
         metadata: {
@@ -112,7 +96,7 @@ const ScoreResults = () => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-full w-full px-8 py-4">
+    <div className="flex flex-col items-center min-h-full w-full py-4">
       <div className="flex flex-col md:flex-row justify-between w-full space-y-8 md:space-x-8 md:space-y-0 py-4">
         <div className="flex relative w-full md:w-4/12 aspect-square min-h-[40vh]">
           <Image
@@ -132,7 +116,13 @@ const ScoreResults = () => {
             <div className="flex flex-col space-y-4">
               <h5 className="text-2xl font-bold">Top Contribution</h5>
               <h3 className="text-4xl font-bold">
-                {prettyReasons[score.reasons[0].reason].completed}
+                {
+                  prettyReasons[
+                    Object.entries(score.reasons).sort(
+                      (a, b) => b[1].score - a[1].score
+                    )[0][0]
+                  ].completed
+                }
               </h3>
             </div>
             <div className="flex flex-col space-y-4">
@@ -160,6 +150,7 @@ const ScoreResults = () => {
             if (id === "signup") {
               return null
             }
+
             if (reason.link) {
               return (
                 <a
@@ -168,7 +159,7 @@ const ScoreResults = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="h-24 space-x-2 md:min-w-[15%] md:max-w-[30%] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
-                  {!score?.reasons.some(reason => reason.reason === id) ? (
+                  {!Object.entries(score?.reasons).some(r => r[0] === id) ? (
                     <>
                       <div className="h-[22px] w-[22px]">
                         <Badge />
@@ -216,7 +207,7 @@ const ScoreResults = () => {
                   key={`${index}-not`}
                   href={reason.selfLink}
                   className="h-24 space-x-2 md:min-w-[15%] md:max-w-[30%] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
-                  {!score?.reasons.some(reason => reason.reason === id) ? (
+                  {!Object.entries(score?.reasons).some(r => r[0] === id) ? (
                     <>
                       <div className="h-[22px] w-[22px]">
                         <Badge />
@@ -262,7 +253,7 @@ const ScoreResults = () => {
               <div
                 key={`${index}-not`}
                 className="h-24 space-x-2 md:min-w-[15%] md:max-w-[30%] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
-                {!score?.reasons.some(reason => reason.reason === id) ? (
+                {!Object.entries(score?.reasons).some(r => r[0] === id) ? (
                   <>
                     <div className="h-[22px] w-[22px]">
                       <Badge />

@@ -9,7 +9,7 @@ export const useConnectedAddresses = () => {
 
   const query = async () => {
     const resp = await get(`/connected/addresses`)
-    console.log("resp", resp)
+
     return resp?.evmAddresses
   }
 

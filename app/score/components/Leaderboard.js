@@ -12,7 +12,7 @@ const Leaderboard = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-full w-full px-8">
+    <div className="flex flex-col min-h-full w-full">
       <h4 className="text-2xl font-bold">Leaderboard</h4>
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between pt-4">
         <div className="flex flex-col w-full">
