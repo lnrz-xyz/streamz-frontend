@@ -8,6 +8,9 @@ function getToken() {
   return localStorage.getItem(AUTH_TOKEN_LS_KEY)
 }
 
+const prepend =
+  "Streamz uses this random string to verify whether you own the address you are signing with: "
+
 // Function to decode the JWT
 function decodeToken(token) {
   const base64Url = token.split(".")[1] // Get the payload part
@@ -58,7 +61,7 @@ export const useAuthToken = () => {
 
     const sig = await signMessageAsync({
       account: address,
-      message: nonce,
+      message: prepend + nonce,
     })
 
     const lresp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
