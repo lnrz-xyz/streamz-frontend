@@ -130,7 +130,7 @@ export const SoundDialogContent = () => {
   const steps = [
     {
       title: "Create With Sound",
-      description: "Create a derivative NFT with sound",
+      description: "Create a derivative NFT with Sound on the Base Network",
       image: "/sound-upload.png",
       actionBubbleText: "sound.xyz/create",
       actionBubbleLink: "https://sound.xyz/create",
@@ -138,7 +138,8 @@ export const SoundDialogContent = () => {
     },
     {
       title: "Add Split",
-      description: "Use 0xSplits to give Streamz a percentage",
+      description:
+        "Use 0xSplits to give Streamz a percentage. Double check the release is on the Base Network.",
       image: "/sound-split.png",
       actionBubbleText:
         process.env.NEXT_PUBLIC_SPLIT_ADDRESS.slice(0, 6) + "...",
