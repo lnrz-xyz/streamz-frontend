@@ -4,6 +4,7 @@ import { useScore } from "@/hooks/useScore"
 import { toast } from "sonner"
 import { useEffect, useMemo, useState } from "react"
 import {
+  ArrowUpRight,
   Badge,
   CheckCircle,
   ChevronRight,
@@ -148,11 +149,12 @@ const ScoreResults = () => {
       <div className="flex flex-col w-full h-14 bg-[#34C057] items-center justify-center">
         <Dialog>
           <DialogTrigger
-            className="flex flex-row items-center justify-center border border-background px-4 py-1 rounded-full transform hover:scale-105 transition-transform duration-200"
+            className="flex flex-row items-center justify-center px-4 py-1 rounded-full underline text-background space-x-1"
             onClick={getShareLink}>
             <p className="text-base font-bold text-background">
               Share Score as Farcaster Frame
             </p>
+            <ArrowUpRight size={16} className="text-background" />
           </DialogTrigger>
           <DialogContent className="max-w-md border-0 px-[-8px]">
             {!fetchingShareLink ? (
