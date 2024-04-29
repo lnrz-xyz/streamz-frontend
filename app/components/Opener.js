@@ -36,7 +36,7 @@ export default function Opener({
 
           <div className="flex flex-row space-x-4">
             <a
-              href="https://warpcast.com/streamzonbase"
+              href="https://warpcast.com/~/channel/streamz"
               target="_blank"
               rel="noreferrer"
               className="relative h-[18px] w-[17px]">

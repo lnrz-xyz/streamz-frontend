@@ -51,7 +51,7 @@ const prettyReasons = {
   "farcaster follows lnrz": {
     completed: "Follows LNRZ/STREAMZ on Farcaster",
     incomplete: "Follow LNRZ/STREAMZ on Farcaster",
-    link: "https://warpcast.com/streamzonbase",
+    link: "https://warpcast.com/~/channel/streamz",
   },
   "farcaster account": {
     completed: "Connected Farcaster account",

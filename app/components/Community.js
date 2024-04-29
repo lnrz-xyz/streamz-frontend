@@ -23,7 +23,7 @@ export default function Community() {
         </div>
         <div className="flex flex-col space-y-4 md:w-1/3 w-full">
           <a
-            href="https://warpcast.com/streamzonbase"
+            href="https://warpcast.com/~/channel/streamz"
             target="_blank"
             rel="noreferrer"
             className="flex flex-row space-x-4 items-center justify-start group relative p-2">
