@@ -157,11 +157,11 @@ export const SoundDialogContent = () => {
 
   return (
     <DialogContent className="max-w-md border-0 px-[-8px]">
-      <div className="w-full h-56 relative rounded-t-md overflow-hidden">
+      <div className="w-full h-64 relative rounded-t-md overflow-hidden">
         <Image
           alt="Profile Picture"
           src={steps[step].image}
-          objectFit="cover"
+          objectFit="contain"
           fill
         />
       </div>
@@ -282,11 +282,11 @@ export const ZoraDialogContent = () => {
 
   return (
     <DialogContent className="max-w-md border-0 px-[-8px]">
-      <div className="w-full h-56 relative rounded-t-md overflow-hidden">
+      <div className="w-full h-64 relative rounded-t-md overflow-hidden">
         <Image
           alt="Profile Picture"
           src={steps[step].image}
-          objectFit="cover"
+          objectFit="contain"
           fill
         />
       </div>
