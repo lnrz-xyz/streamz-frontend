@@ -113,6 +113,18 @@ const ScoreResults = () => {
     }
   }, [score, mutate, isPending])
 
+  const getShareLink = useCallback(
+    async (airdrop = 0) => {
+      setFetchingShareLink(true)
+
+      const data = await get(`/score/me/share?airdrop=${airdrop}`)
+
+      setShareLink(data.link)
+      setFetchingShareLink(false)
+    },
+    [get]
+  )
+
   useEffect(() => {
     if (score && !isPendingExperiences) {
       console.log("experiences", experienceData)
@@ -136,18 +148,6 @@ const ScoreResults = () => {
       }
     }
   }, [score, experienceData, isPendingExperiences, mutate, getShareLink])
-
-  const getShareLink = useCallback(
-    async (airdrop = 0) => {
-      setFetchingShareLink(true)
-
-      const data = await get(`/score/me/share?airdrop=${airdrop}`)
-
-      setShareLink(data.link)
-      setFetchingShareLink(false)
-    },
-    [get]
-  )
 
   if (!score) {
     return (
