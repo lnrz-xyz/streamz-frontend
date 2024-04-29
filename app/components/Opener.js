@@ -28,7 +28,7 @@ export default function Opener({
                 href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
                 target="_blank"
                 rel="noreferrer"
-                className="border-foreground border rounded-full px-4 py-2 text-base font-bold justify-center items-center gap-2.5 inline-flex">
+                className="border-foreground border rounded-full px-4 py-2 text-base font-bold justify-center items-center gap-2.5 inline-flex transform hover:scale-105 transition-transform duration-200 border-0">
                 BUY STREAMZ
               </a>
             </div>
