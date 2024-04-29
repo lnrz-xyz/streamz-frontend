@@ -2,24 +2,18 @@
 import Image from "next/image"
 import { useScore } from "@/hooks/useScore"
 import { toast } from "sonner"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useCallback, useState } from "react"
 import {
   ArrowUpRight,
   Badge,
   CheckCircle,
   ChevronRight,
   Copy,
-  CopyCheck,
   Loader2,
 } from "lucide-react"
 import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation"
 import Link from "next/link"
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogClose,
-} from "@/components/ui/dialog"
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import useApi from "@/hooks/useApi"
 import { useExperiences } from "@/hooks/useExperiences"
