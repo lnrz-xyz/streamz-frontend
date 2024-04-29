@@ -6,6 +6,7 @@ import {
   CheckCircle,
   CircleArrowRight,
   Clipboard,
+  Copy,
   LinkIcon,
   PlusCircle,
 } from "lucide-react"
@@ -366,7 +367,7 @@ const CopyIcon = ({ copied }) => {
   if (copied) {
     return <CheckCircle size={16} color="rgb(212 212 212)" />
   }
-  return <Clipboard size={16} color="rgb(212 212 212)" />
+  return <Copy size={16} color="rgb(212 212 212)" />
 }
 
 export default Directions

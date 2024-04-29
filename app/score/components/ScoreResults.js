@@ -3,9 +3,24 @@ import Image from "next/image"
 import { useScore } from "@/hooks/useScore"
 import { toast } from "sonner"
 import { useEffect, useMemo, useState } from "react"
-import { Badge, ChevronRight, Copy, CopyCheck, Loader2 } from "lucide-react"
+import {
+  Badge,
+  CheckCircle,
+  ChevronRight,
+  Copy,
+  CopyCheck,
+  Loader2,
+} from "lucide-react"
 import { useUpsertExperienceMutation } from "@/hooks/useUpsertExperienceMutation"
 import Link from "next/link"
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import useApi from "@/hooks/useApi"
 
 const prettyReasons = {
   "streamz nfts": {
@@ -63,19 +78,23 @@ const ScoreResults = () => {
   const { data: score, isPending } = useScore()
   const { mutate } = useUpsertExperienceMutation()
   const [clickedCopy, setClickedCopy] = useState(false)
+  const [shareLink, setShareLink] = useState("")
+  const [fetchingShareLink, setFetchingShareLink] = useState(false)
+
+  const { get } = useApi()
 
   useEffect(() => {
     console.log("score", score)
   }, [score])
   useEffect(() => {
-    if (clickedCopy) {
-      toast.success("Copied split address to clipboard!")
-      navigator.clipboard.writeText(process.env.NEXT_PUBLIC_SPLIT_ADDRESS)
+    if (clickedCopy && shareLink) {
+      toast.success("Copied share link to clipboard!")
+      navigator.clipboard.writeText(shareLink)
       setTimeout(() => {
         setClickedCopy(false)
       }, 2000)
     }
-  }, [clickedCopy])
+  }, [shareLink, clickedCopy])
 
   useEffect(() => {
     if (score) {
@@ -89,9 +108,18 @@ const ScoreResults = () => {
     }
   }, [score, mutate, isPending])
 
+  const getShareLink = async () => {
+    setFetchingShareLink(true)
+
+    const data = await get(`/score/me/share`)
+
+    setShareLink(data.link)
+    setFetchingShareLink(false)
+  }
+
   if (!score) {
     return (
-      <div className="h-full w-full flex flex-col space-y-8 items-center justify-center">
+      <div className="min-h-screen h-full w-full flex flex-col space-y-8 items-center justify-center">
         <h3 className="text-2xl font-bold">Loading score...</h3>
         <Loader2 className="animate-spin" size={64} />
       </div>
@@ -110,15 +138,86 @@ const ScoreResults = () => {
             style={{ objectFit: "contain" }}
           />
         </div>
-        <div className="flex flex-col items-center justify-center z-10 w-full bg-[#34C057] py-2">
+        <div className="flex flex-col items-center justify-center z-10 w-full bg-[#34C057] py-5">
           <h4 className="text-neutral-800 text-base font-bold">
             Your Streamz score is
           </h4>
           <h2 className="text-neutral-800 text-8xl font-bold">{score.score}</h2>
         </div>
       </div>
+      <div className="flex flex-col w-full h-14 bg-[#34C057] items-center justify-center">
+        <Dialog>
+          <DialogTrigger
+            className="flex flex-row items-center justify-center border border-background px-4 py-1 rounded-full transform hover:scale-105 transition-transform duration-200"
+            onClick={getShareLink}>
+            <p className="text-base font-bold text-background">
+              Share Score as Farcaster Frame
+            </p>
+          </DialogTrigger>
+          <DialogContent className="max-w-md border-0 px-[-8px]">
+            {!fetchingShareLink ? (
+              <>
+                <div className="flex flex-col space-y-4 p-8 items-center justify-between">
+                  <div className="flex flex-col space-y-2 items-center justify-center">
+                    <h2 className="text-xl font-bold">
+                      Share Frame on Warpcast
+                    </h2>
+                    <p className="text-center text-sm">
+                      Copy the following link and share it as a Frame on{" "}
+                      <a
+                        href="https://warpcast.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline text-primary font-bold">
+                        Warpcast
+                      </a>{" "}
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full items-center flex flex-col p-4 space-y-4">
+                  <div
+                    onClick={() => {
+                      // copy to clipboard
+                      setClickedCopy(true)
+                    }}
+                    className="hover:cursor-pointer w-full h-11 py-6 bg-neutral-700 rounded-full flex-col justify-center items-center gap-2.5 inline-flex">
+                    <div className="justify-center items-center gap-1 inline-flex">
+                      {clickedCopy ? (
+                        <CheckCircle size={16} color="rgb(212 212 212)" />
+                      ) : (
+                        <Copy size={16} color="rgb(212 212 212)" />
+                      )}
+                      <div className="text-neutral-300 text-sm font-bold">
+                        {clickedCopy
+                          ? "Copied!"
+                          : shareLink.slice(0, 30) +
+                            (shareLink.length > 30 ? "..." : "")}
+                      </div>
+                    </div>
+                  </div>
+                  <a
+                    href="https://warpcast.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full">
+                    <Button className="w-full h-12 text-lg font-bold rounded-full">
+                      Go To Warpcast
+                    </Button>
+                  </a>
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-col p-8 items-center justify-center">
+                <Loader2 className="animate-spin" size={64} />
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
+      </div>
       <div className="flex flex-col w-full py-8 px-8">
-        <h4 className="text-2xl font-bold py-4">Increase Your Score</h4>
+        <div className="flex flex-row space-x-2 py-2">
+          <h4 className="text-2xl font-bold py-4">Increase Your Score</h4>
+        </div>
         <div className="flex flex-col md:flex-row gap-3 flex-wrap">
           {Object.entries(prettyReasons).map(([id, reason], index) => {
             if (id === "signup") {
