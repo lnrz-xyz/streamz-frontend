@@ -175,7 +175,7 @@ const ScoreResults = () => {
                 Share as Frame
               </h4>
             </DialogTrigger>
-            <DialogContent className="max-w-md border-0 px-[-8px]">
+            <DialogContent className="w-screen md:max-w-md border-0 md:px-[-8px] mx-[-12px]">
               {!fetchingShareLink ? (
                 <div className="bg-gradient-to-b from-neutral-700 to-background-100 backdrop-blur-[79.60px] rounded-t-lg">
                   <div className="flex flex-col gap-2.5 items-center justify-between">
@@ -271,7 +271,7 @@ const ScoreResults = () => {
             </p>
             <ArrowUpRight size={16} className="text-background" />
           </DialogTrigger>
-          <DialogContent className="max-w-md border-0 px-[-8px]">
+          <DialogContent className="w-screen md:max-w-md border-0 md:px-[-8px] mx-[-12px]">
             {!fetchingShareLink ? (
               <div className="bg-gradient-to-b from-neutral-700 to-background-100 backdrop-blur-[79.60px] rounded-t-lg">
                 <div className="flex flex-col gap-2.5 items-center justify-between">

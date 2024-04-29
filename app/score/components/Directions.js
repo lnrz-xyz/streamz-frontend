@@ -156,7 +156,7 @@ export const SoundDialogContent = () => {
   ]
 
   return (
-    <DialogContent className="max-w-md border-0 px-[-8px]">
+    <DialogContent className="w-screen md:max-w-md border-0 md:px-[-8px] mx-[-12px]">
       <div className="w-full h-64 relative rounded-t-md overflow-hidden">
         <Image
           alt="Profile Picture"
@@ -281,7 +281,7 @@ export const ZoraDialogContent = () => {
   ]
 
   return (
-    <DialogContent className="max-w-md border-0 px-[-8px]">
+    <DialogContent className="w-screen md:max-w-md border-0 md:px-[-8px] mx-[-12px]">
       <div className="w-full h-64 relative rounded-t-md overflow-hidden">
         <Image
           alt="Profile Picture"
