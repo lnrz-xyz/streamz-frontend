@@ -9,7 +9,7 @@ export default function Contract({ contract, ...props }) {
       target="_blank"
       rel="noreferrer"
       key={contract.contractAddress}
-      className="flex flex-col z-0 space-y-2 group items-center w-64 relative transform hover:scale-105 transition-transform duration-200"
+      className="flex flex-col z-0 space-y-2 group items-center md:w-72 w-full relative transform hover:scale-105 transition-transform duration-200"
       {...props}>
       <div className="relative h-full w-full rounded-2xl overflow-hidden aspect-square">
         <div className="absolute top-2 right-2 z-10">

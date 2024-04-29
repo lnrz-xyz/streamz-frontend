@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import useApi from "@/hooks/useApi"
+import { useExperiences } from "@/hooks/useExperiences"
 
 const prettyReasons = {
   "streamz nfts": {
@@ -78,10 +79,13 @@ const prettyReasons = {
 const ScoreResults = () => {
   const { data: score, isPending } = useScore()
   const { mutate } = useUpsertExperienceMutation()
+  const { data: experienceData, isPending: isPendingExperiences } =
+    useExperiences()
   const [clickedCopy, setClickedCopy] = useState(false)
   const [shareLink, setShareLink] = useState("")
   const [fetchingShareLink, setFetchingShareLink] = useState(false)
 
+  const [airdropOpen, setAirdropOpen] = useState(false)
   const { get } = useApi()
 
   useEffect(() => {
@@ -109,14 +113,41 @@ const ScoreResults = () => {
     }
   }, [score, mutate, isPending])
 
-  const getShareLink = async () => {
-    setFetchingShareLink(true)
+  useEffect(() => {
+    if (score && !isPendingExperiences) {
+      console.log("experiences", experienceData)
+      if (experienceData && experienceData.length > 0) {
+        const hasAirdropExperience = experienceData.some(
+          experience => experience.experienceType === "airdrop"
+        )
+        console.log("hasAirdropExperience", hasAirdropExperience)
+        if (!hasAirdropExperience) {
+          getShareLink(score.airdrop).then(() => {
+            setAirdropOpen(true)
+          })
 
-    const data = await get(`/score/me/share`)
+          mutate({
+            experience: "airdrop",
+            metadata: {
+              airdrop: true,
+            },
+          })
+        }
+      }
+    }
+  }, [score, experienceData, isPendingExperiences, mutate, getShareLink])
 
-    setShareLink(data.link)
-    setFetchingShareLink(false)
-  }
+  const getShareLink = useCallback(
+    async (airdrop = 0) => {
+      setFetchingShareLink(true)
+
+      const data = await get(`/score/me/share?airdrop=${airdrop}`)
+
+      setShareLink(data.link)
+      setFetchingShareLink(false)
+    },
+    [get]
+  )
 
   if (!score) {
     return (
@@ -129,6 +160,96 @@ const ScoreResults = () => {
 
   return (
     <div className="flex flex-col items-center min-h-full w-full">
+      {score.airdrop > 0 && (
+        <div className="w-full flex flex-col md:flex-row items-center justify-between p-4 gap-2.5 fixed bottom-0 bg-gradient-to-r from-fuchsia-700 to-blue-400 z-50">
+          <div className="flex flex-col px-2">
+            <h4 className="text-sm md:text-base font-bold">
+              You received an airdrop
+            </h4>
+            <p className="text-sm md:text-base">
+              For supporting us before we were even a thing, we{"'"}re giving
+              you a little something back. Check your wallet and make sure to
+              share on farcaster!
+            </p>
+          </div>
+
+          <Dialog open={airdropOpen} onOpenChange={setAirdropOpen}>
+            <DialogTrigger
+              className="rounded-full px-8 py-2 md:px-3 md:py-2 bg-foreground text-background flex items-center"
+              onClick={() => getShareLink(score.airdrop)}>
+              <h4 className="text-center text-sm md:text-base font-bold">
+                Share as Frame
+              </h4>
+            </DialogTrigger>
+            <DialogContent className="max-w-md border-0 px-[-8px]">
+              {!fetchingShareLink ? (
+                <div className="bg-gradient-to-b from-neutral-700 to-background-100 backdrop-blur-[79.60px] rounded-t-lg">
+                  <div className="flex flex-col gap-2.5 items-center justify-between">
+                    <div className="h-40 flex flex-col bg-primary z-20 w-full rounded-t-lg items-center justify-center">
+                      <h5 className="text-2xl text-center font-bold text-neutral-800">
+                        You were airdropped
+                      </h5>
+                      <h2 className="text-5xl text-center font-bold text-neutral-800">
+                        {score.airdrop} STRMZ
+                      </h2>
+                    </div>
+                    <div className="flex flex-col space-y-2 items-center justify-center py-8">
+                      <h2 className="text-xl font-bold">
+                        Share Frame on Warpcast
+                      </h2>
+                      <p className="text-center text-sm">
+                        Copy the following link and share it as a Frame on{" "}
+                        <a
+                          href="https://warpcast.com"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline text-primary font-bold">
+                          Warpcast
+                        </a>{" "}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-full items-center flex flex-col p-4 gap-2.5">
+                    <div
+                      onClick={() => {
+                        // copy to clipboard
+                        setClickedCopy(true)
+                      }}
+                      className="hover:cursor-pointer w-full h-11 py-6 bg-neutral-700 rounded-lg flex-col justify-center items-center gap-2.5 inline-flex">
+                      <div className="justify-center items-center gap-1 inline-flex">
+                        {clickedCopy ? (
+                          <CheckCircle size={16} color="rgb(212 212 212)" />
+                        ) : (
+                          <Copy size={16} color="rgb(212 212 212)" />
+                        )}
+                        <div className="text-neutral-300 text-sm font-bold">
+                          {clickedCopy
+                            ? "Copied!"
+                            : shareLink.slice(0, 30) +
+                              (shareLink.length > 30 ? "..." : "")}
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      href="https://warpcast.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full">
+                      <Button className="w-full h-12 text-lg font-bold rounded-full">
+                        Go To Warpcast
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col p-8 items-center justify-center">
+                  <Loader2 className="animate-spin" size={64} />
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
+        </div>
+      )}
       <div className="flex flex-col w-full justify-center items-center bg-[#34C057] h-[31rem] relative">
         <div className="absolute h-full aspect-square z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Image
@@ -150,7 +271,7 @@ const ScoreResults = () => {
         <Dialog>
           <DialogTrigger
             className="flex flex-row items-center justify-center px-4 py-1 rounded-full underline text-background space-x-1"
-            onClick={getShareLink}>
+            onClick={() => getShareLink()}>
             <p className="text-base font-bold text-background">
               Share Score as Farcaster Frame
             </p>
@@ -158,9 +279,17 @@ const ScoreResults = () => {
           </DialogTrigger>
           <DialogContent className="max-w-md border-0 px-[-8px]">
             {!fetchingShareLink ? (
-              <>
-                <div className="flex flex-col space-y-4 p-8 items-center justify-between">
-                  <div className="flex flex-col space-y-2 items-center justify-center">
+              <div className="bg-gradient-to-b from-neutral-700 to-background-100 backdrop-blur-[79.60px] rounded-t-lg">
+                <div className="flex flex-col gap-2.5 items-center justify-between">
+                  <div className="h-40 flex flex-col bg-primary z-20 w-full rounded-t-lg items-center justify-center">
+                    <h5 className="text-2xl text-center font-bold text-neutral-800">
+                      Your Score is
+                    </h5>
+                    <h2 className="text-6xl text-center font-bold text-neutral-800">
+                      {score.score}
+                    </h2>
+                  </div>
+                  <div className="flex flex-col space-y-2 items-center justify-center py-8">
                     <h2 className="text-xl font-bold">
                       Share Frame on Warpcast
                     </h2>
@@ -176,13 +305,13 @@ const ScoreResults = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full items-center flex flex-col p-4 space-y-4">
+                <div className="w-full items-center flex flex-col p-4 gap-2.5">
                   <div
                     onClick={() => {
                       // copy to clipboard
                       setClickedCopy(true)
                     }}
-                    className="hover:cursor-pointer w-full h-11 py-6 bg-neutral-700 rounded-full flex-col justify-center items-center gap-2.5 inline-flex">
+                    className="hover:cursor-pointer w-full h-11 py-6 bg-neutral-700 rounded-lg flex-col justify-center items-center gap-2.5 inline-flex">
                     <div className="justify-center items-center gap-1 inline-flex">
                       {clickedCopy ? (
                         <CheckCircle size={16} color="rgb(212 212 212)" />
@@ -207,7 +336,7 @@ const ScoreResults = () => {
                     </Button>
                   </a>
                 </div>
-              </>
+              </div>
             ) : (
               <div className="flex flex-col p-8 items-center justify-center">
                 <Loader2 className="animate-spin" size={64} />
@@ -217,9 +346,8 @@ const ScoreResults = () => {
         </Dialog>
       </div>
       <div className="flex flex-col w-full py-8 px-8">
-        <div className="flex flex-row space-x-2 py-2">
-          <h4 className="text-2xl font-bold py-4">Increase Your Score</h4>
-        </div>
+        <h4 className="text-2xl font-bold py-4">Increase Your Score</h4>
+
         <div className="flex flex-col md:flex-row gap-3 flex-wrap">
           {Object.entries(prettyReasons).map(([id, reason], index) => {
             if (id === "signup") {

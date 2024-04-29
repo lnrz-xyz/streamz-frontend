@@ -13,7 +13,7 @@ import {
 
 const CreateButtons = () => {
   return (
-    <div className="flex flex-row space-x-4">
+    <div className="flex flex-col md:flex-row gap-2.5">
       <Dialog>
         <DialogTrigger className="flex flex-row items-center justify-center border-foreground border p-4 rounded-full">
           <p className="text-base font-bold">Create With Zora</p>

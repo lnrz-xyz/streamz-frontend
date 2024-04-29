@@ -34,12 +34,12 @@ const Directions = ({ contracts }) => {
   }
 
   return (
-    <div className="flex flex-col space-y-4 px-8">
+    <div className="flex flex-col gap-2.5 px-8">
       <h3 className="text-2xl font-bold">Large Bounties</h3>
 
-      <div className="flex flex-col md:flex-row w-full h-64 space-x-4">
+      <div className="flex flex-col md:flex-row w-full md:h-64 gap-2.5">
         {scoreData?.liquidity && (
-          <div className="md:flex-[0.38] w-full h-full bg-neutral-800 rounded-2xl flex-col justify-between px-4 py-8 space-y-6">
+          <div className="flex-1 md:flex-[0.38] w-full h-64 bg-neutral-800 rounded-2xl flex-col justify-between px-4 py-8 space-y-6">
             <div className="flex flex-row justify-between items-center">
               <h4 className="text-2xl font-bold">LP Liquidity</h4>
               <a
@@ -61,7 +61,7 @@ const Directions = ({ contracts }) => {
           </div>
         )}
         {contracts && contracts.length > 0 && (
-          <div className="md:flex-[0.38] w-full h-full bg-neutral-800 rounded-2xl cursor flex flex-col px-4 py-8 overflow-hidden relative z-20">
+          <div className="flex-1 md:flex-[0.38] h-64 w-full bg-neutral-800 rounded-2xl cursor flex flex-col px-4 py-8 overflow-hidden relative z-20">
             <div className="flex flex-row justify-between items-center">
               <h4 className="text-2xl font-bold">Derivative Collections</h4>
               {contracts.length < 4 && (
@@ -85,10 +85,10 @@ const Directions = ({ contracts }) => {
             )}
           </div>
         )}
-        <div className="md:flex-[0.24] w-full h-full bg-neutral-800 rounded-2xl px-3 py-6">
-          <div className="flex flex-col space-y-6">
+        <div className="flex-1 md:flex-[0.24] w-full h-64 bg-neutral-800 rounded-2xl px-3 py-6">
+          <div className="flex flex-col gap-4">
             <h3 className="text-2xl font-bold">Create Derivative NFTs</h3>
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col gap-2">
               <Dialog>
                 <DialogTrigger className="flex flex-row items-center justify-center space-x-1 h-16 bg-neutral-700 rounded-lg transform hover:scale-105 transition-transform duration-200">
                   <p className="text-neutral-300 text-sm font-bold">
@@ -253,29 +253,30 @@ export const ZoraDialogContent = () => {
 
   const steps = [
     {
-      title: "Create With Sound",
-      description: "Create a derivative NFT with sound",
-      image: "/airdrop.png",
-      actionBubbleText: "sound.xyz/create",
-      actionBubbleLink: "https://sound.xyz/create",
+      title: "Create With Zora",
+      description:
+        "Create a derivative on Base Network with Zora. Make sure to switch your network to Base.",
+      image: "/zora-base.png",
+      actionBubbleText: "zora.co/create",
+      actionBubbleLink: "https://zora.co/create",
       actionBubbleIcon: <LinkIcon size={16} color="rgb(212 212 212)" />,
     },
     {
-      title: "Add Split",
-      description: "Use 0xSplits to give Streamz a percentage",
-      image: "/airdrop.png",
-      actionBubbleText:
-        process.env.NEXT_PUBLIC_STREAMZ_ADDRESS.slice(0, 6) + "...",
-      actionBubbleIcon: <CopyIcon copied={copied} />,
-      action: () => {
-        navigator.clipboard.writeText(process.env.NEXT_PUBLIC_STREAMZ_ADDRESS)
-        setCopied(true)
-      },
+      title: "Advanced Settings",
+      description: "Go to advanced settings",
+      image: "/zora-settings.png",
     },
     {
       title: "Add Split",
       description: "Use 0xSplits to give Streamz a percentage",
-      image: "/airdrop.png",
+      image: "/zora-split.png",
+      actionBubbleText:
+        process.env.NEXT_PUBLIC_SPLIT_ADDRESS.slice(0, 6) + "...",
+      actionBubbleIcon: <CopyIcon copied={copied} />,
+      action: () => {
+        navigator.clipboard.writeText(process.env.NEXT_PUBLIC_SPLIT_ADDRESS)
+        setCopied(true)
+      },
     },
   ]
 

@@ -5,7 +5,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useAccount, useDisconnect } from "wagmi"
-import { ChevronDown, Gem, LineChart, LogOut, User } from "lucide-react"
+import { ChevronDown, Gem, LineChart, LogOut, User, Wallet } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +19,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLogoutMutation } from "@/hooks/useLogoutMutation"
 import { useAuthToken } from "@/hooks/useAuthToken"
+import { useScore } from "@/hooks/useScore"
 
 const ConnectButton = () => {
   const { open } = useWeb3Modal()
@@ -56,7 +57,7 @@ const ConnectButton = () => {
       if (!hasOnboardedExperience) {
         router.push("/onboarding")
         mutate({
-          experienceType: "onboarding",
+          experience: "onboarding",
           metadata: {
             onboarding: false,
           },
@@ -82,6 +83,8 @@ const Dropdown = () => {
   const { address } = useAccount()
   const { disconnect } = useDisconnect()
   const [loggingOut, setLoggingOut] = useState(false)
+
+  const { data: scoreData } = useScore()
 
   const { mutate } = useLogoutMutation()
 
@@ -133,6 +136,22 @@ const Dropdown = () => {
           </Link>
         </DropdownMenuGroup>
 
+        {scoreData && scoreData.balance && (
+          <>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <a
+                href={`https://app.uniswap.org/explore/tokens/base/${process.env.NEXT_PUBLIC_STREAMZ_ADDRESS}`}
+                target="_blank"
+                rel="noreferrer">
+                <DropdownMenuItem>
+                  <Wallet className="mr-2 h-4 w-4" />
+                  <span>{scoreData.balance} strmz</span>
+                </DropdownMenuItem>
+              </a>
+            </DropdownMenuGroup>
+          </>
+        )}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="text-red-500"

@@ -29,7 +29,7 @@ export default async function contracts() {
   const { featuredContracts } = await featuredResp.json()
 
   return (
-    <main className="relative flex w-screen min-h-screen flex-col pb-16">
+    <main className="relative flex w-screen min-h-screen flex-col pb-48">
       <div className="absolute top-4 right-8 z-10 flex flex-row space-x-2 h-11">
         <HomeButton />
         <ConnectButton />

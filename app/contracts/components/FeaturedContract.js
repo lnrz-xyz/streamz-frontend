@@ -9,7 +9,7 @@ const FeaturedContract = ({ contract }) => {
       target="_blank"
       rel="noreferrer"
       key={contract.contractAddress}
-      className="flex flex-col space-y-2 group relative items-center h-72 w-1/3 roundex-2xl overflow-hidden">
+      className="flex flex-col space-y-2 group relative items-center h-72 md:w-1/3 roundex-2xl overflow-hidden">
       <div className="relative h-full w-full overflow-hidden rounded-2xl">
         <Image
           src={

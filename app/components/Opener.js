@@ -180,7 +180,7 @@ export default function Opener({
                           />
                         </div>
                         <div className="text-base font-bold">
-                          Streamz Derivative Collections
+                          Streamz Derivatives
                         </div>
                       </div>
                       <div className="md:flex hidden flex-row justify-between items-center w-1/2">

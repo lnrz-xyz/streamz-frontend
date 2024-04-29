@@ -69,7 +69,7 @@ const GetStartedButton = ({ className, ...props }) => {
       if (!hasOnboardedExperience) {
         router.push("/onboarding")
         mutate({
-          experienceType: "onboarding",
+          experience: "onboarding",
           metadata: {
             onboarding: false,
           },

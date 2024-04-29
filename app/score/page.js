@@ -11,7 +11,7 @@ export default async function Score() {
   })
   const { contracts } = await contractsResp.json()
   return (
-    <main className="min-h-screen flex flex-col items-center relative pb-4">
+    <main className="relative flex w-screen min-h-screen flex-col pb-48">
       <div className="absolute top-4 right-8 z-10 flex flex-row space-x-2 h-11">
         <HomeButton />
         <ConnectButton />

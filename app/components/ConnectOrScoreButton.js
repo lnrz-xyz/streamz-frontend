@@ -44,7 +44,7 @@ const ConnectOrScoreButton = ({ className }) => {
       if (!hasOnboardedExperience) {
         router.push("/onboarding")
         mutate({
-          experienceType: "onboarding",
+          experience: "onboarding",
           metadata: {
             onboarding: false,
           },
