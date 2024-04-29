@@ -22,7 +22,7 @@ export default function Tokenomics() {
           <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Initial Community Airdrop</div>
             <div className="text-sm font-normal">
-              20
+              15
               <span className="text-sm font-normal font-['system-ui']">
                 %
               </span>{" "}
@@ -117,7 +117,7 @@ export default function Tokenomics() {
           <div className="flex flex-col space-y-1 relative w-full pb-2">
             <div className="text-base font-bold">Ecosystem Growth</div>
             <div className="text-sm font-normal">
-              15
+              20
               <span className="text-sm font-normal font-['system-ui']">
                 %
               </span>{" "}
