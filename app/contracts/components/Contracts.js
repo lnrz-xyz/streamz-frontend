@@ -40,7 +40,7 @@ export default function Contracts({ contracts }) {
       <div className="flex items-center flex-col md:flex-row gap-2.5 w-full flex-wrap">
         {contracts?.map((contract, index) => (
           <Contract
-            key={contract.address}
+            key={contract.address + index}
             contract={contract}
             imageClassName={"w-32"}
           />

@@ -69,8 +69,13 @@ const Directions = ({ contracts }) => {
               )}
             </div>
             <div className="flex flex-row space-x-4 flex-nowrap overflow-hidden">
-              {contracts.slice(0, 4).map(contract => {
-                return <Contract key={contract.address} contract={contract} />
+              {contracts.slice(0, 4).map((contract, index) => {
+                return (
+                  <Contract
+                    key={contract.address + index}
+                    contract={contract}
+                  />
+                )
               })}
             </div>
             {contracts.length >= 4 && (

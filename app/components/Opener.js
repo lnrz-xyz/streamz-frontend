@@ -202,15 +202,13 @@ export default function Opener({
           <div className="flex flex-col w-full md:w-1/3 space-y-4">
             <h4 className="text-2xl font-bold">About</h4>
             <p className="text-base font-normal">
-              Welcome to Streamz, where we{"'"}re shaking up how artists get
-              paid.
+              Streamz is redefining the notion of onchain music communities. We
+              {"'"}re building a world where listeners can participate in
+              creation alongside artists
             </p>
             <p className="text-base font-normal">
-              Right now, The big Green Giant dishes out a measly $0.003 per
-              stream, hardly enough unless you{"'"}re topping charts.
-            </p>
-            <p className="text-base font-normal">
-              We{"'"}re redefining the true value of 1M streamz
+              SZN 1 starts now and the mission is to earn points towards the
+              next airdrop by creating and collecting.
             </p>
           </div>
         </div>
