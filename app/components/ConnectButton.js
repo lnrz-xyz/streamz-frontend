@@ -146,7 +146,7 @@ const Dropdown = () => {
                 rel="noreferrer">
                 <DropdownMenuItem>
                   <Wallet className="mr-2 h-4 w-4" />
-                  <span>{scoreData.balance} strmz</span>
+                  <span>{scoreData.balance} STRM</span>
                 </DropdownMenuItem>
               </a>
             </DropdownMenuGroup>

@@ -69,7 +69,7 @@ export default function Community() {
             </div>
             <div className="flex flex-col">
               <div className="text-base font-bold">Base</div>
-              <div className="text-sm font-normal">STRMZ</div>
+              <div className="text-sm font-normal">STRM</div>
             </div>
           </a>
         </div>

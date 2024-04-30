@@ -184,7 +184,7 @@ const ScoreResults = () => {
                         You were airdropped
                       </h5>
                       <h2 className="text-5xl text-center font-bold text-neutral-800">
-                        {score.airdrop} STRMZ
+                        {score.airdrop} STRM
                       </h2>
                     </div>
                     <div className="flex flex-col space-y-2 items-center justify-center py-8">
