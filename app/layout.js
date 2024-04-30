@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import Web3ModalProvider from "@/context/WalletConnect"
 import { Toaster } from "@/components/ui/sonner"
 import { AudioContextProvider } from "@/app/components/PlayButton"
+import { Analytics } from "@vercel/analytics/react"
 
 const Circular = localFont({
   src: [
@@ -81,6 +82,7 @@ export default function RootLayout({ children }) {
             defaultTheme="dark"
             enableSystem={false}
             disableTransitionOnChange>
+            <Analytics />
             <AudioContextProvider>{children}</AudioContextProvider>
             <Toaster />
           </ThemeProvider>
