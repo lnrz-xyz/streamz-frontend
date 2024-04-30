@@ -86,7 +86,7 @@ const ScoreResults = () => {
   const [airdropOpen, setAirdropOpen] = useState(false)
   const { get } = useApi()
 
-  const completedReasons = Object.entries(score?.reasons).filter(
+  const completedReasons = Object.entries(score?.reasons)?.filter(
     ([id, reason]) => reason.score > 0
   )
 
