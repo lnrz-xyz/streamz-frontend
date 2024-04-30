@@ -45,7 +45,7 @@ export default function Contracts({ contracts }) {
           , creating a collection, and adding us as an 0xSplit.
         </div>
       )}
-      <div className="flex items-center flex-col md:flex-row gap-2.5 w-full flex-wrap">
+      <div className="flex flex-col md:flex-row gap-2.5 w-full flex-wrap">
         {contracts?.map((contract, index) => (
           <Contract key={contract.address + index} contract={contract} />
         ))}
