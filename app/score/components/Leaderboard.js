@@ -38,8 +38,11 @@ const Leaderboard = () => {
                         className="object-cover"
                       />
                     </div>
+
                     <div className="text-base font-bold">
-                      {position.address.slice(0, 12)}...
+                      {position.displayName
+                        ? position.displayName
+                        : `${position.address.slice(0, 12)}...`}
                     </div>
                   </div>
                   <div className="flex flex-row justify-between items-center w-1/2">
