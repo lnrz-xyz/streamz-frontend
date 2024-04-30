@@ -74,6 +74,7 @@ const Directions = ({ contracts }) => {
                   <Contract
                     key={contract.address + index}
                     contract={contract}
+                    showDescription={false}
                   />
                 )
               })}

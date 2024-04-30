@@ -3,7 +3,7 @@ import Image from "next/image"
 import ContractScorePill from "../contracts/components/ContractScorePill"
 import { fixedPlaceholder } from "../contracts/components/Contracts"
 
-export default function Contract({ contract, ...props }) {
+export default function Contract({ contract, showDescription, ...props }) {
   return (
     <a
       href={
@@ -37,7 +37,7 @@ export default function Contract({ contract, ...props }) {
         <div className="text-base font-bold">
           {contract.metadata.name || contract.contractAddress}
         </div>
-        {contract.metadata.description && (
+        {contract.metadata.description && showDescription && (
           <div className="text-sm font-normal">
             {contract.metadata.description}
           </div>
