@@ -128,7 +128,7 @@ export const SoundDialogContent = () => {
     {
       title: "Create With Sound",
       description: "Create a derivative NFT with Sound on the Base Network",
-      image: "/sound-upload.png",
+      image: "/sound-upload.jpg",
       actionBubbleText: "sound.xyz/create",
       actionBubbleLink: "https://sound.xyz/create",
       actionBubbleIcon: <LinkIcon size={16} color="rgb(212 212 212)" />,
@@ -137,7 +137,7 @@ export const SoundDialogContent = () => {
       title: "Add Split",
       description:
         "Use 0xSplits to give Streamz a percentage. Double check the release is on the Base Network.",
-      image: "/sound-split.png",
+      image: "/sound-split.jpg",
       actionBubbleText:
         process.env.NEXT_PUBLIC_SPLIT_ADDRESS.slice(0, 6) + "...",
       actionBubbleIcon: <CopyIcon copied={copied} />,
@@ -149,7 +149,7 @@ export const SoundDialogContent = () => {
     {
       title: "Release",
       description: "Release your song to the masses!",
-      image: "/sound-confirm.png",
+      image: "/sound-confirm.jpg",
     },
   ]
 
