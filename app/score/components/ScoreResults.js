@@ -197,10 +197,10 @@ const ScoreResults = () => {
                 <div className="bg-gradient-to-b from-neutral-700 to-background-100 backdrop-blur-[79.60px] rounded-t-lg">
                   <div className="flex flex-col gap-2.5 items-center justify-between">
                     <div className="h-40 flex flex-col bg-[#4100f4] z-20 w-full rounded-t-lg items-center justify-center">
-                      <h5 className="text-2xl text-center font-bold text-neutral-800">
+                      <h5 className="text-2xl text-center font-bold text-foreground">
                         You were airdropped
                       </h5>
-                      <h2 className="text-5xl text-center font-bold text-neutral-800">
+                      <h2 className="text-5xl text-center font-bold text-foreground">
                         {score.airdrop} STRM
                       </h2>
                     </div>
