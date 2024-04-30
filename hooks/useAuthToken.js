@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useAccount, useSignMessage } from "wagmi"
 
@@ -37,51 +37,66 @@ function isTokenExpired(token) {
 export const useAuthToken = () => {
   const { address } = useAccount()
   const { signMessageAsync } = useSignMessage()
+  const [authing, setAuthing] = useState(false)
 
   const getAuthToken = useCallback(async () => {
-    console.log("getting auth token with", address)
-    const curToken = getToken()
-    console.log("curToken", curToken)
-    if (curToken) {
-      if (isTokenExpired(curToken)) {
-        console.log("removing expired token")
-        localStorage.removeItem(AUTH_TOKEN_LS_KEY)
-      } else {
-        console.log("using cached token")
-        return curToken
+    if (authing) {
+      return
+    }
+    setAuthing(true)
+    try {
+      console.log("getting auth token with", address)
+      const curToken = getToken()
+      console.log("curToken", curToken)
+      if (curToken) {
+        if (isTokenExpired(curToken)) {
+          console.log("removing expired token")
+          localStorage.removeItem(AUTH_TOKEN_LS_KEY)
+        } else {
+          console.log("using cached token")
+          return curToken
+        }
       }
+      console.log("refetching auth token with", address)
+
+      const resp = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/preflight?evmAddress=${address}`
+      )
+      const { nonce } = await resp.json()
+      console.log("signing nonce with viem", nonce)
+
+      const sig = await signMessageAsync({
+        account: address,
+        message: prepend + nonce,
+      })
+
+      const lresp = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            evmAddress: address,
+            signature: sig,
+          }),
+        }
+      )
+
+      const res = await lresp.json()
+
+      if (!res.token) {
+        throw new Error("Token not found")
+      }
+
+      localStorage.setItem(AUTH_TOKEN_LS_KEY, res.token)
+
+      return res.token
+    } catch (e) {
+      console.error(e)
+      return null
+    } finally {
+      setAuthing(false)
     }
-    console.log("refetching auth token with", address)
-
-    const resp = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/auth/preflight?evmAddress=${address}`
-    )
-    const { nonce } = await resp.json()
-    console.log("signing nonce with viem", nonce)
-
-    const sig = await signMessageAsync({
-      account: address,
-      message: prepend + nonce,
-    })
-
-    const lresp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-      method: "POST",
-      body: JSON.stringify({
-        evmAddress: address,
-        signature: sig,
-      }),
-    })
-
-    const res = await lresp.json()
-
-    if (!res.token) {
-      throw new Error("Token not found")
-    }
-
-    localStorage.setItem(AUTH_TOKEN_LS_KEY, res.token)
-
-    return res.token
-  }, [address, signMessageAsync])
+  }, [address, authing, signMessageAsync])
 
   return useQuery({
     queryKey: ["auth"],

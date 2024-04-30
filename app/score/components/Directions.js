@@ -4,8 +4,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   CheckCircle,
-  CircleArrowRight,
-  Clipboard,
   Copy,
   LinkIcon,
   PlusCircle,
@@ -14,7 +12,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   DialogTrigger,
-  DialogFooter,
   DialogClose,
   DialogContent,
   Dialog,
