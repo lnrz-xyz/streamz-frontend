@@ -52,8 +52,8 @@ const prettyReasons = {
       process.env.NEXT_PUBLIC_STREAMZ_ADDRESS,
   },
   "farcaster follows lnrz": {
-    completed: "Follows STREAMZ on Farcaster",
-    incomplete: "Follow STREAMZ on Farcaster",
+    completed: "Follows STREAMZ channel on Farcaster",
+    incomplete: "Follow STREAMZ channel on Farcaster",
     link: "https://warpcast.com/~/channel/streamz",
   },
   "farcaster account": {
