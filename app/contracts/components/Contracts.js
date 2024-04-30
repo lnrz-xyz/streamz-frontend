@@ -3,6 +3,7 @@ import ContractScorePill from "./ContractScorePill"
 import ContractCollectedBadge from "./ContractCollectedBadge"
 import TotalScore from "./TotalScore"
 import Contract from "@/app/components/Contract"
+import { Info } from "lucide-react"
 export const fixedPlaceholder = contractAddress => {
   // parse contract address as a number and modulo by the 5 placeholders
   const placeholderIndex = parseInt(contractAddress, 16) % 5
@@ -12,9 +13,16 @@ export const fixedPlaceholder = contractAddress => {
 export default function Contracts({ contracts }) {
   return (
     <div className="flex flex-col space-y-4 w-full px-4 py-4">
-      <div className="flex flex-row justify-between">
-        <h4 className="text-2xl font-bold">Collections</h4>
-        <TotalScore />
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-row justify-between">
+          <h4 className="text-2xl font-bold">Collections</h4>
+          <TotalScore />
+        </div>
+        <p className="text-lg font-normal text-neutral-300 flex flex-row items-center">
+          <Info size={16} className="mr-2" />
+          Newly created collections may take between 10-45 minutes to appear
+          here.
+        </p>
       </div>
       {(!contracts || contracts?.length === 0) && (
         <div className="text-lg font-normal text-zinc-400">
@@ -39,11 +47,7 @@ export default function Contracts({ contracts }) {
       )}
       <div className="flex items-center flex-col md:flex-row gap-2.5 w-full flex-wrap">
         {contracts?.map((contract, index) => (
-          <Contract
-            key={contract.address + index}
-            contract={contract}
-            imageClassName={"w-32"}
-          />
+          <Contract key={contract.address + index} contract={contract} />
         ))}
       </div>
     </div>

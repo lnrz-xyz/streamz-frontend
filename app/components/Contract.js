@@ -1,11 +1,15 @@
 import Image from "next/image"
 
 import ContractScorePill from "../contracts/components/ContractScorePill"
+import { fixedPlaceholder } from "../contracts/components/Contracts"
 
 export default function Contract({ contract, ...props }) {
   return (
     <a
-      href={`https://mint.fun/base/${contract.contractAddress}`}
+      href={
+        contract.metadata.mintLink ||
+        `https://mint.fun/base/${contract.contractAddress}`
+      }
       target="_blank"
       rel="noreferrer"
       key={contract.contractAddress}
