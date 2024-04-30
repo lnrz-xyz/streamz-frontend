@@ -18,7 +18,6 @@ import {
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLogoutMutation } from "@/hooks/useLogoutMutation"
-import { useAuthToken } from "@/hooks/useAuthToken"
 import { useScore } from "@/hooks/useScore"
 
 const ConnectButton = () => {
@@ -38,7 +37,7 @@ const ConnectButton = () => {
     console.log("experiences", experiences, isSuccess)
     if (isSuccess && !experiences && !isExperiencesLoading) {
       console.log("experiences none")
-      router.push("/onboarding")
+      router.push("/score")
       mutate({
         experience: "onboarding",
         metadata: {
@@ -55,7 +54,7 @@ const ConnectButton = () => {
       )
       console.log("hasOnboardedExperience", hasOnboardedExperience)
       if (!hasOnboardedExperience) {
-        router.push("/onboarding")
+        router.push("/score")
         mutate({
           experience: "onboarding",
           metadata: {
@@ -136,22 +135,6 @@ const Dropdown = () => {
           </Link>
         </DropdownMenuGroup>
 
-        {scoreData && scoreData.balance && (
-          <>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <a
-                href={`https://app.uniswap.org/explore/tokens/base/${process.env.NEXT_PUBLIC_STREAMZ_ADDRESS}`}
-                target="_blank"
-                rel="noreferrer">
-                <DropdownMenuItem>
-                  <Wallet className="mr-2 h-4 w-4" />
-                  <span>{scoreData.balance} STRM</span>
-                </DropdownMenuItem>
-              </a>
-            </DropdownMenuGroup>
-          </>
-        )}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="text-red-500"

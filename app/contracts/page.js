@@ -4,6 +4,7 @@ import Footer from "@/app/components/Footer"
 import Contracts from "./components/Contracts"
 import FeaturedContracts from "./components/FeaturedContracts"
 import HomeButton from "../components/HomeButton"
+import Balance from "../components/Balance"
 
 /*
 type GetTokenInfoResponse struct {
@@ -32,6 +33,8 @@ export default async function contracts() {
     <main className="relative flex w-screen min-h-screen flex-col pb-48">
       <div className="absolute top-4 right-8 z-10 flex flex-row space-x-2 h-11">
         <HomeButton />
+        <Balance />
+
         <ConnectButton />
       </div>
       <div className="min-h-screen flex flex-col space-y-24">

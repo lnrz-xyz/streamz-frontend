@@ -4,6 +4,8 @@ import { useScore } from "@/hooks/useScore"
 import { toast } from "sonner"
 import { useEffect, useCallback, useState } from "react"
 import {
+  ArrowLeft,
+  ArrowRight,
   ArrowUpRight,
   Badge,
   CheckCircle,
@@ -17,15 +19,30 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import useApi from "@/hooks/useApi"
 import { useExperiences } from "@/hooks/useExperiences"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  variableWidth: true, // Enables variable width for each slide
+  adaptiveHeight: true,
+  slidesToScroll: 2,
+  nextArrow: <ArrowRight size={48} color="rgb(212,212,212)" />,
+  prevArrow: <ArrowLeft size={48} color="rgb(212,212,212)" />,
+}
 
 const prettyReasons = {
+  "contract splits": {
+    completed: "Created Streamz offshoot NFTs and added Streamz to the 0xSplit",
+    incomplete: `Create Streamz NFTs on sound.xyz or zora.co and add the Streamz split address to the 0xSplit`,
+    link: "https://sound.xyz",
+  },
   "streamz nfts": {
     completed: "Holds Streamz Related NFTs",
     incomplete: "Acquire Streamz Related NFTs",
     selfLink: "/contracts",
-  },
-  signup: {
-    completed: "Signed up for Streamz",
   },
   "uniswap positions": {
     completed: "Holds Uniswap liquidity positions",
@@ -34,23 +51,9 @@ const prettyReasons = {
       "https://app.uniswap.org/explore/tokens/base/" +
       process.env.NEXT_PUBLIC_STREAMZ_ADDRESS,
   },
-  "contract splits": {
-    completed: "Created Streamz offshoot NFTs and added Streamz to the 0xSplit",
-    incomplete: `Create Streamz NFTs on sound.xyz or zora.co and add the Streamz split address to the 0xSplit`,
-    link: "https://sound.xyz",
-  },
-  "x connected": {
-    completed: "Connected X account",
-    incomplete: "Connect X account",
-  },
-  "follows lnrz x": {
-    completed: "Follows LNRZ/STREAMZ on X",
-    incomplete: "Follow LNRZ/STRAMZ on X",
-    link: "https://x.com/streamzonbase",
-  },
   "farcaster follows lnrz": {
-    completed: "Follows LNRZ/STREAMZ on Farcaster",
-    incomplete: "Follow LNRZ/STREAMZ on Farcaster",
+    completed: "Follows STREAMZ on Farcaster",
+    incomplete: "Follow STREAMZ on Farcaster",
     link: "https://warpcast.com/~/channel/streamz",
   },
   "farcaster account": {
@@ -63,6 +66,20 @@ const prettyReasons = {
     incomplete: "Cast on Farcaster Channel",
     link: "https://warpcast.com/~/channel/streamz",
   },
+  signup: {
+    completed: "Signed up for Streamz",
+  },
+  "x connected": {
+    completed: "Connected X account",
+    incomplete: "Connect X account",
+    selfLink: "/profile",
+  },
+  "follows lnrz x": {
+    completed: "Follows STREAMZ on X",
+    incomplete: "Follow STREAMZ on X",
+    link: "https://x.com/streamzonbase",
+  },
+
   "email connected": {
     completed: "Connected email account",
     incomplete: "Connect email account",
@@ -339,10 +356,25 @@ const ScoreResults = () => {
           </DialogContent>
         </Dialog>
       </div>
-      <div className="flex flex-col w-full py-8 px-8">
-        <h4 className="text-2xl font-bold py-4">Increase Your Score</h4>
+      <div className="flex flex-col gap-4 w-full py-8 px-8">
+        <div className="flex flex-col gap-4">
+          <h3 className="text-5xl font-bold py-4">Streamz Season 1</h3>
+          <p className="text-lg">
+            Streamz Season 1 is a series of bounties and challenges that will
+            increase your ability to claim the next airdrop at the end of the
+            season.
+          </p>
+          <p className="text-lg">
+            Your primary bounty is to add Streamz to the 0xSplits of new
+            creations (art, memes, songs, etc.) as well as collecting the
+            derivative NFTs made by other members of the community.
+            Additionally, you can earn by providing to the liquidity pool and
+            other bounties below.
+          </p>
+        </div>
 
-        <div className="flex flex-col md:flex-row gap-3 flex-wrap">
+        <h4 className="text-2xl font-bold pb-4 pt-32">Increase Your Score</h4>
+        <div class="flex flex-nowrap py-4 gap-2.5 overflow-x-auto scrollbar">
           {Object.entries(prettyReasons).map(([id, reason], index) => {
             if (id === "signup") {
               return null
@@ -355,7 +387,7 @@ const ScoreResults = () => {
                   href={reason.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="h-24 space-x-2 md:min-w-[15%] md:max-w-[30%] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
+                  className="h-24 space-x-2 md:min-w-[25vw] md:max-w-[40vw] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
                   {!Object.entries(score?.reasons).some(r => r[0] === id) ? (
                     <>
                       <div className="h-[22px] w-[22px]">
@@ -407,7 +439,7 @@ const ScoreResults = () => {
                 <Link
                   key={`${index}-not`}
                   href={reason.selfLink}
-                  className="h-24 space-x-2 md:min-w-[15%] md:max-w-[30%] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
+                  className="h-24 space-x-2 md:min-w-[25vw] md:max-w-[40vw] items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 inline-flex px-6 py-6 transform hover:scale-105 transition-transform duration-200">
                   {!Object.entries(score?.reasons).some(r => r[0] === id) ? (
                     <>
                       <div className="h-[22px] w-[22px]">
@@ -502,6 +534,7 @@ const ScoreResults = () => {
             )
           })}
         </div>
+        {/* </div> */}
       </div>
     </div>
   )

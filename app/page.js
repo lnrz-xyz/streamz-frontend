@@ -5,6 +5,7 @@ import Community from "@/app/components/Community"
 import ConnectButton from "@/app/components/ConnectButton"
 import Link from "next/link"
 import AirdropEligibility from "./components/AirdropEligibility"
+import Balance from "./components/Balance"
 
 /*
 type GetTokenInfoResponse struct {
@@ -25,7 +26,7 @@ export default async function Home() {
   return (
     <main className="relative flex w-screen min-h-screen flex-col pb-16">
       <div className="absolute top-4 right-8 z-10 flex flex-row space-x-4 items-center">
-        <AirdropEligibility />
+        <Balance />
         <ConnectButton />
       </div>
       <div className="min-h-screen">

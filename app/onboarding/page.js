@@ -35,7 +35,7 @@ export default function Onboarding() {
             Continue
           </Button>
         </Link>
-        <Link href="/onboarding">
+        <Link href="/">
           <Button
             variant="outline"
             className="w-[385px] h-11 px-5 py-3.5 rounded-[32px] justify-center items-center gap-2.5 inline-flex text-sm font-medium font-sans">

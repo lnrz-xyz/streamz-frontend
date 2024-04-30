@@ -50,7 +50,7 @@ const GetStartedButton = ({ className, ...props }) => {
     console.log("experiences", experiences, isSuccess)
     if (isSuccess && !experiences && !isExperiencesLoading) {
       console.log("experiences none")
-      router.push("/onboarding")
+      router.push("/score")
       mutate({
         experience: "onboarding",
         metadata: {
@@ -67,7 +67,7 @@ const GetStartedButton = ({ className, ...props }) => {
       )
       console.log("hasOnboardedExperience", hasOnboardedExperience)
       if (!hasOnboardedExperience) {
-        router.push("/onboarding")
+        router.push("/score")
         mutate({
           experience: "onboarding",
           metadata: {
