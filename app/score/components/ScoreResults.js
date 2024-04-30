@@ -37,7 +37,7 @@ const prettyReasons = {
     completed: "Holds Uniswap liquidity positions",
     incomplete: "Hold Uniswap liquidity positions weekly",
     potentialPoints: "∞",
-    link: `https://app.uniswap.org/add/${process.env.NEXT_PUBLIC_STREAMZ_ADDRESS}/ETH`,
+    link: `https://app.uniswap.org/add/${process.env.NEXT_PUBLIC_STREAMZ_ADDRESS}/ETH/3000`,
   },
   "farcaster follows lnrz": {
     completed: "Follows STREAMZ channel on Farcaster",
