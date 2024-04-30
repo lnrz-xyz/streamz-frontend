@@ -32,7 +32,33 @@ const Circular = localFont({
 
 export const metadata = {
   title: "Streamz",
-  description: "Earn more for less streamed music",
+  description: "Redefining the notion of onchain music communities.",
+  openGraph: {
+    title: "Streamz",
+    description: "Redefining the notion of onchain music communities.",
+    url: "https://streamzonbase.com",
+    siteName: "Streamz",
+    images: [
+      {
+        url: "https://storage.googleapis.com/streamz-scores/Streamz_green_logo.png", // Must be an absolute URL
+        width: 512,
+        height: 512,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Streamz",
+    description: "Redefining the notion of onchain music communities.",
+    siteId: "1777713899925917696",
+    creator: "@streamzonbase",
+    creatorId: "1777713899925917696",
+    images: [
+      "https://storage.googleapis.com/streamz-scores/Streamz_green_logo.png",
+    ],
+  },
 }
 export const viewport = {
   width: "device-width",
