@@ -372,7 +372,7 @@ const ScoreResults = () => {
         <div className="flex flex-col pt-32 gap-4">
           <div className="flex flex-col gap-2">
             <h4 className="text-2xl font-bold">Increase Your Score</h4>
-            <div class="flex-auto md:flex space-y-4 md:space-y-0 flex-grow flex-nowrap py-4 gap-2.5 overflow-x-visible overflow-y-hidden scrollbar w-auto">
+            <div class="flex flex-nowrap py-4 gap-2.5 overflow-x-auto scrollbar">
               {Object.entries(prettyReasons).map(([id, reason], index) => {
                 if (id === "signup") {
                   return null
