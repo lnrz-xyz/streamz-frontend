@@ -17,6 +17,9 @@ export default function Details() {
           will cumulatively earn you points towards the next airdrop. The more
           liquidity you add, the more points you earn.
         </p>
+        <p className="text-center text-base text-muted">
+          Liquidity positions are recalculated weekly on Sunday 12AM UTC.
+        </p>
         <a
           href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
           target="_blank"
