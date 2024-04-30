@@ -8,7 +8,7 @@ export default function Details() {
         <p className="text-center text-lg">
           Adding liquidity to our{" "}
           <a
-            href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
+            href={`https://app.uniswap.org/add/${process.env.STREAMZ_ADDRESS}/ETH`}
             target="_blank"
             rel="noreferrer"
             className="font-bold underline">
@@ -21,7 +21,7 @@ export default function Details() {
           Liquidity positions are recalculated weekly on Sunday 12AM UTC.
         </p>
         <a
-          href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
+          href={`https://app.uniswap.org/add/${process.env.STREAMZ_ADDRESS}/ETH`}
           target="_blank"
           rel="noreferrer"
           className="flex flex-row items-center justify-center bg-foreground text-background p-4 rounded-full">
