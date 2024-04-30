@@ -13,8 +13,8 @@ export default function Opener({
       <div className="absolute inset-0 bg-gradient-to-b from-primary to-background opacity-80 backdrop-blur h-64" />
 
       <div className="flex flex-col h-full w-full p-6 relative">
-        <div className="flex flex-row space-x-8 h-14 w-full items-center justify-between">
-          <div className="h-full relative flex flex-row space-x-4">
+        <div className="flex flex-row gap-8 h-14 w-full items-center justify-between">
+          <div className="h-full relative flex flex-row gap-4">
             <Link href="/" className="relative h-full w-14">
               <Image
                 src="/logo.svg"
@@ -23,7 +23,7 @@ export default function Opener({
                 className="aspect-square object-contain"
               />
             </Link>
-            <div className="flex flex-row space-x-6 items-center justify-start">
+            <div className="flex flex-row gap-6 items-center justify-start">
               <a
                 href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
                 target="_blank"
@@ -34,7 +34,7 @@ export default function Opener({
             </div>
           </div>
 
-          <div className="flex flex-row space-x-4">
+          <div className="flex flex-row gap-4">
             <a
               href="https://warpcast.com/~/channel/streamz"
               target="_blank"
@@ -44,7 +44,7 @@ export default function Opener({
                 src="/farcaster.svg"
                 alt="Farcaster logo"
                 fill
-                className="aspect-square object-contain"
+                className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
               />
             </a>
             <a
@@ -56,12 +56,12 @@ export default function Opener({
                 src="/x-logo.svg"
                 alt="X logo"
                 fill
-                className="aspect-square object-contain"
+                className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
               />
             </a>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row pt-6 w-full md:space-x-16 space-y-16 md:space-y-0">
+        <div className="flex flex-col md:flex-row pt-6 w-full gap-4">
           <div className="flex flex-col w-full md:w-2/3 space-y-5">
             <h4 className="text-2xl font-bold">Streamz Stats</h4>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between">
@@ -120,7 +120,9 @@ export default function Opener({
                     </div>
                     <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
-                        ${marketCap}
+                        {marketCap && Number(marketCap.replaceAll(",", "")) > 0
+                          ? `$${marketCap}`
+                          : "Pending Calculation"}
                       </div>
                       <ChevronRight
                         height={24}
@@ -137,7 +139,7 @@ export default function Opener({
                     target="_blank"
                     rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
+                    <div className="flex flex-row gap-4 items-center md:w-1/2 w-full">
                       <div className="text-base font-normal">3</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
@@ -152,7 +154,9 @@ export default function Opener({
                     </div>
                     <div className="md:flex hidden flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
-                        ${priceUSD}
+                        {priceUSD && Number(priceUSD.replaceAll(",", "")) > 0
+                          ? `$${priceUSD}`
+                          : "Pending Calculation"}
                       </div>
                       <ChevronRight
                         height={24}

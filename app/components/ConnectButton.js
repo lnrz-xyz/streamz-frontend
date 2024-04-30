@@ -16,9 +16,7 @@ import {
   DropdownMenuGroup,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { useLogoutMutation } from "@/hooks/useLogoutMutation"
-import { useScore } from "@/hooks/useScore"
 
 const ConnectButton = () => {
   const { open } = useWeb3Modal()
@@ -72,8 +70,8 @@ const ConnectButton = () => {
   return (
     <button
       onClick={open}
-      className="flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11 transform hover:scale-105 transition-transform duration-200 border-0">
-      <div className="text-lg font-bold">Connect</div>
+      className="flex flex-row gap-4 bg-background rounded-full px-4 py-2 items-center h-12 transform hover:scale-105 transition-transform duration-200 border-0">
+      <div className="text-base font-bold">Connect</div>
     </button>
   )
 }
@@ -82,8 +80,6 @@ const Dropdown = () => {
   const { address } = useAccount()
   const { disconnect } = useDisconnect()
   const [loggingOut, setLoggingOut] = useState(false)
-
-  const { data: scoreData } = useScore()
 
   const { mutate } = useLogoutMutation()
 
@@ -96,14 +92,16 @@ const Dropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
+        <div
           variant="outline"
           className={
-            "flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-11 hover:scale-105 transition-transform duration-200 border-0"
+            "hover:cursor-pointer flex flex-row space-x-4 bg-background rounded-full px-4 py-2 items-center h-12 hover:scale-105 transition-transform duration-200 border-0"
           }>
-          <div className="text-lg font-bold">{address.substring(0, 5)}...</div>
+          <div className="text-base font-bold">
+            {address.substring(0, 5)}...
+          </div>
           <ChevronDown className="h-6 w-6" />
-        </Button>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Account</DropdownMenuLabel>

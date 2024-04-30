@@ -5,7 +5,7 @@ export default function Community() {
   return (
     <div id="community" className="flex flex-col w-full">
       <h4 className="text-2xl font-bold">Community</h4>
-      <div className="flex flex-col md:flex-row justify-between md:items-center pt-6 w-full md:space-x-16 md:space-y-0 space-y-4">
+      <div className="flex flex-col md:flex-row justify-between pt-6 w-full md:space-x-16 md:space-y-0 space-y-4">
         <div className="relative md:w-2/3 w-full overflow-hidden rounded-md h-96 md:h-[460px] xl:h-[540px]">
           <Image
             src="/campfire.png"
@@ -14,7 +14,7 @@ export default function Community() {
             className="object-cover z-0"
           />
           <div className="w-full h-full z-10 backdrop-brightness-75 absolute" />
-          <p className="w-full absolute text-base font-normal bottom-12 left-0 z-20 p-4">
+          <p className="absolute text-base font-normal bottom-14 left-0 z-20 p-4 w-[75%]">
             What{"'"}s a revolution without a solid crew? When you join us, you
             {"'"}re not just holding a token; you{"'"}re backing a movement to
             rethink music architecture and the development of new music

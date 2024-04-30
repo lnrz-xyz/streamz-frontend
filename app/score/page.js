@@ -1,9 +1,6 @@
 import ScoreResults from "./components/ScoreResults"
 import Leaderboard from "./components/Leaderboard"
 import Directions from "./components/Directions"
-import HomeButton from "../components/HomeButton"
-import ConnectButton from "../components/ConnectButton"
-import Balance from "../components/Balance"
 import Nav from "../components/Nav"
 
 export default async function Score() {
