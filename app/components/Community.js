@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 
 export default function Community() {
@@ -13,13 +14,23 @@ export default function Community() {
             className="object-cover z-0"
           />
           <div className="w-full h-full z-10 backdrop-brightness-75 absolute" />
-          <p className="w-full absolute text-base font-normal bottom-0 left-0 z-20 p-4">
+          <p className="w-full absolute text-base font-normal bottom-12 left-0 z-20 p-4">
             What{"'"}s a revolution without a solid crew? When you join us, you
             {"'"}re not just holding a token; you{"'"}re backing a movement to
             rethink music architecture and the development of new music
             applications onchain. Grab your tokens, spread the word, and let
             {"'"}s pump up the volume
           </p>
+          <div className="flex flex-row gap-2 absolute bottom-2 left-0 z-20 p-4">
+            <a
+              href="https://www.figma.com/design/Pw3b5ePgjCh6fZadzYmzmi/Meme-Streamz?node-id=0%3A1&t=AIwhh2Jf1SUegn9H-1"
+              target="_blank"
+              rel="noreferrer"
+              className="underline text-white flex gap-1">
+              <p className="text-base font-normal">Media Kit</p>
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
         </div>
         <div className="flex flex-col space-y-4 md:w-1/3 w-full">
           <a
