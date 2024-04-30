@@ -17,7 +17,7 @@ export default function Details() {
           will cumulatively earn you points towards the next airdrop. The more
           liquidity you add, the more points you earn.
         </p>
-        <p className="text-center text-base text-muted">
+        <p className="text-center text-base text-neutral-400">
           Liquidity positions are recalculated weekly on Sunday 12AM UTC.
         </p>
         <a
