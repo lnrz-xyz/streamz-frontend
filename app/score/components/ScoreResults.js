@@ -196,7 +196,7 @@ const ScoreResults = () => {
               {!fetchingShareLink ? (
                 <div className="bg-gradient-to-b from-neutral-700 to-background-100 backdrop-blur-[79.60px] rounded-t-lg">
                   <div className="flex flex-col gap-2.5 items-center justify-between">
-                    <div className="h-40 flex flex-col bg-primary z-20 w-full rounded-t-lg items-center justify-center">
+                    <div className="h-40 flex flex-col bg-[#4100f4] z-20 w-full rounded-t-lg items-center justify-center">
                       <h5 className="text-2xl text-center font-bold text-neutral-800">
                         You were airdropped
                       </h5>
@@ -209,7 +209,9 @@ const ScoreResults = () => {
                         Share Frame on Warpcast
                       </h2>
                       <p className="text-center text-sm">
-                        Copy the following link and share it as a Frame on{" "}
+                        Congratulations on being retroactively airdropped
+                        Streamz! Copy the following link and share it as a Frame
+                        on{" "}
                         <a
                           href="https://warpcast.com"
                           target="_blank"
@@ -217,6 +219,7 @@ const ScoreResults = () => {
                           className="underline text-primary font-bold">
                           Warpcast
                         </a>{" "}
+                        and get started earning points towards the next Airdrop!
                       </p>
                     </div>
                   </div>
