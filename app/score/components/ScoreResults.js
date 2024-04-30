@@ -24,31 +24,37 @@ const prettyReasons = {
   "contract splits": {
     completed: "Created Streamz offshoot NFTs and added Streamz to the 0xSplit",
     incomplete: `Create Streamz NFTs on sound.xyz or zora.co and add the Streamz split address to the 0xSplit`,
+    potentialPoints: "∞",
     link: "https://sound.xyz",
   },
   "streamz nfts": {
     completed: "Holds Streamz Related NFTs",
     incomplete: "Acquire Streamz Related NFTs",
+    potentialPoints: "∞",
     selfLink: "/contracts",
   },
   "uniswap positions": {
     completed: "Holds Uniswap liquidity positions",
     incomplete: "Hold Uniswap liquidity positions weekly",
+    potentialPoints: "∞",
     link: `https://app.uniswap.org/add/${process.env.STREAMZ_ADDRESS}/ETH`,
   },
   "farcaster follows lnrz": {
     completed: "Follows STREAMZ channel on Farcaster",
     incomplete: "Follow STREAMZ channel on Farcaster",
+    potentialPoints: "500",
     link: "https://warpcast.com/~/channel/streamz",
   },
   "farcaster account": {
     completed: "Connected Farcaster account",
     incomplete: "Create a Farcaster account",
+    potentialPoints: "100",
     link: "https://warpcast.com",
   },
   "farcaster casts": {
     completed: "Casts on Farcaster",
     incomplete: "Cast on Farcaster Channel",
+    potentialPoints: "10",
     link: "https://warpcast.com/~/channel/streamz",
   },
   signup: {
@@ -57,17 +63,20 @@ const prettyReasons = {
   "x connected": {
     completed: "Connected X account",
     incomplete: "Connect X account",
+    potentialPoints: "250",
     selfLink: "/profile",
   },
   "follows lnrz x": {
     completed: "Follows STREAMZ on X",
     incomplete: "Follow STREAMZ on X",
+    potentialPoints: "500",
     link: "https://x.com/streamzonbase",
   },
 
   "email connected": {
     completed: "Connected email account",
     incomplete: "Connect email account",
+    potentialPoints: "100",
     selfLink: "/profile",
   },
 }
@@ -387,7 +396,7 @@ const ScoreResults = () => {
                       href={reason.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex h-24 items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 p-6 transform hover:scale-105 transition-transform duration-200">
+                      className="flex h-24 items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-3 p-6 transform hover:scale-105 transition-transform duration-200">
                       <div className="h-[22px] w-[22px]">
                         <Badge />
                       </div>
@@ -396,6 +405,9 @@ const ScoreResults = () => {
                         <h3 className="text-sm font-medium underline">
                           {reason.incomplete}
                         </h3>
+                      </div>
+                      <div className="h-6 text-neutral-400 text-sm">
+                        +{reason.potentialPoints}pts
                       </div>
                       <div className="h-6 w-6">
                         <ChevronRight />
@@ -408,7 +420,7 @@ const ScoreResults = () => {
                     <Link
                       key={`${index}-not-${id}`}
                       href={reason.selfLink}
-                      className="flex h-24 items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 p-6 transform hover:scale-105 transition-transform duration-200">
+                      className="flex h-24 items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-3 p-6 transform hover:scale-105 transition-transform duration-200">
                       <div className="h-[22px] w-[22px]">
                         <Badge />
                       </div>
@@ -417,6 +429,9 @@ const ScoreResults = () => {
                         <h3 className="text-sm font-medium underline">
                           {reason.incomplete}
                         </h3>
+                      </div>
+                      <div className="h-6 text-neutral-400 text-sm">
+                        +{reason.potentialPoints}pts
                       </div>
                       <div className="h-6 w-6">
                         <ChevronRight />
@@ -427,7 +442,7 @@ const ScoreResults = () => {
                 return (
                   <div
                     key={`${index}-not-${id}`}
-                    className="flex h-24 items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-2.5 p-6 transform hover:scale-105 transition-transform duration-200">
+                    className="flex h-24 items-center bg-neutral-800 rounded-2xl flex-row justify-center gap-3 p-6 transform hover:scale-105 transition-transform duration-200">
                     <div className="h-[22px] w-[22px]">
                       <Badge />
                     </div>
@@ -438,6 +453,9 @@ const ScoreResults = () => {
                         className="text-sm font-medium underline">
                         {reason.incomplete}
                       </h3>
+                    </div>
+                    <div className="h-6 text-neutral-400 text-sm">
+                      +{reason.potentialPoints}pts
                     </div>
                   </div>
                 )
