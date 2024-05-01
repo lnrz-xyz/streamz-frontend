@@ -254,7 +254,9 @@ const ScoreResults = () => {
                       </div>
                     </div>
                     <a
-                      href="https://warpcast.com"
+                      href={`https://warpcast.com/~/compose?text=${encodeURIComponent(
+                        "Just got my Streamz airdrop!"
+                      )}&embeds[]=${encodeURIComponent(shareLink)}`}
                       target="_blank"
                       rel="noreferrer"
                       className="w-full">
@@ -350,7 +352,9 @@ const ScoreResults = () => {
                     </div>
                   </div>
                   <a
-                    href="https://warpcast.com"
+                    href={`https://warpcast.com/~/compose?text=${encodeURIComponent(
+                      "Just started earning towards the Streamz SZN 1 airdrop!"
+                    )}&embeds[]=${encodeURIComponent(shareLink)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-full">
