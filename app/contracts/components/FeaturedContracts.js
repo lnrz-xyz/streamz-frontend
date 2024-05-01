@@ -15,8 +15,9 @@ export default function FeaturedContracts({ featuredContracts }) {
           <p className="text-center text-lg">
             The more Streamz derivatives you collect, the more points you earn
             towards the next airdrop. Collecting Sound NFTs will earn you an
-            extra boost in points. Create NFTs and add Streamz as a split on 0x
-            to earn even more points.
+            extra boost in points. Connect your wallet to the site, sign up, and
+            then create NFTs and add Streamz as a split on 0x to earn even more
+            points.
           </p>
           <div className="flex flex-row gap-2 p-4">
             <a

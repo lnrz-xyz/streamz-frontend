@@ -19,6 +19,7 @@ import useApi from "@/hooks/useApi"
 import { useExperiences } from "@/hooks/useExperiences"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { useAuthToken } from "@/hooks/useAuthToken"
 
 const prettyReasons = {
   "contract splits": {
@@ -83,6 +84,8 @@ const prettyReasons = {
 
 const ScoreResults = () => {
   const { data: score, isPending } = useScore()
+  const { data: authData, refetch } = useAuthToken()
+
   const { mutate } = useUpsertExperienceMutation()
   const { data: experienceData, isPending: isPendingExperiences } =
     useExperiences()
@@ -98,6 +101,12 @@ const ScoreResults = () => {
       ([id, reason]) => reason.score > 0
     )
   }, [score])
+
+  useEffect(() => {
+    if (!authData) {
+      refetch()
+    }
+  }, [authData, refetch])
 
   useEffect(() => {
     console.log("score", score)
