@@ -86,14 +86,14 @@ export default function Opener({
                       </div>
                       <div className="text-base font-bold">Total Supply</div>
                     </div>
-                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
+                    <div className="flex flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         {totalSupply}
                       </div>
                       <ChevronRight
                         height={24}
                         width={24}
-                        className="text-zinc-400"
+                        className="text-zinc-400 md:flex hidden"
                       />
                     </div>
                   </a>
@@ -118,7 +118,7 @@ export default function Opener({
                       </div>
                       <div className="text-base font-bold">Market Cap</div>
                     </div>
-                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
+                    <div className="flex flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         {marketCap && Number(marketCap.replaceAll(",", "")) > 0
                           ? `$${marketCap}`
@@ -127,7 +127,7 @@ export default function Opener({
                       <ChevronRight
                         height={24}
                         width={24}
-                        className="text-zinc-400"
+                        className="text-zinc-400 md:flex hidden"
                       />
                     </div>
                   </a>
@@ -152,7 +152,7 @@ export default function Opener({
                       </div>
                       <div className="text-base font-bold">Price</div>
                     </div>
-                    <div className="md:flex hidden flex-row justify-between items-center w-1/2">
+                    <div className="flex flex-row justify-between items-center w-1/2">
                       <div className="text-zinc-400 text-sm font-normal">
                         {priceUSD && Number(priceUSD.replaceAll(",", "")) > 0
                           ? `$${priceUSD}`
@@ -161,7 +161,7 @@ export default function Opener({
                       <ChevronRight
                         height={24}
                         width={24}
-                        className="text-zinc-400"
+                        className="text-zinc-400 md:flex hidden"
                       />
                     </div>
                   </a>
@@ -187,14 +187,14 @@ export default function Opener({
                           Streamz Derivatives
                         </div>
                       </div>
-                      <div className="md:flex hidden flex-row justify-between items-center w-1/2">
+                      <div className="flex flex-row justify-between items-center w-1/2">
                         <div className="text-zinc-400 text-sm font-normal">
                           {contractCount}
                         </div>
                         <ChevronRight
                           height={24}
                           width={24}
-                          className="text-zinc-400"
+                          className="text-zinc-400 md:flex hidden"
                         />
                       </div>
                     </Link>
