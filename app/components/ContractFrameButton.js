@@ -14,7 +14,7 @@ const ContractFrameButton = ({ contractAddress, tokenID }) => {
       console.log("data from frame share", resp)
       window.open(
         `https://warpcast.com/~/compose?text=${encodeURIComponent(
-          "Earn Streamz points by minting my Streamz Derivative NFT!"
+          "Earn Streamz points by minting my Streamz Derivative NFT! /streamz"
         )}&embeds[]=${encodeURIComponent(resp.link)}`,
         "_blank"
       )
