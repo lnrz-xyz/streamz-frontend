@@ -80,11 +80,13 @@ const Directions = ({ contracts }) => {
               })}
             </div>
             {contracts.length >= 4 && (
-              <div className="absolute right-0 bottom-0 bg-gradient-to-l from-neutral-800 to-transparent w-48 h-full z-50 flex items-center justify-end px-4">
-                <div className="bg-foreground rounded-full p-2">
-                  <ArrowRight size={18} color="black" />
+              <Link href="/contracts">
+                <div className="absolute right-0 bottom-0 bg-gradient-to-l from-neutral-800 to-transparent w-48 h-full z-50 flex items-center justify-end px-4">
+                  <div className="bg-foreground rounded-full p-2">
+                    <ArrowRight size={18} color="black" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             )}
           </div>
         )}
