@@ -36,6 +36,18 @@ export default function Opener({
 
           <div className="flex flex-row gap-4">
             <a
+              href="https://base.party.app/party/0xa5e68ade446ab5280ef07a591c7d156b13a14c1a"
+              target="_blank"
+              rel="noreferrer"
+              className="relative h-[18px] w-[17px]">
+              <Image
+                src="/party.svg"
+                alt="Party logo"
+                fill
+                className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
+              />
+            </a>
+            <a
               href="https://warpcast.com/~/channel/streamz"
               target="_blank"
               rel="noreferrer"
