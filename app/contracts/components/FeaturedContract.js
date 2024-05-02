@@ -5,7 +5,10 @@ import { fixedPlaceholder } from "./Contracts"
 const FeaturedContract = ({ contract }) => {
   return (
     <a
-      href={`https://mint.fun/base/${contract.contractAddress}`}
+      href={
+        contract.metadata.mintLink ||
+        `https://mint.fun/base/${contract.contractAddress}`
+      }
       target="_blank"
       rel="noreferrer"
       key={contract.contractAddress}
