@@ -39,7 +39,7 @@ export default function Opener({
               href="https://base.party.app/party/0xa5e68ade446ab5280ef07a591c7d156b13a14c1a"
               target="_blank"
               rel="noreferrer"
-              className="relative h-[18px] w-[17px]">
+              className="relative h-[18px] w-[24px]">
               <Image
                 src="/party.svg"
                 alt="Party logo"
