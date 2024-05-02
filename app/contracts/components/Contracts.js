@@ -1,7 +1,3 @@
-import Image from "next/image"
-import ContractScorePill from "./ContractScorePill"
-import ContractCollectedBadge from "./ContractCollectedBadge"
-import TotalScore from "./TotalScore"
 import Contract from "@/app/components/Contract"
 import { Info } from "lucide-react"
 export const fixedPlaceholder = contractAddress => {
@@ -16,7 +12,6 @@ export default function Contracts({ contracts }) {
       <div className="flex flex-col gap-2">
         <div className="flex flex-row justify-between">
           <h4 className="text-2xl font-bold">Collections</h4>
-          <TotalScore />
         </div>
         <p className="text-lg font-normal text-neutral-300 flex flex-row items-center">
           <Info size={16} className="mr-2" />
