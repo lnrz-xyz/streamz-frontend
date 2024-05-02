@@ -1,6 +1,4 @@
-import TotalScore from "./TotalScore"
 import FeaturedContract from "./FeaturedContract"
-import Link from "next/link"
 import CreateButtons from "./CreateButtons"
 import { ArrowUpRight } from "lucide-react"
 
