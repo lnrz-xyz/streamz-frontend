@@ -119,11 +119,11 @@ const AccountSelector = () => {
           <p className="text-center  text-opacity-60 text-sm font-normal font-sans leading-snug">
             Follow us on Twitter{" "}
             <a
-              href="https://x.com/lnrzxyz"
+              href="https://x.com/streamzonbase"
               target="_blank"
               rel="noreferrer"
               className="text-primary underline">
-              @lnrzxyz
+              @streamzonbase
             </a>{" "}
             to further increase your position in the waitlist.
           </p>
