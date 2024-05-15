@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import ContractScorePill from "../contracts/components/ContractScorePill"
 import { fixedPlaceholder } from "../contracts/components/Contracts"
-import { AppWindow, ArrowUpRight, Frame } from "lucide-react"
+
 import ContractFrameButton from "./ContractFrameButton"
 
 export default function Contract({
