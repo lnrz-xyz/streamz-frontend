@@ -2,10 +2,13 @@ import localFont from "next/font/local"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ThemeProvider"
-import Web3ModalProvider from "@/context/WalletConnect"
+import RainbowKit from "@/context/RainbowKit"
 import { Toaster } from "@/components/ui/sonner"
 import { AudioContextProvider } from "@/app/components/PlayButton"
 import { Analytics } from "@vercel/analytics/react"
+import { AuthTokenProvider } from "@/hooks/useAuthToken"
+import ForceChainSwitch from "./components/ForceChainSwitch"
+import Nav from "./components/Nav"
 
 const Circular = localFont({
   src: [
@@ -76,17 +79,26 @@ export default function RootLayout({ children }) {
           "min-h-screen max-w-screen bg-background font-sans antialiased overscroll-none overflow-x-hidden",
           Circular.variable
         )}>
-        <Web3ModalProvider>
+        <RainbowKit>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem={false}
             disableTransitionOnChange>
             <Analytics />
-            <AudioContextProvider>{children}</AudioContextProvider>
+            <ForceChainSwitch />
+            <AudioContextProvider>
+              <AuthTokenProvider>
+                <div className="max-w-screen-2xl w-full mx-auto flex flex-col justify-center items-center relative">
+                  <Nav />
+
+                  {children}
+                </div>
+              </AuthTokenProvider>
+            </AudioContextProvider>
             <Toaster />
           </ThemeProvider>
-        </Web3ModalProvider>
+        </RainbowKit>
       </body>
     </html>
   )

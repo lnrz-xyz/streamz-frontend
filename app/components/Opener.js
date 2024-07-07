@@ -6,12 +6,10 @@ export default function Opener({
   totalSupply = 0,
   priceUSD = 0,
   marketCap = 0,
-  contractCount = 0,
+  holderCount = 0,
 }) {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary to-background opacity-80 backdrop-blur h-64" />
-
       <div className="flex flex-col h-full w-full p-6 relative">
         <div className="flex flex-row gap-8 h-14 w-full items-center justify-between">
           <div className="h-full relative flex flex-row gap-4">
@@ -216,16 +214,33 @@ export default function Opener({
             </div>
           </div>
           <div className="flex flex-col w-full md:w-1/3 space-y-4">
-            <h4 className="text-2xl font-bold">About</h4>
-            <p className="text-base font-normal">
-              Streamz is redefining the notion of onchain music communities. We
-              {"'"}re building a world where listeners can participate in
-              creation alongside artists
-            </p>
-            <p className="text-base font-normal">
-              SZN 1 starts now and the mission is to earn points towards the
-              next airdrop by creating and collecting.
-            </p>
+            <h4 className="text-2xl font-bold">Stats</h4>
+            <div className="flex flex-row gap-4 flex-wrap">
+              <div className="flex flex-col">
+                <div className="text-base font-bold">Total Supply</div>
+                <div className="text-xl font-bold">{totalSupply}</div>
+              </div>
+              <div className="flex flex-col">
+                <div className="text-base font-bold">Market Cap</div>
+                <div className="text-xl font-bold">
+                  {marketCap && Number(marketCap.replaceAll(",", "")) > 0
+                    ? `$${marketCap}`
+                    : "Pending Calculation"}
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div className="text-base font-bold">Price</div>
+                <div className="text-xl font-bold">
+                  {priceUSD && Number(priceUSD.replaceAll(",", "")) > 0
+                    ? `$${priceUSD}`
+                    : "Pending Calculation"}
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div className="text-base font-bold">Holders</div>
+                <div className="text-xl font-bold">{holderCount}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

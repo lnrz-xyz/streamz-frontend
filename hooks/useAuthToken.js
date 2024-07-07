@@ -1,6 +1,10 @@
-import { useCallback, useState } from "react"
+"use client"
+
+import { createContext, useCallback, useContext, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { useAccount, useSignMessage } from "wagmi"
+import { useAccount, useConnect, useSignMessage } from "wagmi"
+
+const AuthTokenContext = createContext()
 
 export const AUTH_TOKEN_LS_KEY = "STREAMZ_AUTH_TOKEN"
 
@@ -34,8 +38,9 @@ function isTokenExpired(token) {
   return exp < currentTime
 }
 
-export const useAuthToken = () => {
+export const AuthTokenProvider = ({ children }) => {
   const { address } = useAccount()
+  const { connectAsync } = useConnect()
   const { signMessageAsync } = useSignMessage()
   const [authing, setAuthing] = useState(false)
 
@@ -65,10 +70,23 @@ export const useAuthToken = () => {
       const { nonce } = await resp.json()
       console.log("signing nonce with viem", nonce)
 
-      const sig = await signMessageAsync({
-        account: address,
-        message: prepend + nonce,
-      })
+      let sig
+      try {
+        sig = await signMessageAsync({
+          account: address,
+          message: prepend + nonce,
+        })
+      } catch (e) {
+        await connectAsync()
+        sig = await signMessageAsync({
+          account: address,
+          message: prepend + nonce,
+        })
+        console.error("retrying sign", e)
+      }
+      if (!sig) {
+        throw new Error("Signature not found")
+      }
 
       const lresp = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
@@ -96,11 +114,19 @@ export const useAuthToken = () => {
     } finally {
       setAuthing(false)
     }
-  }, [address, authing, signMessageAsync])
+  }, [address, authing, connectAsync, signMessageAsync])
 
-  return useQuery({
+  const q = useQuery({
     queryKey: ["auth"],
     enabled: !!address,
     queryFn: getAuthToken,
   })
+
+  return (
+    <AuthTokenContext.Provider value={q}>{children}</AuthTokenContext.Provider>
+  )
+}
+
+export const useAuthToken = () => {
+  return useContext(AuthTokenContext)
 }
