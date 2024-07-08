@@ -1,3 +1,4 @@
+import ClaimAmount from "./ClaimAmount"
 import ClaimButton from "./ClaimButton"
 
 export default function Header() {
@@ -14,6 +15,7 @@ export default function Header() {
           of onchain music communities with a focus on creator empowerment.
         </h3>
       </div>
+      <ClaimAmount />
       <div className="flex flex-row gap-4">
         <div className="justify-center items-start gap-2 inline-flex text-white text-base font-bold">
           <a

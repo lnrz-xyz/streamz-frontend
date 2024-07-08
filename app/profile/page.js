@@ -6,7 +6,7 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card"
-import AccountSelector from "../onboarding/components/AccountSelector"
+import AccountSelector from "./AccountSelector"
 
 export default function Wallets() {
   return (
