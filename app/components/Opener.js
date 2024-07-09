@@ -303,10 +303,6 @@ export default function Opener({
                     : "Pending Calculation"}
                 </div>
               </div>
-              <div className="flex flex-col">
-                <div className="text-base font-bold">Holders</div>
-                <div className="text-xl font-bold">{holderCount}</div>
-              </div>
             </div>
           </div>
         </div>
