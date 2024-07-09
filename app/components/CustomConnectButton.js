@@ -1,5 +1,6 @@
 "use client"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
+import Image from "next/image"
 export const CustomConnectButton = () => {
   return (
     <ConnectButton.Custom>
@@ -71,10 +72,11 @@ export const CustomConnectButton = () => {
                           marginRight: 4,
                         }}>
                         {chain.iconUrl && (
-                          <img
+                          <Image
                             alt={chain.name ?? "Chain icon"}
                             src={chain.iconUrl}
-                            style={{ width: 12, height: 12 }}
+                            width={12}
+                            height={12}
                           />
                         )}
                       </div>
