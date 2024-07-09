@@ -2,6 +2,7 @@
 
 import {
   useAccount,
+  useSignMessage,
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi"
@@ -63,6 +64,9 @@ const ClaimButton = () => {
           BigInt(claim?.nonce),
           claim?.signature,
         ])
+
+        console.log("claim", claim)
+
         if (!claim) {
           return
         }
@@ -70,7 +74,7 @@ const ClaimButton = () => {
           abi,
           address: process.env.NEXT_PUBLIC_CLAIM_ADDRESS,
           functionName: "claim",
-          args: [BigInt(claim?.amount), BigInt(claim?.nonce), claim?.signature],
+          args: [BigInt(claim.amount), BigInt(claim.nonce), claim.signature],
         })
       }}>
       Claim Airdrop

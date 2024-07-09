@@ -42,13 +42,8 @@ export const AuthTokenProvider = ({ children }) => {
   const { address } = useAccount()
   const { connectAsync } = useConnect()
   const { signMessageAsync } = useSignMessage()
-  const [authing, setAuthing] = useState(false)
 
   const getAuthToken = useCallback(async () => {
-    if (authing) {
-      return
-    }
-    setAuthing(true)
     try {
       console.log("getting auth token with", address)
       const curToken = getToken()
@@ -111,10 +106,8 @@ export const AuthTokenProvider = ({ children }) => {
     } catch (e) {
       console.error(e)
       return null
-    } finally {
-      setAuthing(false)
     }
-  }, [address, authing, connectAsync, signMessageAsync])
+  }, [address, connectAsync, signMessageAsync])
 
   const q = useQuery({
     queryKey: ["auth"],
