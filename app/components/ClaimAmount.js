@@ -4,10 +4,17 @@ import { useScore } from "@/hooks/useScore"
 import { Loader2 } from "lucide-react"
 import { formatEther } from "viem"
 import { numberWithCommas } from "@/lib/format"
+import { useAccount } from "wagmi"
 
 const ClaimAmount = ({ simple = false }) => {
+  const { address } = useAccount()
+
   const { data, isPending } = useScore()
   console.log("score data", data)
+
+  if (!address) {
+    return null
+  }
 
   if (simple) {
     if (isPending) {
