@@ -6,7 +6,7 @@ export default function Community() {
     <div id="community" className="flex flex-col w-full">
       <h4 className="text-2xl font-bold">Community</h4>
       <div className="flex flex-col md:flex-row justify-between pt-6 w-full md:space-x-16 md:space-y-0 space-y-4 ">
-        <div className="relative md:w-2/3 w-full overflow-hidden rounded-md h-96 md:h-[460px] xl:h-[540px] bg-gradient-to-b from-green-500 to-primary">
+        <div className="relative md:w-2/3 w-full overflow-hidden rounded-md h-96 md:h-[360px] xl:h-[440px] bg-gradient-to-b from-green-500 to-primary">
           <p className="absolute text-base font-normal bottom-14 left-4 z-20 p-4 w-[75%]">
             We’re building a world where you can get rewarded off creating and
             collecting, a world where strm go brrr
