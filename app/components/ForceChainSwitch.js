@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useAccount, useSwitchChain, useChainId } from "wagmi"
 import { base, baseSepolia } from "wagmi/chains"
 
-const REQUIRED_CHAIN_ID = baseSepolia.id
+const REQUIRED_CHAIN_ID = base.id
 
 function ForceChainSwitch() {
   const chainId = useChainId()
