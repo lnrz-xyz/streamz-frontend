@@ -27,7 +27,7 @@ export default function Header() {
         </div>
       </div>
       <div className="flex flex-row gap-1">
-        Claim begins in <Countdown />
+        <Countdown />
       </div>
     </div>
   )

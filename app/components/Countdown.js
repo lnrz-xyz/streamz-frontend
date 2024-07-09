@@ -25,9 +25,16 @@ const Countdown = () => {
     return () => clearInterval(interval)
   }, [start])
 
+  if (start.isBefore(dayjs().utc())) {
+    return null
+  }
+
   return (
-    <div className="backdrop-blur-lg rounded-[4px] backdrop-brightness-75 px-2">
-      {time}
+    <div className="flex flex-row gap-1">
+      Claim begins in:
+      <div className="backdrop-blur-lg rounded-[4px] backdrop-brightness-75 px-2">
+        {time}
+      </div>
     </div>
   )
 }

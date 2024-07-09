@@ -144,7 +144,7 @@ export default function Opener({
                         <ClaimAmount />
                         <ClaimButton />
                         <div className="flex gap-1 text-sm font-normal text-zinc-400">
-                          <p>Claim begins in</p> <Countdown />
+                          <Countdown />
                         </div>
                       </div>
                     </DialogContent>

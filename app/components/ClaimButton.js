@@ -7,7 +7,7 @@ import {
   useWriteContract,
 } from "wagmi"
 import abi from "@/abi/Claim"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "sonner"
 import { useScore } from "@/hooks/useScore"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
@@ -23,10 +23,8 @@ dayjs.extend(duration)
 
 const ClaimButton = () => {
   const start = dayjs(process.env.NEXT_PUBLIC_CLAIM_START).utc()
+  const [now, setNow] = useState(dayjs().utc())
 
-  console.log("start", start)
-
-  const now = dayjs().utc()
   const { address } = useAccount()
   const { openConnectModal } = useConnectModal()
   const queryClient = useQueryClient()
@@ -42,9 +40,6 @@ const ClaimButton = () => {
     args: [address],
     scopeKey: "hasClaimed",
   })
-  console.log("hasClaimed", hasClaimed)
-
-  console.log("hash", hash)
 
   const {
     data: result,
@@ -57,9 +52,17 @@ const ClaimButton = () => {
     timeout: 1000 * 60 * 5,
   })
 
-  console.log("result", result, status)
-
   useEffect(() => {
+    console.log(
+      "hash",
+      hash,
+      "result",
+      result,
+      "waitErr",
+      waitErr,
+      "writeErr",
+      writeErr
+    )
     if (hash) {
       toast.loading("Waiting for transaction receipt...")
     }
@@ -76,6 +79,15 @@ const ClaimButton = () => {
       toast.error("Error waiting for transaction receipt")
     }
   }, [hash, queryClient, result, waitErr, writeErr])
+
+  useEffect(() => {
+    // interval every second
+    const interval = setInterval(() => {
+      const now = dayjs().utc()
+      setNow(now)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
 
   const isPastStart = now.isAfter(start)
   const disabled = isPending || !claim || hasClaimed || !isPastStart
