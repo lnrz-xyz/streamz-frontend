@@ -23,7 +23,7 @@ const transports =
 const config = getDefaultConfig({
   appName: "Streamz",
   projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID,
-  chains: process.env.ENV !== "production" ? [baseSepolia] : [base],
+  chains: process.env.NEXT_PUBLIC_ENV !== "production" ? [baseSepolia] : [base],
   ssr: true,
   transports: transports,
 })
