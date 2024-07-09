@@ -13,7 +13,7 @@ import { persistQueryClient } from "@tanstack/react-query-persist-client"
 import { useEffect } from "react"
 
 const transports =
-  process.env.ENV !== "production"
+  process.env.NEXT_PUBLIC_ENV !== "production"
     ? {
         [baseSepolia.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
       }
