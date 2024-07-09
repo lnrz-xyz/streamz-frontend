@@ -1,7 +1,7 @@
 "use client"
 import { useEffect } from "react"
 import { useAccount, useSwitchChain, useChainId } from "wagmi"
-import { base, baseSepolia } from "wagmi/chains"
+import { base } from "wagmi/chains"
 
 const REQUIRED_CHAIN_ID = base.id
 

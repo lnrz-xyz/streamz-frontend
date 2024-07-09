@@ -6,26 +6,18 @@ import {
   midnightTheme,
 } from "@rainbow-me/rainbowkit"
 import { WagmiProvider, http } from "wagmi"
-import { base, baseSepolia } from "wagmi/chains"
+import { base } from "wagmi/chains"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister"
 import { persistQueryClient } from "@tanstack/react-query-persist-client"
 import { useEffect } from "react"
 
-const transports =
-  process.env.NEXT_PUBLIC_ENV !== "production"
-    ? {
-        [baseSepolia.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
-      }
-    : {
-        [base.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
-      }
 const config = getDefaultConfig({
   appName: "Streamz",
   projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID,
-  chains: process.env.NEXT_PUBLIC_ENV !== "production" ? [baseSepolia] : [base],
+  chains: [base],
   ssr: true,
-  transports: transports,
+  transports: { [base.id]: http(process.env.NEXT_PUBLIC_RPC_URL) },
 })
 
 const queryClient = new QueryClient({
