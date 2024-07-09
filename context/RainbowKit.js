@@ -12,15 +12,20 @@ import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persist
 import { persistQueryClient } from "@tanstack/react-query-persist-client"
 import { useEffect } from "react"
 
+const transports =
+  process.env.ENV !== "production"
+    ? {
+        [baseSepolia.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
+      }
+    : {
+        [base.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
+      }
 const config = getDefaultConfig({
   appName: "Streamz",
   projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID,
-  chains: process.env !== "production" ? [baseSepolia] : [base],
+  chains: process.env.ENV !== "production" ? [baseSepolia] : [base],
   ssr: true,
-  transports: {
-    [baseSepolia.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
-    [base.id]: http(process.env.NEXT_PUBLIC_RPC_URL),
-  },
+  transports: transports,
 })
 
 const queryClient = new QueryClient({

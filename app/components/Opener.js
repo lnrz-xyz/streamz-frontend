@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import ClaimButton from "./ClaimButton"
 import ClaimAmount from "./ClaimAmount"
+import Countdown from "./Countdown"
 
 export default function Opener({
   totalSupply = 0,
@@ -142,6 +143,9 @@ export default function Opener({
                       <div className="flex flex-col gap-4 items-center justify-center py-8">
                         <ClaimAmount />
                         <ClaimButton />
+                        <div className="flex gap-1 text-sm font-normal text-zinc-400">
+                          <p>Claim begins in</p> <Countdown />
+                        </div>
                       </div>
                     </DialogContent>
                   </Dialog>

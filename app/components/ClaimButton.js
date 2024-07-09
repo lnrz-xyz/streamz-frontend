@@ -2,7 +2,7 @@
 
 import {
   useAccount,
-  useSignMessage,
+  useReadContract,
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi"
@@ -10,55 +10,88 @@ import abi from "@/abi/Claim"
 import { useEffect } from "react"
 import { toast } from "sonner"
 import { useScore } from "@/hooks/useScore"
+import { useConnectModal } from "@rainbow-me/rainbowkit"
+import { CheckCircle2, Loader2 } from "lucide-react"
+import { useQueryClient } from "@tanstack/react-query"
+import dayjs from "dayjs"
+import utc from "dayjs/plugin/utc"
+import duration from "dayjs/plugin/duration"
+import clsx from "clsx"
+
+dayjs.extend(utc)
+dayjs.extend(duration)
 
 const ClaimButton = () => {
+  const start = dayjs(process.env.NEXT_PUBLIC_CLAIM_START).utc()
+
+  console.log("start", start)
+
+  const now = dayjs().utc()
   const { address } = useAccount()
+  const { openConnectModal } = useConnectModal()
+  const queryClient = useQueryClient()
 
   const { data: claim, isPending } = useScore()
 
-  const {
-    writeContract,
-    data: hash,
-    error: writeErr,
-  } = useWriteContract({
+  const { writeContract, data: hash, error: writeErr } = useWriteContract()
+
+  const { data: hasClaimed } = useReadContract({
     abi,
     address: process.env.NEXT_PUBLIC_CLAIM_ADDRESS,
-    functionName: "balanceOf",
+    functionName: "hasClaimed",
     args: [address],
+    scopeKey: "hasClaimed",
   })
+  console.log("hasClaimed", hasClaimed)
 
-  const { data: result, error: waitErr } = useWaitForTransactionReceipt({
-    hash,
+  console.log("hash", hash)
+
+  const {
+    data: result,
+    error: waitErr,
+    status,
+  } = useWaitForTransactionReceipt({
+    hash: hash,
+    chainId: 84532,
     pollingInterval: 1000,
+    timeout: 1000 * 60 * 5,
   })
 
-  useEffect(() => {
-    console.log("hash", hash)
-  }, [hash])
+  console.log("result", result, status)
 
   useEffect(() => {
-    console.log("result", result)
-    if (result) {
-      toast.success("Claimed airdrop!")
+    if (hash) {
+      toast.loading("Waiting for transaction receipt...")
     }
-  }, [result])
-
-  useEffect(() => {
-    if (writeErr) {
-      toast.error("Error claiming airdrop")
-      console.error(writeErr)
+    if (result) {
+      toast.success("Transaction successful!")
+      queryClient.invalidateQueries({
+        predicate: query => query.queryKey[1]?.scopeKey === "hasClaimed",
+      })
     }
     if (waitErr) {
-      toast.error("Error waiting for claim to complete")
-      console.error(waitErr)
+      toast.error("Error writing contract")
     }
-  }, [writeErr, waitErr])
+    if (writeErr) {
+      toast.error("Error waiting for transaction receipt")
+    }
+  }, [hash, queryClient, result, waitErr, writeErr])
+
+  const isPastStart = now.isAfter(start)
+  const disabled = isPending || !claim || hasClaimed || !isPastStart
 
   return (
     <button
-      className="p-4 bg-white rounded-full justify-center items-center flex text-black text-base font-bold"
-      disabled={isPending || !claim}
+      className={clsx(
+        "p-4 bg-white rounded-full justify-center items-center flex text-black text-base font-bold gap-1",
+        disabled && "opacity-75"
+      )}
+      disabled={disabled}
       onClick={() => {
+        if (!address) {
+          openConnectModal()
+          return
+        }
         console.log("claim: ", [
           BigInt(claim?.amount),
           BigInt(claim?.nonce),
@@ -77,7 +110,17 @@ const ClaimButton = () => {
           args: [BigInt(claim.amount), BigInt(claim.nonce), claim.signature],
         })
       }}>
-      Claim Airdrop
+      {hasClaimed ? (
+        <div className="flex gap-1">
+          <p>Claimed</p>
+          <span className="text-sm">
+            <CheckCircle2 />
+          </span>
+        </div>
+      ) : (
+        "Claim Airdrop"
+      )}
+      {hash && !result && <Loader2 className="w-8 h-8 animate-spin" />}
     </button>
   )
 }

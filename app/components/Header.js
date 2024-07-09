@@ -1,5 +1,6 @@
 import ClaimAmount from "./ClaimAmount"
 import ClaimButton from "./ClaimButton"
+import Countdown from "./Countdown"
 
 export default function Header() {
   return (
@@ -9,10 +10,7 @@ export default function Header() {
           Streamz
         </h1>
         <h3 className="text-center text-white text-base font-normal">
-          Redefining the notion of onchain music communities with a focus on
-          creator empowerment. Redefining the notion of onchain music
-          communities with a focus on creator empowerment. Redefining the notion
-          of onchain music communities with a focus on creator empowerment.
+          We don’t trust people who don’t like music.
         </h3>
       </div>
       <ClaimAmount />
@@ -27,6 +25,9 @@ export default function Header() {
           </a>
           <ClaimButton />
         </div>
+      </div>
+      <div className="flex flex-row gap-1">
+        Claim begins in <Countdown />
       </div>
     </div>
   )

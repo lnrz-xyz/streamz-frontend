@@ -8,11 +8,8 @@ export default function Community() {
       <div className="flex flex-col md:flex-row justify-between pt-6 w-full md:space-x-16 md:space-y-0 space-y-4 ">
         <div className="relative md:w-2/3 w-full overflow-hidden rounded-md h-96 md:h-[460px] xl:h-[540px] bg-gradient-to-b from-green-500 to-primary">
           <p className="absolute text-base font-normal bottom-14 left-4 z-20 p-4 w-[75%]">
-            When you join us, you
-            {"'"}re not just holding a token; you{"'"}re backing a movement to
-            rethink music architecture and the development of new music
-            applications onchain. Grab your tokens, spread the word, and let
-            {"'"}s pump up the volume
+            We’re building a world where you can get rewarded off creating and
+            collecting, a world where strm go brrr
           </p>
           <div className="flex flex-row gap-2 absolute bottom-2 left-4 z-20 p-4">
             <a
