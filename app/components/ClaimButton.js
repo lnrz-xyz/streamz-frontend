@@ -47,7 +47,7 @@ const ClaimButton = () => {
     status,
   } = useWaitForTransactionReceipt({
     hash: hash,
-    chainId: 84532,
+    chainId: 8453,
     pollingInterval: 1000,
     timeout: 1000 * 60 * 5,
   })
