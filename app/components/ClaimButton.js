@@ -11,12 +11,13 @@ import { useEffect, useState } from "react"
 import { toast } from "sonner"
 import { useScore } from "@/hooks/useScore"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
-import { CheckCircle2, Loader2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 import { useQueryClient } from "@tanstack/react-query"
 import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc"
 import duration from "dayjs/plugin/duration"
 import clsx from "clsx"
+import { useScoreShare } from "@/hooks/useScoreShare"
 
 dayjs.extend(utc)
 dayjs.extend(duration)
@@ -41,16 +42,14 @@ const ClaimButton = () => {
     scopeKey: "hasClaimed",
   })
 
-  const {
-    data: result,
-    error: waitErr,
-    status,
-  } = useWaitForTransactionReceipt({
+  const { data: result, error: waitErr } = useWaitForTransactionReceipt({
     hash: hash,
     chainId: 8453,
     pollingInterval: 1000,
     timeout: 1000 * 60 * 5,
   })
+
+  const { data: shareLink, refetch } = useScoreShare()
 
   useEffect(() => {
     console.log(
@@ -71,6 +70,7 @@ const ClaimButton = () => {
       queryClient.invalidateQueries({
         predicate: query => query.queryKey[1]?.scopeKey === "hasClaimed",
       })
+      refetch()
     }
     if (waitErr) {
       toast.error("Error writing contract")
@@ -78,7 +78,7 @@ const ClaimButton = () => {
     if (writeErr) {
       toast.error("Error waiting for transaction receipt")
     }
-  }, [hash, queryClient, result, waitErr, writeErr])
+  }, [hash, queryClient, result, waitErr, writeErr, refetch])
 
   useEffect(() => {
     // interval every second
@@ -90,8 +90,23 @@ const ClaimButton = () => {
   }, [])
 
   const isPastStart = now.isAfter(start)
-  const disabled = isPending || !claim || hasClaimed || !isPastStart
+  const disabled = isPending || (!hasClaimed && !claim) || !isPastStart
 
+  console.log("claim", claim, hasClaimed)
+
+  if (hasClaimed) {
+    return (
+      <a
+        rel="noreferrer noopener"
+        target="_blank"
+        className="p-4 bg-white rounded-full justify-center items-center flex text-black text-base font-bold gap-1"
+        href={`https://warpcast.com/~/compose?text=${encodeURIComponent(
+          "Just got my Streamz airdrop! /streamz"
+        )}&embeds[]=${encodeURIComponent(shareLink?.link)}`}>
+        Share as Frame
+      </a>
+    )
+  }
   return (
     <button
       className={clsx(
@@ -122,16 +137,7 @@ const ClaimButton = () => {
           args: [BigInt(claim.amount), BigInt(claim.nonce), claim.signature],
         })
       }}>
-      {hasClaimed ? (
-        <div className="flex gap-1">
-          <p>Claimed</p>
-          <span className="text-sm">
-            <CheckCircle2 />
-          </span>
-        </div>
-      ) : (
-        "Claim Airdrop"
-      )}
+      Claim Airdrop
       {hash && !result && <Loader2 className="w-8 h-8 animate-spin" />}
     </button>
   )
