@@ -94,7 +94,7 @@ const ClaimButton = () => {
 
   console.log("claim", claim, hasClaimed)
 
-  if (hasClaimed) {
+  if (hasClaimed && shareLink?.link) {
     return (
       <a
         rel="noreferrer noopener"
