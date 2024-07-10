@@ -44,9 +44,6 @@ const ClaimButton = () => {
 
   const { data: result, error: waitErr } = useWaitForTransactionReceipt({
     hash: hash,
-    chainId: 8453,
-    pollingInterval: 1000,
-    timeout: 1000 * 60 * 5,
   })
 
   const { data: shareLink, refetch } = useScoreShare()
