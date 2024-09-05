@@ -187,7 +187,7 @@ export default function Opener({
                       </DialogHeader>
                       <DialogDescription>
                         Stay tuned this week on our socials and telegram for the
-                        launch of the Streamz app.
+                        launch of the Volume app.
                       </DialogDescription>
 
                       <div className="flex flex-row gap-4 py-4">
