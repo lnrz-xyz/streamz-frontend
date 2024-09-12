@@ -1,7 +1,3 @@
-import ClaimAmount from "./ClaimAmount"
-import ClaimButton from "./ClaimButton"
-import Countdown from "./Countdown"
-
 export default function Header() {
   return (
     <div className="z-0 relative flex flex-col items-center justify-center px-8 py-8 bg-gradient-to-b from-green-500 to-primary min-h-[50vh] text-white gap-4 rounded-lg h-[80vh] md:h-[612px]">
@@ -13,22 +9,13 @@ export default function Header() {
           We don’t trust people who don’t like music.
         </h3>
       </div>
-      <ClaimAmount />
-      <div className="flex flex-row gap-4">
-        <div className="justify-center items-start gap-2 inline-flex text-white text-base font-bold">
-          <a
-            href={`https://app.uniswap.org/explore/tokens/base/${process.env.STREAMZ_ADDRESS}`}
-            target="_blank"
-            rel="noreferrer"
-            className="p-4 rounded-full border border-white justify-center items-center flex">
-            Buy STRM
-          </a>
-          <ClaimButton />
-        </div>
-      </div>
-      <div className="flex flex-row gap-1">
-        <Countdown />
-      </div>
+      <a
+        href="https://volume.streamz.xyz"
+        className={
+          "p-4 bg-white rounded-full justify-center items-center flex text-black text-base font-bold gap-1"
+        }>
+        Launch App
+      </a>
     </div>
   )
 }

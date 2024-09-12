@@ -102,11 +102,7 @@ export default function Opener({
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <Dialog>
-                    <DialogTrigger
-                      href={`https://basescan.org/token/${process.env.STREAMZ_ADDRESS}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
+                    <DialogTrigger className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
                       <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
                         <div className="text-base font-normal">1</div>
                         <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
@@ -152,96 +148,32 @@ export default function Opener({
                 </div>
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Dialog>
-                    <DialogTrigger
-                      href={`https://basescan.org/token/${process.env.STREAMZ_ADDRESS}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                      <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
-                        <div className="text-base font-normal">1</div>
-                        <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
-                          <Image
-                            src="/coin.png"
-                            alt="Coin Image"
-                            priority
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="text-base font-bold">Launch App</div>
-                      </div>
-                      <div className="flex flex-row justify-end items-center w-1/2">
-                        <ChevronRight
-                          height={24}
-                          width={24}
-                          className="text-zinc-400 md:flex hidden"
+                  <a
+                    href={`https://volume.streamz.xyz`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
+                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
+                      <div className="text-base font-normal">1</div>
+                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                        <Image
+                          src="/coin.png"
+                          alt="Coin Image"
+                          priority
+                          fill
+                          className="object-cover"
                         />
                       </div>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle className="text-4xl">
-                          Coming Soon
-                        </DialogTitle>
-                      </DialogHeader>
-                      <DialogDescription>
-                        Stay tuned this week on our socials and telegram for the
-                        launch of the Volume app.
-                      </DialogDescription>
-
-                      <div className="flex flex-row gap-4 py-4">
-                        <a
-                          href="https://t.me/wstreamz"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="relative h-[24px] w-[24px]">
-                          <Image
-                            src="/telegram-logo.svg"
-                            alt="Telegram logo"
-                            fill
-                            className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
-                          />
-                        </a>
-                        <a
-                          href="https://base.party.app/party/0xa5e68ade446ab5280ef07a591c7d156b13a14c1a"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="relative h-[24px] w-[32px]">
-                          <Image
-                            src="/party.svg"
-                            alt="Party logo"
-                            fill
-                            className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
-                          />
-                        </a>
-                        <a
-                          href="https://warpcast.com/~/channel/streamz"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="relative h-[24px] w-[24px]">
-                          <Image
-                            src="/farcaster.svg"
-                            alt="Farcaster logo"
-                            fill
-                            className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
-                          />
-                        </a>
-                        <a
-                          href="https://x.com/streamzonbase"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="relative h-[24px] w-[24px]">
-                          <Image
-                            src="/x-logo.svg"
-                            alt="X logo"
-                            fill
-                            className="aspect-square object-contain transform hover:scale-105 transition-transform duration-200"
-                          />
-                        </a>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
+                      <div className="text-base font-bold">Launch App</div>
+                    </div>
+                    <div className="flex flex-row justify-end items-center w-1/2">
+                      <ChevronRight
+                        height={24}
+                        width={24}
+                        className="text-zinc-400 md:flex hidden"
+                      />
+                    </div>
+                  </a>
                 </div>
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
