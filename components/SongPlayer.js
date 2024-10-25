@@ -10,15 +10,12 @@ import { useState, useRef, useEffect } from "react"
 export function SongPlayer({ songTitle, albumCover, audioSrc }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
+
   const audioRef = useRef(null)
 
   useEffect(() => {
     const audio = audioRef.current
     if (audio) {
-      audio.addEventListener("loadedmetadata", () => {
-        setDuration(audio.duration)
-      })
       audio.addEventListener("timeupdate", () => {
         setCurrentTime(audio.currentTime)
       })
@@ -42,13 +39,6 @@ export function SongPlayer({ songTitle, albumCover, audioSrc }) {
     }
   }
 
-  const handleSliderChange = value => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = value[0]
-      setCurrentTime(value[0])
-    }
-  }
-
   const formatTime = time => {
     const minutes = Math.floor(time / 60)
     const seconds = Math.floor(time % 60)
@@ -69,33 +59,20 @@ export function SongPlayer({ songTitle, albumCover, audioSrc }) {
             />
           </div>
           <div className="space-y-4">
-            <Slider
-              value={[currentTime]}
-              max={duration}
-              step={1}
-              onValueChange={handleSliderChange}
-              aria-label="Song progress"
-            />
             <div className="flex justify-between text-sm text-muted-foreground">
               <span>{formatTime(currentTime)}</span>
-              <span>{formatTime(duration)}</span>
             </div>
             <div className="flex justify-center items-center space-x-4">
-              <Button variant="outline" size="icon" aria-label="Previous song">
-                <SkipBack className="h-4 w-4" />
-              </Button>
               <Button
                 onClick={togglePlayPause}
                 size="icon"
+                className="h-12 w-12"
                 aria-label={isPlaying ? "Pause" : "Play"}>
                 {isPlaying ? (
-                  <Pause className="h-4 w-4" />
+                  <Pause className="h-6 w-6" />
                 ) : (
-                  <Play className="h-4 w-4" />
+                  <Play className="h-6 w-6" />
                 )}
-              </Button>
-              <Button variant="outline" size="icon" aria-label="Next song">
-                <SkipForward className="h-4 w-4" />
               </Button>
             </div>
           </div>
