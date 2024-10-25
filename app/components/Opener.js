@@ -96,85 +96,9 @@ export default function Opener({
         </div>
         <div className="flex flex-col md:flex-row pt-6 w-full gap-4">
           <div className="flex flex-col w-full md:w-2/3 space-y-5">
-            <h4 className="text-2xl font-bold">Streamz Stats</h4>
+            <h4 className="text-2xl font-bold">Streamz Links</h4>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:px-5 w-full justify-between">
               <div className="flex flex-col w-full">
-                <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <Dialog>
-                    <DialogTrigger className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                      <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
-                        <div className="text-base font-normal">1</div>
-                        <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
-                          <Image
-                            src="/money.png"
-                            alt="Money Image"
-                            priority
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="text-base font-bold">Claim Airdrop</div>
-                      </div>
-                      <div className="flex flex-row justify-between items-center w-1/2">
-                        <div className="text-zinc-400 text-sm font-normal">
-                          <ClaimAmount simple />
-                        </div>
-                        <ChevronRight
-                          height={24}
-                          width={24}
-                          className="text-zinc-400 md:flex hidden"
-                        />
-                      </div>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle className="text-4xl">
-                          Claim Airdrop
-                        </DialogTitle>
-                      </DialogHeader>
-                      <DialogDescription>
-                        Claim your Streamz airdrop tokens now.
-                      </DialogDescription>
-                      <div className="flex flex-col gap-4 items-center justify-center py-8">
-                        <ClaimAmount />
-                        <ClaimButton />
-                        <div className="flex gap-1 text-sm font-normal text-zinc-400">
-                          <Countdown />
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </div>
-                <div className="relative h-14 group">
-                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
-                  <a
-                    href={`https://volume.streamz.xyz`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row space-x-4 items-center md:w-1/2 w-full">
-                      <div className="text-base font-normal">1</div>
-                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
-                        <Image
-                          src="/coin.png"
-                          alt="Coin Image"
-                          priority
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="text-base font-bold">Launch App</div>
-                    </div>
-                    <div className="flex flex-row justify-end items-center w-1/2">
-                      <ChevronRight
-                        height={24}
-                        width={24}
-                        className="text-zinc-400 md:flex hidden"
-                      />
-                    </div>
-                  </a>
-                </div>
                 <div className="relative h-14 group">
                   <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
                   <a
@@ -183,7 +107,7 @@ export default function Opener({
                     rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
                     <div className="flex flex-row gap-4 items-center md:w-1/2 w-full">
-                      <div className="text-base font-normal">3</div>
+                      <div className="text-base font-normal">1</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
                           src="/pie-chart.png"
@@ -201,6 +125,68 @@ export default function Opener({
                           ? `$${priceUSD}`
                           : "Pending Calculation"}
                       </div>
+                      <ChevronRight
+                        height={24}
+                        width={24}
+                        className="text-zinc-400 md:flex hidden"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div className="relative h-14 group">
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
+                  <a
+                    href={`https://t.me/wstreamz`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
+                    <div className="flex flex-row gap-4 items-center md:w-1/2 w-full">
+                      <div className="text-base font-normal">2</div>
+                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                        <Image
+                          src="/pie-chart.png"
+                          alt="Pie Chart Image"
+                          priority
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-base font-bold">
+                        Join the Telegram
+                      </div>
+                    </div>
+                    <div className="flex flex-row justify-between items-center w-1/2">
+                      <ChevronRight
+                        height={24}
+                        width={24}
+                        className="text-zinc-400 md:flex hidden"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div className="relative h-14 group">
+                  <div className="absolute inset-0 transition-opacity duration-200 ease-in-out opacity-0 group-hover:opacity-10 bg-zinc-100 backdrop-blur h-full rounded-[4px]"></div>
+                  <a
+                    href={`https://x.com/streamzonbase`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
+                    <div className="flex flex-row gap-4 items-center md:w-1/2 w-full">
+                      <div className="text-base font-normal">3</div>
+                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                        <Image
+                          src="/pie-chart.png"
+                          alt="Pie Chart Image"
+                          priority
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-base font-bold">
+                        Follow the Twitter
+                      </div>
+                    </div>
+                    <div className="flex flex-row justify-between items-center w-1/2">
                       <ChevronRight
                         height={24}
                         width={24}
