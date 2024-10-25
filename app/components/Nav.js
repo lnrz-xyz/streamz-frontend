@@ -10,16 +10,18 @@ export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="flex justify-between items-center w-full absolute top-12 px-16 z-20">
+    <nav className="flex justify-between items-center w-full absolute top-4 md:top-12 px-4 md:px-16 z-20">
       {pathname !== "/" && (
         <Link href="/" className="flex items-center">
           <Image src="/logo.svg" alt="Streamz Logo" width={64} height={64} />
         </Link>
       )}
-      <div className="flex gap-2 flex-wrap ml-auto">
-        <ConnectButton />
-        <Balance />
-      </div>
+      {pathname === "/" && (
+        <div className="gap-2 flex-wrap ml-auto items-center justify-end hidden md:flex">
+          <ConnectButton />
+          <Balance />
+        </div>
+      )}
     </nav>
   )
 }
