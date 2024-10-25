@@ -6,7 +6,6 @@ import RainbowKit from "@/context/RainbowKit"
 import { Toaster } from "@/components/ui/sonner"
 import { AudioContextProvider } from "@/app/components/PlayButton"
 import { Analytics } from "@vercel/analytics/react"
-import { AuthTokenProvider } from "@/hooks/useAuthToken"
 import ForceChainSwitch from "./components/ForceChainSwitch"
 import Nav from "./components/Nav"
 
@@ -88,13 +87,11 @@ export default function RootLayout({ children }) {
             <Analytics />
             <ForceChainSwitch />
             <AudioContextProvider>
-              <AuthTokenProvider>
-                <div className="max-w-screen-2xl w-full mx-auto flex flex-col justify-center items-center relative">
-                  <Nav />
+              <div className="max-w-screen-2xl w-full mx-auto flex flex-col justify-center items-center relative">
+                <Nav />
 
-                  {children}
-                </div>
-              </AuthTokenProvider>
+                {children}
+              </div>
             </AudioContextProvider>
             <Toaster />
           </ThemeProvider>

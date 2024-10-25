@@ -1,17 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogDescription,
-  DialogTrigger,
-  DialogTitle,
-} from "@/components/ui/dialog"
-import ClaimButton from "./ClaimButton"
-import ClaimAmount from "./ClaimAmount"
-import Countdown from "./Countdown"
 
 export default function Opener({
   totalSupply = 0,
@@ -140,22 +129,25 @@ export default function Opener({
                     target="_blank"
                     rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row gap-4 items-center md:w-1/2 w-full">
+                    <div className="flex flex-row gap-4 items-center w-full">
                       <div className="text-base font-normal">2</div>
                       <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
                         <Image
-                          src="/pie-chart.png"
-                          alt="Pie Chart Image"
+                          src="/telegram-logo.svg"
+                          alt="Telegram logo"
                           priority
                           fill
-                          className="object-cover"
+                          className="object-contain"
+                          style={{
+                            padding: "4px",
+                          }}
                         />
                       </div>
                       <div className="text-base font-bold">
                         Join the Telegram
                       </div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="flex flex-row justify-between items-center">
                       <ChevronRight
                         height={24}
                         width={24}
@@ -171,22 +163,25 @@ export default function Opener({
                     target="_blank"
                     rel="noreferrer"
                     className="relative z-10 flex flex-row items-center justify-between h-full w-full p-2">
-                    <div className="flex flex-row gap-4 items-center md:w-1/2 w-full">
+                    <div className="flex flex-row gap-4 items-center w-full">
                       <div className="text-base font-normal">3</div>
-                      <div className="relative h-11 w-11 bg-zinc-300 rounded-lg overflow-hidden">
+                      <div className="relative h-11 w-11 bg-black rounded-lg overflow-hidden">
                         <Image
-                          src="/pie-chart.png"
-                          alt="Pie Chart Image"
+                          src="/x-logo.svg"
+                          alt="X logo"
                           priority
                           fill
-                          className="object-cover"
+                          className="object-contain"
+                          style={{
+                            padding: "8px",
+                          }}
                         />
                       </div>
                       <div className="text-base font-bold">
                         Follow the Twitter
                       </div>
                     </div>
-                    <div className="flex flex-row justify-between items-center w-1/2">
+                    <div className="flex flex-row justify-between items-center">
                       <ChevronRight
                         height={24}
                         width={24}

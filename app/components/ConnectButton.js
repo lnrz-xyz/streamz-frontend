@@ -1,7 +1,6 @@
 "use client"
-import { useState } from "react"
 import { useAccount, useDisconnect } from "wagmi"
-import { ChevronDown, LogOut, User } from "lucide-react"
+import { ChevronDown, LogOut } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,10 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuGroup,
 } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
-import { useLogoutMutation } from "@/hooks/useLogoutMutation"
 import { CustomConnectButton } from "./CustomConnectButton"
 
 const ConnectButton = () => {
@@ -28,15 +24,9 @@ const ConnectButton = () => {
 const Dropdown = () => {
   const { address } = useAccount()
   const { disconnect } = useDisconnect()
-  const [loggingOut, setLoggingOut] = useState(false)
-
-  const { mutate } = useLogoutMutation()
 
   const onLogout = async () => {
-    setLoggingOut(true)
-    mutate()
     disconnect()
-    setLoggingOut(false)
   }
   return (
     <DropdownMenu>
@@ -54,22 +44,9 @@ const Dropdown = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-
-        <DropdownMenuGroup>
-          <Link href="/profile">
-            <DropdownMenuItem>
-              <User className="mr-2 h-4 w-4" />
-              <span>Connected Accounts</span>
-            </DropdownMenuItem>
-          </Link>
-        </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          className="text-red-500"
-          onClick={onLogout}
-          disabled={loggingOut}>
+        <DropdownMenuItem className="text-red-500" onClick={onLogout}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>

@@ -10,11 +10,11 @@ export default function Header() {
         </h3>
       </div>
       <a
-        href="https://volume.streamz.xyz"
+        href="https://t.me/wstreamz"
         className={
           "p-4 bg-white rounded-full justify-center items-center flex text-black text-base font-bold gap-1"
         }>
-        Launch App
+        Join the Telegram
       </a>
     </div>
   )
